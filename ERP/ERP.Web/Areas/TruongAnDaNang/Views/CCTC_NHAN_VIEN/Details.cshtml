@@ -1,0 +1,66 @@
+﻿@model ERP.Web.Models.Database.CCTC_NHAN_VIEN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CCTC_NHAN_VIEN</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOI_TINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOI_TINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAY_SINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAY_SINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUE_QUAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUE_QUAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRINH_DO_HOC_VAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRINH_DO_HOC_VAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCTC_PHONG_BAN.TEN_PHONG_BAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCTC_PHONG_BAN.TEN_PHONG_BAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HT_NGUOI_DUNG.USERNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HT_NGUOI_DUNG.USERNAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
