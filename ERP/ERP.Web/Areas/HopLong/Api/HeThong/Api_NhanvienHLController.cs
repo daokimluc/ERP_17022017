@@ -17,9 +17,19 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
 
         // GET: api/Api_NhanvienHL
-        public IQueryable<CCTC_NHAN_VIEN> GetCCTC_NHAN_VIEN()
+        public List<CCTC_NHAN_VIEN> GetCCTC_NHAN_VIEN()
         {
-            return db.CCTC_NHAN_VIEN;
+            var vData = db.CCTC_NHAN_VIEN;
+            var result = vData.ToList().Select(x => new CCTC_NHAN_VIEN()
+            {
+                USERNAME = x.USERNAME,
+                GIOI_TINH = x.GIOI_TINH,
+                NGAY_SINH = x.NGAY_SINH,
+                QUE_QUAN = x.QUE_QUAN,
+                TRINH_DO_HOC_VAN = x.TRINH_DO_HOC_VAN,
+                MA_PHONG_BAN = x.MA_PHONG_BAN,
+            }).ToList();
+            return result;
         }
 
         // GET: api/Api_NhanvienHL/5

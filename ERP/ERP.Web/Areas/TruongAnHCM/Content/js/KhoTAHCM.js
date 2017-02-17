@@ -33,7 +33,7 @@ function khoCtrl($scope, $http) {
             TEN_KHO: $scope.tenkho,
             DIA_CHI_KHO: $scope.diachikho,
             MA_KHO_CHA: $scope.makhocha,
-            TRUC_THUOC: $scope.tructhuoc,
+            TRUC_THUOC: "TAHCM",
             GHI_CHU: $scope.ghichu,
 
         }
@@ -43,7 +43,6 @@ function khoCtrl($scope, $http) {
             $scope.tenkho = "";
             $scope.diachikho = "";
             $scope.makhocha = "";
-            $scope.tructhuoc = "";
             $scope.ghichu = "";
         });
     }
@@ -59,10 +58,10 @@ function khoCtrl($scope, $http) {
             TEN_KHO: $scope.item.TEN_KHO,
             DIA_CHI_KHO: $scope.item.DIA_CHI_KHO,
             MA_KHO_CHA: $scope.item.MA_KHO_CHA,
-            TRUC_THUOC: $scope.item.TRUC_THUOC,
+            TRUC_THUOC: "TAHCM",
             GHI_CHU: $scope.item.GHI_CHU,
         }
-        $http.put("/api/Api_KhoTAHCM" + makho, data_update).then(function (response) {
+        $http.put("/api/Api_KhoTAHCM/" + makho, data_update).then(function (response) {
             $scope.get_kho();
         });
     }
@@ -75,7 +74,7 @@ function khoCtrl($scope, $http) {
         }
 
 
-        $http.delete("/api/Api_KhoTAHCM" + makho, data_delete)
+        $http.delete("/api/Api_KhoTAHCM/" + makho, data_delete)
             .then(function (response) {
                 $scope.get_hanghoa();
             });

@@ -8,6 +8,16 @@ var app = angular.module('hanghoaApp', ['angularUtils.directives.dirPagination']
 app.controller('hangHoaCtrl', hangHoaCtrl);
 //function nhom hang
 
+app.controller('tonkhoCtrl', tonkhoCtrl);
+
+function tonkhoCtrl($scope, $http) {
+    $scope.get_tonkho = function (id) {
+        $http.get("/api/Api_TonkhoTAHCM/"+id).then(function (response) {
+            $scope.danhsachtonkho = response.data
+        });
+    }
+}
+
 //function hang hoa
 function hangHoaCtrl($scope, $http) {
     // lấy dữ liệu từ server(nhóm hàng)

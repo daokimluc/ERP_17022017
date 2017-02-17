@@ -17,9 +17,18 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
 
         // GET: api/Api_PhongbanHL
-        public IQueryable<CCTC_PHONG_BAN> GetCCTC_PHONG_BAN()
+        public List<CCTC_PHONG_BAN> GetCCTC_PHONG_BAN()
         {
-            return db.CCTC_PHONG_BAN;
+            var vData = db.CCTC_PHONG_BAN.Where(x => x.MA_CONG_TY == "HOP_LONG");
+            var result = vData.ToList().Select(x => new CCTC_PHONG_BAN()
+            {
+                MA_PHONG_BAN = x.MA_PHONG_BAN,
+                TEN_PHONG_BAN = x.TEN_PHONG_BAN,
+                SDT = x.SDT,
+                GHI_CHU = x.GHI_CHU,
+                MA_CONG_TY = x.MA_CONG_TY
+            }).ToList();
+            return result;
         }
 
         // GET: api/Api_PhongbanHL/5
