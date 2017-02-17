@@ -17,9 +17,22 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
 
         // GET: api/Api_NguoidungHL
-        public IQueryable<HT_NGUOI_DUNG> GetHT_NGUOI_DUNG()
+        public List<HT_NGUOI_DUNG> GetHT_NGUOI_DUNG()
         {
-            return db.HT_NGUOI_DUNG;
+            var vData = db.HT_NGUOI_DUNG.Where(x => x.MA_CONG_TY == "HOP_LONG");
+            var result = vData.ToList().Select(x => new HT_NGUOI_DUNG()
+            {
+                USERNAME = x.USERNAME,
+                PASSWORD = x.PASSWORD,
+                HO_VA_TEN = x.HO_VA_TEN,
+                SDT = x.SDT,
+                EMAIL = x.EMAIL,
+                AVATAR = x.AVATAR,
+                IS_ADMIN = x.IS_ADMIN,
+                ALLOWED = x.ALLOWED,
+                MA_CONG_TY = x.MA_CONG_TY,
+            }).ToList();
+            return result;
         }
 
         // GET: api/Api_NguoidungHL/5

@@ -293,7 +293,7 @@
         <br />
         <!--end modal-->
 
-        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa">
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa" ng-controller="tonkhoCtrl">
             <thead>
                 <tr>
                     <th></th>
@@ -337,7 +337,7 @@
 
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#chitiet">Chi tiết hàng hóa</a></li>
-                                <li><a data-toggle="tab" href="#tonkho">Tồn kho</a></li>
+                                <li><a data-toggle="tab" href="#tonkho" ng-click="get_tonkho(item.MA_HANG_HT)">Tồn kho</a></li>
                             </ul>
 
                             <div class="tab-content">
@@ -446,8 +446,20 @@
 
                                 </div>
                                 <div id="tonkho" class="tab-pane fade">
-                                    <h3>Menu 2</h3>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã kho</th>
+                                                <th>Số lượng tồn</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="tonkho in danhsachtonkho">
+                                                <td>{{tonkho.MA_KHO}}</td>
+                                                <td>{{tonkho.SL_TON}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

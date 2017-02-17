@@ -12,17 +12,27 @@ using ERP.Web.Models.Database;
 
 namespace ERP.Web.Areas.HopLong.Api.HeThong
 {
-    public class Api_TaokhoanhachtoanController : ApiController
+    public class Api_TaiKhoanHachToanHLController : ApiController
     {
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
 
-        // GET: api/Api_Taokhoanhachtoan
-        public IQueryable<DM_TAI_KHOAN_HACH_TOAN> GetDM_TAI_KHOAN_HACH_TOAN()
+        // GET: api/Api_TaiKhoanHachToanHL
+        public List<DM_TAI_KHOAN_HACH_TOAN> GetDM_TAI_KHOAN_HACH_TOAN()
         {
-            return db.DM_TAI_KHOAN_HACH_TOAN;
+            var vData = db.DM_TAI_KHOAN_HACH_TOAN;
+            var result = vData.ToList().Select(x => new DM_TAI_KHOAN_HACH_TOAN()
+            {
+                SO_TK = x.SO_TK,
+                TEN_TK = x.TEN_TK,
+                TINH_CHAT = x.TINH_CHAT,
+                TEN_TA = x.TEN_TA,
+                TK_CAP_CHA = x.TK_CAP_CHA,
+                DIEN_GIAI = x.DIEN_GIAI,
+            }).ToList();
+            return result;
         }
 
-        // GET: api/Api_Taokhoanhachtoan/5
+        // GET: api/Api_TaiKhoanHachToanHL/5
         [ResponseType(typeof(DM_TAI_KHOAN_HACH_TOAN))]
         public IHttpActionResult GetDM_TAI_KHOAN_HACH_TOAN(int id)
         {
@@ -35,7 +45,7 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
             return Ok(dM_TAI_KHOAN_HACH_TOAN);
         }
 
-        // PUT: api/Api_Taokhoanhachtoan/5
+        // PUT: api/Api_TaiKhoanHachToanHL/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutDM_TAI_KHOAN_HACH_TOAN(int id, DM_TAI_KHOAN_HACH_TOAN dM_TAI_KHOAN_HACH_TOAN)
         {
@@ -70,7 +80,7 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Api_Taokhoanhachtoan
+        // POST: api/Api_TaiKhoanHachToanHL
         [ResponseType(typeof(DM_TAI_KHOAN_HACH_TOAN))]
         public IHttpActionResult PostDM_TAI_KHOAN_HACH_TOAN(DM_TAI_KHOAN_HACH_TOAN dM_TAI_KHOAN_HACH_TOAN)
         {
@@ -100,7 +110,7 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
             return CreatedAtRoute("DefaultApi", new { id = dM_TAI_KHOAN_HACH_TOAN.SO_TK }, dM_TAI_KHOAN_HACH_TOAN);
         }
 
-        // DELETE: api/Api_Taokhoanhachtoan/5
+        // DELETE: api/Api_TaiKhoanHachToanHL/5
         [ResponseType(typeof(DM_TAI_KHOAN_HACH_TOAN))]
         public IHttpActionResult DeleteDM_TAI_KHOAN_HACH_TOAN(int id)
         {
