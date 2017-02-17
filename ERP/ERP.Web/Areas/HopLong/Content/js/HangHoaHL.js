@@ -7,15 +7,12 @@
 var app = angular.module('hanghoaApp', ['angularUtils.directives.dirPagination']);
 app.controller('hangHoaCtrl', hangHoaCtrl);
 //function nhom hang
-app.controller('nhomhangCtrl', nhomhangCtrl);
-function nhomhangCtrl($scope, $http) {
-    // lấy dữ liệu từ server(nhóm hàng)
-    $scope.get_nhomhangchitiet = function (id) {
-        $http.get("/api/Api_HangsanphamHL/" + id)
-                .then(function (response) {
-                    $scope.danhsach = response.data;
-                });
-
+app.controller('tonkhoCtrl', tonkhoCtrl);
+function tonkhoCtrl($scope, $http) {
+    $scope.get_tonkho = function (id) {
+        $http.get("/api/Api_TonkhoTAHCM/" + id).then(function (response) {
+            $scope.danhsachtonkho = response.data
+        });
     }
 }
 
