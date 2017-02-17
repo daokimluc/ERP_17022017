@@ -187,7 +187,7 @@
                 <tr dir-paginate-start="item in filtered = (danhsachphongban | filter: {MA_PHONG_BAN:search_text}) | itemsPerPage:15 " class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
                     <td>
                         <button class="expand" ng-if="item.expanded" ng-click="item.expanded = false"><i class="fa minus fa-minus-circle" aria-hidden="true"></i></button>
-                        <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true ; get_listnhanvien(item.MA_PHONG_BAN)" ng-><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
+                        <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true ; get_listnhanvien(item.MA_PHONG_BAN)"><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
                     </td>
                     <td>{{item.MA_PHONG_BAN }}</td>
                     <td>{{item.TEN_PHONG_BAN}}</td>
