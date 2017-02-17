@@ -28,7 +28,8 @@ namespace ERP.Web.Areas.HopLong.Controllers
                     CN_NGHIEP_VU c_info = new CN_NGHIEP_VU()
                     {
                         ID = c.Name,
-                        TEN_NGHIEP_VU = "Chưa có mô tả"
+                        TEN_NGHIEP_VU = c.Name,
+                        TRUC_THUOC = Session["MA_CONG_TY"].ToString()
                     };
                     db.CN_NGHIEP_VU.Add(c_info);
                 }
@@ -52,13 +53,6 @@ namespace ERP.Web.Areas.HopLong.Controllers
             TempData["err"] = "<div class='alert alert-info' role='alert'><span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span><span class='sr-only'></span>Cập nhật thành công </div> ";
             return RedirectToAction("Index");
 
-        }
-
-
-        // GET: HopLong/Danhsachnghiepvu
-        public ActionResult Index()
-        {
-            return View(db.CN_NGHIEP_VU.ToList());
         }
 
    
