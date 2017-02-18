@@ -7,12 +7,15 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 <link href="~/Areas/HopLong/Content/css/NguoiDungHL.css" rel="stylesheet" />
+<link href="~/Content/download/plugins/ui-listview/ui-listView.css" rel="stylesheet" />
+<link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
+<link href="~/Areas/HopLong/Content/css/phanquyenHL.css" rel="stylesheet" />
 
-<link href="~/Content/download/dist/css/AdminLTE.css" rel="stylesheet" />
 <script src="~/Content/download/angularjs/angular.min.js"></script>
+<script src="~/Content/download/plugins/ui-listview/ui-listView.js"></script>
+<link href="~/Content/download/dist/css/AdminLTE.css" rel="stylesheet" />
 <script src="~/Content/download/angularjs/dirPagination.js"></script>
 <script src="~/Areas/HopLong/Content/js/NguoiDungHL.js"></script>
-<link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
 
 <div ng-app="userApp" ng-controller="userCtrl">
     <div class="content">
@@ -311,60 +314,112 @@
                         <div class="content expandrow">
 
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#chitiet">Thông tin chi tiết</a></li>
+                                <li class="active"><a data-toggle="tab" href="#phanquyen">Phân quyền</a></li>
+                                <li ><a data-toggle="tab" href="#chitiet">Thông tin chi tiết</a></li>
+
+                                
                             </ul>
 
                             <div class="tab-content">
-                                <div class="content">
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+                                <div id="chitiet" class="tab-pane fade ">
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
 
 
-                                            <div class="panel panel-info">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">{{item.HO_VA_TEN}}</h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://www.hit4hit.org/img/login/user-icon-6.png" class="img-circle img-responsive"> </div>
-                                                        <div class="col-md-9 col-lg-9 ">
-                                                            <table class="table table-user-information">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>Giới tính:</td>
-                                                                        <td>{{nhanvien.GIOI_TINH}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Ngày sinh:</td>
-                                                                        <td>{{nhanvien.NGAY_SINH | date:'MMM dd, yyyy' }}</td>
-                                                                    </tr>
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">{{item.HO_VA_TEN}}</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://www.hit4hit.org/img/login/user-icon-6.png" class="img-circle img-responsive"> </div>
+                                                            <div class="col-md-9 col-lg-9 ">
+                                                                <table class="table table-user-information">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Giới tính:</td>
+                                                                            <td>{{nhanvien.GIOI_TINH}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Ngày sinh:</td>
+                                                                            <td>{{nhanvien.NGAY_SINH | date:'MMM dd, yyyy' }}</td>
+                                                                        </tr>
 
-                                                                    <tr>
-                                                                    <tr>
-                                                                        <td>Quê quán</td>
-                                                                        <td>{{nhanvien.QUE_QUAN}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Trình độ học vấn</td>
-                                                                        <td>{{nhanvien.TRINH_DO_HOC_VAN}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Mã phòng ban</td>
-                                                                        <td>{{nhanvien.MA_PHONG_BAN}}</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td colspan="2">
-                                                                            <button class="btn btn-success btn-circle" ng-click="edit(item);update_nv(nhanvien)" type="button" data-toggle="modal" data-target="#myEdit"><i class="glyphicon glyphicon-edit" style="margin-right: 5px"></i>Sửa</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
+                                                                        <tr>
+                                                                        <tr>
+                                                                            <td>Quê quán</td>
+                                                                            <td>{{nhanvien.QUE_QUAN}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Trình độ học vấn</td>
+                                                                            <td>{{nhanvien.TRINH_DO_HOC_VAN}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>Mã phòng ban</td>
+                                                                            <td>{{nhanvien.MA_PHONG_BAN}}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="2">
+                                                                                <button class="btn btn-success btn-circle" ng-click="edit(item);update_nv(nhanvien)" type="button" data-toggle="modal" data-target="#myEdit"><i class="glyphicon glyphicon-edit" style="margin-right: 5px"></i>Sửa</button>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+
+                                <div id="phanquyen" class="tab-pane fade in active">
+                                    <div class="content" ng-controller="phanquyenCtrl">
+                                        <div class="row">
+                                            <!--Danh sách nghiệp vụ-->
+                                            <div class="pricing-table pricing-three-column row list-nv">
+                                                <div class="plan col-sm-4 col-lg-4 box-nv">
+                                                    <div class="panel-body box-nv">
+                                                        <div class="ui-list-view-bordered box-nv" ui-list-view="nghiepvu in danhsachnghiepvu | filter:search">
+                                                            <p class="name" ng-click="check(nghiepvu.ID)"><strong>{{ nghiepvu.TEN_NGHIEP_VU }}</strong></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--Chi tiết nghiệp vụ-->
+                                                <div class="plan col-sm-4 col-lg-4 box-nv second-box">
+                                                    <div class="col-md-6">
+                                                        <div ng-show="check_click">
+                                                            <div class="panel-body box-nv">
+                                                                <table>
+                                                                    <tr ng-repeat="x in chitietnghiepvu">
+                                                                        <td>
+
+                                                                            <input type="checkbox" autocomplete="off" ng-checked="item.MODEL_DAC_BIET==true" ng-model="cap_nhap_nghiep_vu">
+
+                                                                        </td>
+                                                                        <td>{{x.TEN_CHI_TIET}}</td>
+                                                                    </tr>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--End danh sách nghiệp vụ-->
+
+
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>

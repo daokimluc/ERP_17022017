@@ -210,7 +210,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr dir-paginate="item in filtered = (danhsachtk | filter: {SO_TK:search_text}) | itemsPerPage:3 | orderBy: 'item.SO_TK'" class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
+                <tr dir-paginate="item in filtered = (danhsachtk | filter: {SO_TK:search_text}) | itemsPerPage:10  | orderBy: 'item.SO_TK'" class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
                     <td class="text-left" ng-class="whatclass(item.TK_CAP_CHA)">{{ item.SO_TK }}</td>
                     <td class="text-left">{{item.TEN_TK}}</td>
                     <td class="text-left">{{item.TINH_CHAT}}</td>

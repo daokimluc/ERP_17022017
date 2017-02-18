@@ -116,9 +116,9 @@
           <Property Name="HINH_ANH" Type="varchar" MaxLength="64" />
           <Property Name="DAC_TINH" Type="nvarchar(max)" />
           <Property Name="GHI_CHU" Type="nvarchar(max)" />
-          <Property Name="TK_HACH_TOAN_KHO" Type="int" />
-          <Property Name="TK_DOANH_THU" Type="int" />
-          <Property Name="TK_CHI_PHI" Type="int" />
+          <Property Name="TK_HACH_TOAN_KHO" Type="varchar" MaxLength="64" />
+          <Property Name="TK_DOANH_THU" Type="varchar" MaxLength="64" />
+          <Property Name="TK_CHI_PHI" Type="varchar" MaxLength="64" />
           <Property Name="XUAT_XU" Type="nvarchar" MaxLength="64" />
         </EntityType>
         <EntityType Name="DM_HANG_SP">
@@ -154,11 +154,11 @@
           <Key>
             <PropertyRef Name="SO_TK" />
           </Key>
-          <Property Name="SO_TK" Type="int" Nullable="false" />
+          <Property Name="SO_TK" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="TEN_TK" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="TINH_CHAT" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="TEN_TA" Type="varchar" MaxLength="128" />
-          <Property Name="TK_CAP_CHA" Type="int" />
+          <Property Name="TK_CAP_CHA" Type="varchar" MaxLength="64" />
           <Property Name="DIEN_GIAI" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="DM_TONKHO_HANG">
@@ -855,9 +855,9 @@
           <Property Name="HINH_ANH" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="DAC_TINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="GHI_CHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TK_HACH_TOAN_KHO" Type="Int32" />
-          <Property Name="TK_DOANH_THU" Type="Int32" />
-          <Property Name="TK_CHI_PHI" Type="Int32" />
+          <Property Name="TK_HACH_TOAN_KHO" Type="String" />
+          <Property Name="TK_DOANH_THU" Type="String" />
+          <Property Name="TK_CHI_PHI" Type="String" />
           <Property Name="XUAT_XU" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DM_HANG_SP" Relationship="HOPLONG_DATABASEModel.FK__DM_HANG_H__MA_NH__59063A47" FromRole="DM_HANG_HOA" ToRole="DM_HANG_SP" />
           <NavigationProperty Name="DM_HANG_TON_KHO" Relationship="HOPLONG_DATABASEModel.FK__DM_HANG_T__MA_HA__5DCAEF64" FromRole="DM_HANG_HOA" ToRole="DM_HANG_TON_KHO" />
@@ -909,11 +909,11 @@
           <Key>
             <PropertyRef Name="SO_TK" />
           </Key>
-          <Property Name="SO_TK" Type="Int32" Nullable="false" />
+          <Property Name="SO_TK" Type="String" Nullable="false" />
           <Property Name="TEN_TK" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="TINH_CHAT" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="TEN_TA" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
-          <Property Name="TK_CAP_CHA" Type="Int32" />
+          <Property Name="TK_CAP_CHA" Type="String" />
           <Property Name="DIEN_GIAI" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DM_HANG_HOA" Relationship="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN" FromRole="DM_TAI_KHOAN_HACH_TOAN" ToRole="DM_HANG_HOA" />
           <NavigationProperty Name="DM_HANG_HOA1" Relationship="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN1" FromRole="DM_TAI_KHOAN_HACH_TOAN" ToRole="DM_HANG_HOA" />

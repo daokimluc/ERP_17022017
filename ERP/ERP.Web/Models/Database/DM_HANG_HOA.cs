@@ -30,9 +30,9 @@ namespace ERP.Web.Models.Database
         public string HINH_ANH { get; set; }
         public string DAC_TINH { get; set; }
         public string GHI_CHU { get; set; }
-        public Nullable<int> TK_HACH_TOAN_KHO { get; set; }
-        public Nullable<int> TK_DOANH_THU { get; set; }
-        public Nullable<int> TK_CHI_PHI { get; set; }
+        public string TK_HACH_TOAN_KHO { get; set; }
+        public string TK_DOANH_THU { get; set; }
+        public string TK_CHI_PHI { get; set; }
         public string XUAT_XU { get; set; }
     
         public virtual DM_HANG_SP DM_HANG_SP { get; set; }
