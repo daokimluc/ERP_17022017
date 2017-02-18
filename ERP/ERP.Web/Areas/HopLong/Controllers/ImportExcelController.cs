@@ -68,11 +68,11 @@ namespace ERP.Web.Areas.HopLong.Controllers
                                 if (workSheet.Cells[rowIterator, 11].Value != null)
                                     HH.GHI_CHU = workSheet.Cells[rowIterator, 11].Value.ToString();
                                 if (workSheet.Cells[rowIterator, 12].Value != null)
-                                    HH.TK_HACH_TOAN_KHO = Convert.ToInt32(workSheet.Cells[rowIterator, 12].Value.ToString());
+                                    HH.TK_HACH_TOAN_KHO = workSheet.Cells[rowIterator, 12].Value.ToString();
                                 if (workSheet.Cells[rowIterator, 13].Value != null)
-                                    HH.TK_DOANH_THU = Convert.ToInt32(workSheet.Cells[rowIterator, 13].Value.ToString());
+                                    HH.TK_DOANH_THU = workSheet.Cells[rowIterator, 13].Value.ToString();
                                 if (workSheet.Cells[rowIterator, 14].Value != null)
-                                    HH.TK_CHI_PHI = Convert.ToInt32(workSheet.Cells[rowIterator, 14].Value.ToString());
+                                    HH.TK_CHI_PHI = workSheet.Cells[rowIterator, 14].Value.ToString();
 
                                 db.DM_HANG_HOA.Add(HH);
 

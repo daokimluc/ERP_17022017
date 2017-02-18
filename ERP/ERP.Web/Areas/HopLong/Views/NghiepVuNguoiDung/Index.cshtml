@@ -8,7 +8,7 @@
 <script src="~/Content/download/plugins/ui-listview/ui-listView.js"></script>
 <script src="~/Areas/HopLong/Content/js/HeThong/nghiepvunguoidung.js"></script>
 <div class="content" ng-app="phanquyen" ng-controller="phanquyenCtrl">
-    <div class="contact-list panel panel-default" >
+    <div class="contact-list panel panel-default">
 
 
 
@@ -32,24 +32,25 @@
                             <table>
                                 <tr ng-repeat="x in chitietnghiepvu">
                                     <td>
-                                        
-                                            <input type="checkbox"  autocomplete="off" ng-checked="item.MODEL_DAC_BIET==true" ng-model="cap_nhap_nghiep_vu">
-                                            
+
+                                        <input type="checkbox" autocomplete="off" ng-checked="item.MODEL_DAC_BIET==true" ng-model="cap_nhap_nghiep_vu">
+
                                     </td>
                                     <td>{{x.TEN_CHI_TIET}}</td>
                                 </tr>
-                            </table> 
-                            
-                        </div> 
+                            </table>
+
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    
+
                 </div>
             </div>
         </div>
+        <!--End danh sách nghiệp vụ-->
     </div>
-    
-    
+
+
 
 </div>
