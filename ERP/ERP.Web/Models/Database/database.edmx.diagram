@@ -45,7 +45,7 @@
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN1" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN2" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_TAI_KH__TK_CA__3D5E1FD2" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -17,24 +17,17 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
 
         // GET: api/Api_NghiepvunhanvienHL
-        public IQueryable<CN_NGHIEP_VU_NHAN_VIEN> GetCN_NGHIEP_VU_NHAN_VIEN()
+        public List<CN_NGHIEP_VU_NHAN_VIEN> Get_Chitietnghiepvu(string username)
         {
-            return db.CN_NGHIEP_VU_NHAN_VIEN;
-        }
-
-        // GET: api/Api_NghiepvunhanvienHL/5
-        [ResponseType(typeof(CN_NGHIEP_VU_NHAN_VIEN))]
-        public IHttpActionResult GetCN_NGHIEP_VU_NHAN_VIEN(int id)
-        {
-            CN_NGHIEP_VU_NHAN_VIEN cN_NGHIEP_VU_NHAN_VIEN = db.CN_NGHIEP_VU_NHAN_VIEN.Find(id);
-            if (cN_NGHIEP_VU_NHAN_VIEN == null)
+            var vData = db.CN_NGHIEP_VU_NHAN_VIEN.Where(x => x.USERNAME == username);
+            var result = vData.ToList().Select(x => new CN_NGHIEP_VU_NHAN_VIEN()
             {
-                return NotFound();
-            }
-
-            return Ok(cN_NGHIEP_VU_NHAN_VIEN);
+                ID_CHI_TIET_NGHIEP_VU = x.ID_CHI_TIET_NGHIEP_VU,
+                USERNAME = x.USERNAME,
+                MO_TA = x.MO_TA
+            }).ToList();
+            return result;
         }
-
         // PUT: api/Api_NghiepvunhanvienHL/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCN_NGHIEP_VU_NHAN_VIEN(int id, CN_NGHIEP_VU_NHAN_VIEN cN_NGHIEP_VU_NHAN_VIEN)

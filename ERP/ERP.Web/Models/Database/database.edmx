@@ -720,7 +720,7 @@
             <End Role="DM_TAI_KHOAN_HACH_TOAN" EntitySet="DM_TAI_KHOAN_HACH_TOAN" />
             <End Role="DM_TAI_KHOAN_HACH_TOAN1" EntitySet="DM_TAI_KHOAN_HACH_TOAN" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="GetListNhanVienPhongBan_Result">
           <Property Type="String" Name="HO_VA_TEN" Nullable="false" MaxLength="64" />
           <Property Type="String" Name="EMAIL" Nullable="true" MaxLength="256" />
