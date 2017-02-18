@@ -75,6 +75,7 @@
           </Key>
           <Property Name="ID" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="TEN_NGHIEP_VU" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="TRUC_THUOC" Type="varchar" MaxLength="64" Nullable="false" />
         </EntityType>
         <EntityType Name="CN_NGHIEP_VU_NHAN_VIEN">
           <Key>
@@ -423,6 +424,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CN_NGHIEP_VU_CCTC_CONG_TY">
+          <End Role="CCTC_CONG_TY" Type="Self.CCTC_CONG_TY" Multiplicity="1" />
+          <End Role="CN_NGHIEP_VU" Type="Self.CN_NGHIEP_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCTC_CONG_TY">
+              <PropertyRef Name="MA_CONG_TY" />
+            </Principal>
+            <Dependent Role="CN_NGHIEP_VU">
+              <PropertyRef Name="TRUC_THUOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_CN_NGHIEP_VU_NHAN_VIEN_HT_NGUOI_DUNG">
           <End Role="HT_NGUOI_DUNG" Type="Self.HT_NGUOI_DUNG" Multiplicity="1" />
           <End Role="CN_NGHIEP_VU_NHAN_VIEN" Type="Self.CN_NGHIEP_VU_NHAN_VIEN" Multiplicity="*" />
@@ -569,6 +582,10 @@
             <End Role="CCTC_CONG_TY" EntitySet="CCTC_CONG_TY" />
             <End Role="CCTC_PHONG_BAN" EntitySet="CCTC_PHONG_BAN" />
           </AssociationSet>
+          <AssociationSet Name="FK_CN_NGHIEP_VU_CCTC_CONG_TY" Association="Self.FK_CN_NGHIEP_VU_CCTC_CONG_TY">
+            <End Role="CCTC_CONG_TY" EntitySet="CCTC_CONG_TY" />
+            <End Role="CN_NGHIEP_VU" EntitySet="CN_NGHIEP_VU" />
+          </AssociationSet>
           <AssociationSet Name="FK_CN_NGHIEP_VU_NHAN_VIEN_HT_NGUOI_DUNG" Association="Self.FK_CN_NGHIEP_VU_NHAN_VIEN_HT_NGUOI_DUNG">
             <End Role="HT_NGUOI_DUNG" EntitySet="HT_NGUOI_DUNG" />
             <End Role="CN_NGHIEP_VU_NHAN_VIEN" EntitySet="CN_NGHIEP_VU_NHAN_VIEN" />
@@ -699,6 +716,10 @@
             <End Role="DM_HANG_SP" EntitySet="DM_HANG_SP" />
             <End Role="DM_TONKHO_HANG" EntitySet="DM_TONKHO_HANG" />
           </AssociationSet>
+          <AssociationSet Name="FK_CN_NGHIEP_VU_CCTC_CONG_TY" Association="HOPLONG_DATABASEModel.FK_CN_NGHIEP_VU_CCTC_CONG_TY">
+            <End Role="CCTC_CONG_TY" EntitySet="CCTC_CONG_TY" />
+            <End Role="CN_NGHIEP_VU" EntitySet="CN_NGHIEP_VU" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GetListNhanVienPhongBan_Result">
           <Property Type="String" Name="HO_VA_TEN" Nullable="false" MaxLength="64" />
@@ -732,6 +753,7 @@
           <NavigationProperty Name="CCTC_CONG_TY2" Relationship="HOPLONG_DATABASEModel.FK__NB_CONG_T__CONG___1273C1CD" FromRole="CCTC_CONG_TY1" ToRole="CCTC_CONG_TY" />
           <NavigationProperty Name="CCTC_MO_HINH_CONG_TY" Relationship="HOPLONG_DATABASEModel.FK__NB_CONG_T__MO_HI__1367E606" FromRole="CCTC_CONG_TY" ToRole="CCTC_MO_HINH_CONG_TY" />
           <NavigationProperty Name="CCTC_PHONG_BAN" Relationship="HOPLONG_DATABASEModel.FK__NB_PHONG___MA_CO__164452B1" FromRole="CCTC_CONG_TY" ToRole="CCTC_PHONG_BAN" />
+          <NavigationProperty Name="CN_NGHIEP_VU" Relationship="HOPLONG_DATABASEModel.FK_CN_NGHIEP_VU_CCTC_CONG_TY" FromRole="CCTC_CONG_TY" ToRole="CN_NGHIEP_VU" />
         </EntityType>
         <EntityType Name="CCTC_MO_HINH_CONG_TY">
           <Key>
@@ -786,6 +808,8 @@
           <Property Name="ID" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
           <Property Name="TEN_NGHIEP_VU" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CN_CHI_TIET_NGHIEP_VU" Relationship="HOPLONG_DATABASEModel.FK__CN_CHI_TI__ID_NG__5629CD9C" FromRole="CN_NGHIEP_VU" ToRole="CN_CHI_TIET_NGHIEP_VU" />
+          <Property Name="TRUC_THUOC" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CCTC_CONG_TY" Relationship="HOPLONG_DATABASEModel.FK_CN_NGHIEP_VU_CCTC_CONG_TY" FromRole="CN_NGHIEP_VU" ToRole="CCTC_CONG_TY" />
         </EntityType>
         <EntityType Name="CN_NGHIEP_VU_NHAN_VIEN">
           <Key>
@@ -1193,6 +1217,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CN_NGHIEP_VU_CCTC_CONG_TY">
+          <End Type="HOPLONG_DATABASEModel.CCTC_CONG_TY" Role="CCTC_CONG_TY" Multiplicity="1" />
+          <End Type="HOPLONG_DATABASEModel.CN_NGHIEP_VU" Role="CN_NGHIEP_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCTC_CONG_TY">
+              <PropertyRef Name="MA_CONG_TY" />
+            </Principal>
+            <Dependent Role="CN_NGHIEP_VU">
+              <PropertyRef Name="TRUC_THUOC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1263,6 +1299,7 @@
           <EntitySetMapping Name="CN_NGHIEP_VU">
             <EntityTypeMapping TypeName="HOPLONG_DATABASEModel.CN_NGHIEP_VU">
               <MappingFragment StoreEntitySet="CN_NGHIEP_VU">
+                <ScalarProperty Name="TRUC_THUOC" ColumnName="TRUC_THUOC" />
                 <ScalarProperty Name="TEN_NGHIEP_VU" ColumnName="TEN_NGHIEP_VU" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

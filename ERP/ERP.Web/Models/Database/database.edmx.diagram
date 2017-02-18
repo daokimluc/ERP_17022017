@@ -44,6 +44,7 @@
         <EntityTypeShape EntityType="HOPLONG_DATABASEModel.DM_TONKHO_HANG" Width="1.5" PointX="5.25" PointY="5.625" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_TONKHO__MA_HA__4E53A1AA" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_TONKHO__MA_NH__4F47C5E3" />
+        <AssociationConnector Association="HOPLONG_DATABASEModel.FK_CN_NGHIEP_VU_CCTC_CONG_TY" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
