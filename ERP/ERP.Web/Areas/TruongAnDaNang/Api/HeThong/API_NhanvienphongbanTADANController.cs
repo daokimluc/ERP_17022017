@@ -1,4 +1,4 @@
-﻿using ERP.Web.Areas.TruongAnHCM.Models;
+﻿using ERP.Web.Areas.HopLong.Models;
 using ERP.Web.Models.Database;
 using System;
 using System.Collections.Generic;

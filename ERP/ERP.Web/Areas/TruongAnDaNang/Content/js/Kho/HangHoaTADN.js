@@ -7,7 +7,15 @@
 var app = angular.module('hanghoaApp', ['angularUtils.directives.dirPagination']);
 app.controller('hangHoaCtrl', hangHoaCtrl);
 //function nhom hang
+app.controller('tonkhoCtrl', tonkhoCtrl);
 
+function tonkhoCtrl($scope, $http) {
+    $scope.gettonkho = function (id) {
+        $http.get("/api/Api_TonkhoTADAN/" +id).then(function (response) {
+            $scope.tonkho = response.data;
+        });
+    }
+}
 //function hang hoa
 function hangHoaCtrl($scope, $http)
 {
