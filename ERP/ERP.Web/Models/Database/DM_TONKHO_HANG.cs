@@ -18,7 +18,7 @@ namespace ERP.Web.Models.Database
         public string MA_NHOM_HANG { get; set; }
         public int SL_TON { get; set; }
     
-        public virtual DM_HANG_HOA DM_HANG_HOA { get; set; }
         public virtual DM_HANG_SP DM_HANG_SP { get; set; }
+        public virtual DM_HANG_HOA DM_HANG_HOA { get; set; }
     }
 }
