@@ -29,7 +29,7 @@ function phanquyenCtrl($scope, $http) {
         }
     });
 
-    // lấy dữ liệu từ server
+    // lấy dữ liệu danh sách nghiêp vụ từ server 
     $scope.get_nghiepvu = function () {
         $http.get("/api/Api_Nghiepvu")
                 .then(function (response) {
@@ -40,12 +40,34 @@ function phanquyenCtrl($scope, $http) {
 
     // init dữ liệu
     $scope.get_nghiepvu();
+    //show chi tiết nghiệp vụ
+    $scope.check = function (id) {
+        $scope.check_click = true;
+        $http.get("/api/Api_Chitietnghiepvu/" + id)
+                .then(function (response) {
+                    $scope.chitietnghiepvu = response.data;
+                });
+
+    }
+
 
     $scope.check = function (id) {
         $scope.check_click = true;
         $http.get("/api/Api_Chitietnghiepvu/" + id)
                 .then(function (response) {
                     $scope.chitietnghiepvu = response.data;
+                });
+        
+
+    }
+    //------------------end nghiệp vụ-------------------------
+
+
+    // lấy dữ liệu danh sách nghiêp vụ từ server 
+    $scope.get_nghiepvu = function () {
+        $http.get("/api/Api_Nghiepvu")
+                .then(function (response) {
+                    $scope.danhsachnghiepvu = response.data;
                 });
 
     }

@@ -1,8 +1,8 @@
-﻿@model IEnumerable<ERP.Web.Models.Database.DM_HANG_HOA>
-
+﻿
 @{
     ViewBag.Title = "Index";
 }
+
 
 <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 
@@ -291,7 +291,7 @@
         <br />
         <!--end modal-->
 
-        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa">
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa" ng-controller="tonkhoCtrl">
             <thead>
                 <tr>
                     <th></th>
@@ -306,7 +306,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr dir-paginate-start="item in danhsachhanghoa | itemsPerPage:3 | filter: search_text" class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
+                <tr dir-paginate-start="item in filtered=(danhsachhanghoa| filter:{MA_HANG_HT: search_text}) | itemsPerPage:3 " class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
                     <td>
                         <button class="expand" ng-if="item.expanded" ng-click="item.expanded = false"><i class="fa minus fa-minus-circle" aria-hidden="true"></i></button>
                         <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true" ng-><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
@@ -334,119 +334,93 @@
 
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#chitiet">Chi tiết hàng hóa</a></li>
-                                <li><a data-toggle="tab" href="#tonkho">Tồn kho</a></li>
+                                <li><a data-toggle="tab" href="#tonkho" ng-click="gettonkho(item.MA_HANG_HT)">Tồn kho</a></li>
                             </ul>
 
                             <div class="tab-content">
                                 <!--Tab chi tiết hàng hóa-->
                                 <div id="chitiet" class="tab-pane fade in active">
-                                    <fieldset class="col-md-4 first">
-                                        <legend>General</legend>
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label padding" for="name">Mã hàng HT: </label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="Mã hàng hệ thống" class="form-control input-md" ng-model="item.MA_HANG_HT" ng-disabled="true">
-                                            </div>
-                                        </div>
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label " for="name">Mã hàng nhập: </label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="Mã hàng nhập" class="form-control input-md" ng-model="item.MA_HANG_NHAP" ng-disabled="true">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label padding" for="name">Tên hàng: </label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="Tên hàng" class="form-control input-md" ng-model="item.TEN_HANG" ng-disabled="true">
-                                            </div>
-                                        </div>
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label " for="name">Mã nhóm hàng: </label>
-                                            <div class="col-md-8">
-                                                <select ng-model="item.MA_NHOM_HANG" class="form-control input-md" ng-disabled="true">
-                                                    <option ng-repeat="x in danhsachnhomhang" value="{{x.MA_NHOM_HANG}}">{{x.TEN_NHOM_HANG}}</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label padding" for="name">Seri: </label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="Seri" class="form-control input-md" ng-model="item.SERI " ng-disabled="true">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label padding" for="name">Đơn vị tính: </label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="Đơn vị tính" class="form-control input-md" ng-model="item.DON_VI_TINH" ng-disabled="true">
-                                            </div>
-                                        </div>
-                                    </fieldset>
+                                    <div class="col-md-2">
+                                        <img src="~/Content/download/dist/img/avatar.png" height="150" width="150" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <table class="table noborder">
+                                            <tr>
+                                                <td>Mã hàng HT:</td>
+                                                <td>{{item.MA_HANG_HT}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mã hàng nhập</td>
+                                                <td>{{item.MA_HANG_NHAP}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tên hàng</td>
+                                                <td>{{item.TEN_HANG}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mã nhóm hàng</td>
+                                                <td>{{item.MA_NHOM_HANG}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Seri</td>
+                                                <td>{{item.SERI}}</td>
+                                            </tr>
 
-                                    <fieldset class="col-md-4 second">
-                                        <legend>Thông tin thêm</legend>
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label" for="name">Model đặc biệt: </label>
-                                            <div class="col-md-8">
-                                                <input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET" ng-disabled="true">
-                                            </div>
-                                        </div>
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label padding" for="name">Hình ảnh: </label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="Hình ảnh" class="form-control input-md" ng-model="item.HINH_ANH" ng-disabled="true">
-                                            </div>
-                                        </div>
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label padding" for="name">Đặc tính: </label>
-                                            <div class="col-md-8">
-                                                <input type="text" placeholder="Đặc tính" class="form-control input-md dactinh" ng-model="item.DAC_TINH" ng-disabled="true">
-                                            </div>
-                                        </div>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <table class="table noborder">
+                                            <tr>
+                                                <td>Hạch toán</td>
+                                                <td>{{item.TK_HACH_TOAN_KHO}}1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Doanh thu</td>
+                                                <td>{{item.TK_DOANH_THU}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chi phí</td>
+                                                <td>{{item.TK_CHI_PHI}}</td>
+                                            </tr>
 
-                                        <!-- Textarea -->
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label padding" for="ghichu">Ghi chú</label>
-                                            <div class="col-md-8">
-                                                <textarea class="form-control" id="ghichu" name="ghichu" ng-model="item.GHI_CHU " ng-disabled="true">Ghi chú</textarea>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset class="col-md-3 third">
-                                        <legend>Tài khoản</legend>
-                                        <div class="form-group">
-                                            <label class="col-md-6 control-label padding" for="name">Hạch toán: </label>
-                                            <div class="col-md-6">
-                                                <input type="text" placeholder="Hạch toán" class="form-control input-md" ng-model="item.TK_HACH_TOAN_KHO" ng-disabled="true">
-                                            </div>
-                                        </div>
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-6 control-label padding" for="name">Doanh thu: </label>
-                                            <div class="col-md-6">
-                                                <input type="text" placeholder="Doanh thu" class="form-control input-md" ng-model="item.TK_DOANH_THU" ng-disabled="true">
-                                            </div>
-                                        </div>
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-6 control-label padding" for="name">Chi phí: </label>
-                                            <div class="col-md-6">
-                                                <input type="text" placeholder="Chi phí" class="form-control input-md" ng-model="item.TK_CHI_PHI" ng-disabled="true">
-                                            </div>
-                                        </div>
-                                    </fieldset>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <table class="table noborder">
+                                            <tr>
+                                                <td>Đơn vị tính</td>
+                                                <td>{{item.DON_VI_TINH}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Đặc tính</td>
+                                                <td>{{item.DAC_TINH}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ghi chú</td>
+                                                <td>{{item.GHI_CHU}}</td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
                                 </div>
                                 <div id="tonkho" class="tab-pane fade">
-                                    <h3>Menu 2</h3>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                    <table table class="table table-striped table-bordered table-list">
+                                        <thead>
+                                            <tr>
+                                                <th> Mã kho</th>
+                                                <th> Số lượng tồn</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in tonkho">
+                                                <td>{{item.MA_KHO}}</td>
+                                                <td>{{item.SL_TON}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-
-                        {{item.MA_HANG_NHAP}}
                     </td>
                 </tr>
             </tbody>

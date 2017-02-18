@@ -2,24 +2,13 @@
     padding:0px;
     margin:0px;
 }
-
-#example td,tr,th{
-    border: 1px solid #ddd;
+td,tr,th{
+    border: 1px solid #ddd !important;
     border-collapse: collapse;
     vertical-align: middle !important;
     text-align: center;
     font-family: Lora;
     color: #777777;
-}
-.noborder td,tr{
-    border: none !important;
-}
-.noborder tr{
-    border-bottom: 1px solid #EAAEEE !important;
-}
-.noborder td{
-    height: 40px;
-    text-align: left !important;
 }
 label{
     vertical-align: middle;
@@ -28,9 +17,9 @@ th{
     font-size: 16px;
     background: white;
 }
-.expandrow{
+.container{
     padding-top: 10px;
-    text-align: left !important;
+    text-align: left;
 }
 .top{
     display: inline-block;
@@ -64,20 +53,36 @@ box-shadow: none;
 
 
 
+.btn-custom {
+color: #FFFFFF;            
+background-color: #7bae23;   /* change  button color */
+border-radius: 0!important;    /* button border radius */
+padding: 6px 10px;              /* Button size change*/
+
+}
+
+.btn-custom:hover{
+background-color:#9AC94B; /* change  button color on hover */
+border-radius: 0!important;
+
+}
 
 
 .custom-glyph-color{
     color:#fff;       /* change  magnifying glass color in  button */
 }
 
-.hover:hover{
-    background: #E6F5D6;
+.custom-glyph-color:hover{
+    color:#b1b1b1;         /* change  magnifying glass color in  button on mouse hover */
 }
 
-
+.hover:hover{
+    background: #87cefa;
+    
+}
 
 .even{
-    background-color: #F9F9F9;
+    background-color: #fff;
 }
 .odd{
     background: #ECF0F5;
@@ -147,29 +152,4 @@ legend{
 .edit{
     margin-top: 10px;
     text-align: center;
-}
-.table>tbody>tr>td {
-    padding: 0px !important;
-}
-
-.btn-success{
-    background: none !important;
-    border: none !important;
-    color: #092cfe;
-}
-.btn-warning
-{
-    background: none !important;
-    border: none !important;
-    color: red;
-}
-.small{
-    font-size: 20px !important;
-}
-.tbody{
-    border: none !important;
-}
-
-.table .table{
-    background: none !important;
 }
