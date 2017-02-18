@@ -37,9 +37,9 @@ namespace ERP.Web.Models.Database
     
         public virtual DM_HANG_SP DM_HANG_SP { get; set; }
         public virtual ICollection<DM_HANG_TON_KHO> DM_HANG_TON_KHO { get; set; }
+        public virtual ICollection<DM_TONKHO_HANG> DM_TONKHO_HANG { get; set; }
         public virtual DM_TAI_KHOAN_HACH_TOAN DM_TAI_KHOAN_HACH_TOAN { get; set; }
         public virtual DM_TAI_KHOAN_HACH_TOAN DM_TAI_KHOAN_HACH_TOAN1 { get; set; }
         public virtual DM_TAI_KHOAN_HACH_TOAN DM_TAI_KHOAN_HACH_TOAN2 { get; set; }
-        public virtual ICollection<DM_TONKHO_HANG> DM_TONKHO_HANG { get; set; }
     }
 }
