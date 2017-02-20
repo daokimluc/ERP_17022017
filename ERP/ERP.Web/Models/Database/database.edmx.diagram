@@ -14,11 +14,9 @@
         <EntityTypeShape EntityType="HOPLONG_DATABASEModel.CN_NGHIEP_VU_NHAN_VIEN" Width="1.5" PointX="5.25" PointY="10.25" />
         <EntityTypeShape EntityType="HOPLONG_DATABASEModel.CN_NHOM_NGHIEP_VU" Width="1.5" PointX="5.25" PointY="25.25" />
         <EntityTypeShape EntityType="HOPLONG_DATABASEModel.CN_NHOM_NGUOI_DUNG_NGHIEP_VU" Width="1.5" PointX="7.5" PointY="25.375" />
-        <EntityTypeShape EntityType="HOPLONG_DATABASEModel.DM_HANG_HOA" Width="1.5" PointX="3" PointY="2.25" />
         <EntityTypeShape EntityType="HOPLONG_DATABASEModel.DM_HANG_SP" Width="1.5" PointX="0.75" PointY="8.5" />
         <EntityTypeShape EntityType="HOPLONG_DATABASEModel.DM_HANG_TON_KHO" Width="1.5" PointX="5.25" PointY="0.75" />
         <EntityTypeShape EntityType="HOPLONG_DATABASEModel.DM_KHO" Width="1.5" PointX="3" PointY="14.25" />
-        <EntityTypeShape EntityType="HOPLONG_DATABASEModel.DM_TAI_KHOAN_HACH_TOAN" Width="1.5" PointX="0.75" PointY="3.125" />
         <EntityTypeShape EntityType="HOPLONG_DATABASEModel.HT_NGUOI_DUNG" Width="1.5" PointX="3" PointY="9.5" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_KHO__TRUC_THU__6D0D32F4" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__HT_NGUOI___MA_CO__09A971A2" />
@@ -31,20 +29,22 @@
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__CN_NGHIEP__ID_CH__571DF1D5" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK_CN_NGHIEP_VU_NHAN_VIEN_HT_NGUOI_DUNG" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__CN_NHOM_N__ID_NH__1CBC4616" />
-        <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_HANG_H__MA_NH__59063A47" />
-        <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_HANG_T__MA_HA__5DCAEF64" />
-        <AssociationConnector Association="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN" />
-        <AssociationConnector Association="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN1" />
-        <AssociationConnector Association="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN2" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_HANG_S__MA_NH__59FA5E80" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_HANG_T__MA_KH__5EBF139D" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_KHO__MA_KHO_C__619B8048" />
-        <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_TAI_KH__TK_CA__3D5E1FD2" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.CN_CHI_TIET_NHOM_NGHIEP_VU" />
         <EntityTypeShape EntityType="HOPLONG_DATABASEModel.DM_TONKHO_HANG" Width="1.5" PointX="5.25" PointY="5.625" />
-        <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_TONKHO__MA_HA__4E53A1AA" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_TONKHO__MA_NH__4F47C5E3" />
         <AssociationConnector Association="HOPLONG_DATABASEModel.FK_CN_NGHIEP_VU_CCTC_CONG_TY" />
+        <EntityTypeShape EntityType="HOPLONG_DATABASEModel.DM_HANG_HOA" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="HOPLONG_DATABASEModel.DM_TAI_KHOAN_HACH_TOAN" Width="1.5" PointX="0.75" PointY="2.625" />
+        <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_HANG_H__MA_NH__59063A47" />
+        <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_HANG_T__MA_HA__5DCAEF64" />
+        <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_TONKHO__MA_HA__4E53A1AA" />
+        <AssociationConnector Association="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN" />
+        <AssociationConnector Association="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN1" />
+        <AssociationConnector Association="HOPLONG_DATABASEModel.FK_DM_HANG_HOA_DM_TAI_KHOAN_HACH_TOAN2" />
+        <AssociationConnector Association="HOPLONG_DATABASEModel.FK__DM_TAI_KH__TK_CA__3D5E1FD2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

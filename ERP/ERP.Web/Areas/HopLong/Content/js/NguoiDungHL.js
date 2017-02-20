@@ -1,29 +1,60 @@
-﻿/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
-/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
-/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
-/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
+﻿
 
-
-var app = angular.module('userApp', ['angularUtils.directives.dirPagination']);
+var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ui-listView']);
 app.controller('userCtrl', userCtrl);
-
-//function nhom hang
+app.controller('phanquyenCtrl', phanquyenCtrl);
 app.controller('nhanvienCtrl', nhanvienCtrl);
+
+//function nhân viên
+
 function nhanvienCtrl($scope, $http) {
 
-
-    //-------------------------------------------------------------
-
+    
     $scope.get_nhanvien = function (username) {
         $http.get("/api/Api_NhanvienHL/" + username).then(function (response) {
             $scope.nhanvien = response.data;
         });
     }
 
+    }
+
+//function phân quyền
+
+function phanquyenCtrl($scope, $http) {
+
+    //Infinite Scrolling
+    $scope.$watch("listOptions.range", function (range) {
+        if (range && range.index + range.length === range.total) {
+            loadMoreItems(range);
+        }
+    });
+
+    // lấy dữ liệu từ server
+    $scope.get_nghiepvu = function () {
+        $http.get("/api/Api_Nghiepvu")
+                .then(function (response) {
+                    $scope.danhsachnghiepvu = response.data;
+                });
+
+    }
+
+    // init dữ liệu
+    $scope.get_nghiepvu();
+
+    $scope.check = function (id) {
+        $scope.check_click = true;
+        $http.get("/api/Api_Chitietnghiepvu/" + id)
+                .then(function (response) {
+                    $scope.chitietnghiepvu = response.data;
+                });
+
+    }
+
+    //-------------------------------------------------------------
 
 }
 
-//function hang hoa
+//function user
 function userCtrl($scope, $http) {
 
     $scope.get_user = function () {
@@ -122,5 +153,9 @@ function userCtrl($scope, $http) {
                 $scope.get_user();
             });
     }
+
+
+    
+
 
 }

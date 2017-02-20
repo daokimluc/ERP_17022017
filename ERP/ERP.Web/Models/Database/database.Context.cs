@@ -34,12 +34,12 @@ namespace ERP.Web.Models.Database
         public DbSet<CN_NGHIEP_VU_NHAN_VIEN> CN_NGHIEP_VU_NHAN_VIEN { get; set; }
         public DbSet<CN_NHOM_NGHIEP_VU> CN_NHOM_NGHIEP_VU { get; set; }
         public DbSet<CN_NHOM_NGUOI_DUNG_NGHIEP_VU> CN_NHOM_NGUOI_DUNG_NGHIEP_VU { get; set; }
-        public DbSet<DM_HANG_HOA> DM_HANG_HOA { get; set; }
         public DbSet<DM_HANG_SP> DM_HANG_SP { get; set; }
         public DbSet<DM_HANG_TON_KHO> DM_HANG_TON_KHO { get; set; }
         public DbSet<DM_KHO> DM_KHO { get; set; }
-        public DbSet<DM_TAI_KHOAN_HACH_TOAN> DM_TAI_KHOAN_HACH_TOAN { get; set; }
         public DbSet<HT_NGUOI_DUNG> HT_NGUOI_DUNG { get; set; }
         public DbSet<DM_TONKHO_HANG> DM_TONKHO_HANG { get; set; }
+        public DbSet<DM_HANG_HOA> DM_HANG_HOA { get; set; }
+        public DbSet<DM_TAI_KHOAN_HACH_TOAN> DM_TAI_KHOAN_HACH_TOAN { get; set; }
     }
 }

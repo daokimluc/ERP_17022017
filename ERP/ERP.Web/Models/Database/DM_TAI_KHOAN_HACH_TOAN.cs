@@ -22,11 +22,11 @@ namespace ERP.Web.Models.Database
             this.DM_TAI_KHOAN_HACH_TOAN1 = new HashSet<DM_TAI_KHOAN_HACH_TOAN>();
         }
     
-        public int SO_TK { get; set; }
+        public string SO_TK { get; set; }
         public string TEN_TK { get; set; }
         public string TINH_CHAT { get; set; }
         public string TEN_TA { get; set; }
-        public Nullable<int> TK_CAP_CHA { get; set; }
+        public string TK_CAP_CHA { get; set; }
         public string DIEN_GIAI { get; set; }
     
         public virtual ICollection<DM_HANG_HOA> DM_HANG_HOA { get; set; }
