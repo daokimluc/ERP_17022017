@@ -9,12 +9,15 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ERP.Web.Models.Database;
+using ERP.Web.Models.NewModels;
+using ERP.Web.Models.BusinessModel;
 
 namespace ERP.Web.Areas.HopLong.Api.HeThong
 {
     public class Api_NhanvienHLController : ApiController
     {
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
+        XuLyNgayThang xlnt = new XuLyNgayThang();
 
         // GET: api/Api_NhanvienHL
         public List<CCTC_NHAN_VIEN> GetCCTC_NHAN_VIEN()
@@ -47,19 +50,27 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
 
         // PUT: api/Api_NhanvienHL/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutCCTC_NHAN_VIEN(string id, CCTC_NHAN_VIEN cCTC_NHAN_VIEN)
+        public IHttpActionResult PutCCTC_NHAN_VIEN(string id, NHAN_VIEN_MODEL nhanvien)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != cCTC_NHAN_VIEN.USERNAME)
+            if (id != nhanvien.USERNAME)
             {
                 return BadRequest();
             }
+            CCTC_NHAN_VIEN nv = new CCTC_NHAN_VIEN();
+            nv.USERNAME = nhanvien.USERNAME;
+            nv.GIOI_TINH = nhanvien.GIOI_TINH;
+            nv.NGAY_SINH = xlnt.Xulydatetime(nhanvien.NGAY_SINH);
+            nv.QUE_QUAN = nhanvien.QUE_QUAN;
+            nv.TRINH_DO_HOC_VAN = nhanvien.TRINH_DO_HOC_VAN;
+            nv.MA_PHONG_BAN = nhanvien.MA_PHONG_BAN;
+            db.Entry(nv).State = EntityState.Modified;
+            
 
-            db.Entry(cCTC_NHAN_VIEN).State = EntityState.Modified;
 
             try
             {
@@ -82,14 +93,21 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
 
         // POST: api/Api_NhanvienHL
         [ResponseType(typeof(CCTC_NHAN_VIEN))]
-        public IHttpActionResult PostCCTC_NHAN_VIEN(CCTC_NHAN_VIEN cCTC_NHAN_VIEN)
+        public IHttpActionResult PostCCTC_NHAN_VIEN(NHAN_VIEN_MODEL nhanvien)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            CCTC_NHAN_VIEN nv = new CCTC_NHAN_VIEN();
+            nv.USERNAME = nhanvien.USERNAME;
+            nv.GIOI_TINH = nhanvien.GIOI_TINH;
+            nv.NGAY_SINH = xlnt.Xulydatetime(nhanvien.NGAY_SINH);
+            nv.QUE_QUAN = nhanvien.QUE_QUAN;
+            nv.TRINH_DO_HOC_VAN = nhanvien.TRINH_DO_HOC_VAN;
+            nv.MA_PHONG_BAN = nhanvien.MA_PHONG_BAN;
 
-            db.CCTC_NHAN_VIEN.Add(cCTC_NHAN_VIEN);
+            db.CCTC_NHAN_VIEN.Add(nv);
 
             try
             {
@@ -97,7 +115,7 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
             }
             catch (DbUpdateException)
             {
-                if (CCTC_NHAN_VIENExists(cCTC_NHAN_VIEN.USERNAME))
+                if (CCTC_NHAN_VIENExists(nv.USERNAME))
                 {
                     return Conflict();
                 }
@@ -107,7 +125,7 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = cCTC_NHAN_VIEN.USERNAME }, cCTC_NHAN_VIEN);
+            return CreatedAtRoute("DefaultApi", new { id = nv.USERNAME }, nv);
         }
 
         // DELETE: api/Api_NhanvienHL/5

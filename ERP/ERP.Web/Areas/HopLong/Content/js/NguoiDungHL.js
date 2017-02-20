@@ -1,6 +1,6 @@
 ﻿
 
-var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ui-listView']);
+var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ui-listView', 'ngMask']);
 app.controller('userCtrl', userCtrl);
 app.controller('phanquyenCtrl', phanquyenCtrl);
 app.controller('nhanvienCtrl', nhanvienCtrl);
@@ -94,7 +94,7 @@ function userCtrl($scope, $http) {
                 TRINH_DO_HOC_VAN: $scope.trinhdohocvan,
                 MA_PHONG_BAN: $scope.maphongban
             }
-            $http.post("/api/Api_NguoidungHL", nhanvien_add).then(function (response) {
+            $http.post("/api/Api_NhanvienHL", nhanvien_add).then(function (response) {
                 $scope.get_user();
             });
         });
@@ -134,7 +134,7 @@ function userCtrl($scope, $http) {
                 TRINH_DO_HOC_VAN: $scope.nhanvien.TRINH_DO_HOC_VAN,
                 MA_PHONG_BAN: $scope.nhanvien.MA_PHONG_BAN
             }
-            $http.put("/api/Api_NguoidungHL/" + $scope.item.USERNAME, nhanvien_update).then(function (response) {
+            $http.put("/api/Api_NhanvienHL/" + $scope.item.USERNAME, nhanvien_update).then(function (response) {
                 $scope.get_user();
             });
         });
