@@ -32,3 +32,6 @@
     transform: scale(1.5);
 }
 
+.sidebar-menu .treeview-menu>li>a>.fa{
+    width: 10px;
+}
