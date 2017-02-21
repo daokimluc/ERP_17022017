@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Areas/TruongAnHCM/Content/css/TaiKhoanHachToanTAHCM.css" rel="stylesheet" />
+
+<link href="~/Content/download/dist/css/AdminLTE.css" rel="stylesheet" />
+<script src="~/Content/download/angularjs/angular.min.js"></script>
+<script src="~/Content/download/angularjs/dirPagination.js"></script>
+<script src="~/Areas/TruongAnHCM/Content/js/TaiKhoanHachToanTAHCM.js"></script>
+<link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
+<div ng-app="taikhoanApp" ng-controller="taikhoanCtrl">
+    <div class="content">
+
+
+        <div id="quick-access">
+            <form class="form-inline quick-search-form" role="form" action="#">
+                <div class="form-group" style="width: 100%">
+                    <input type="text" style="width: 60%" class="form-control" placeholder="Nhập số tài khoản cần tìm kiếm vào đây" ng-model="search_text">
+                </div>
+            </form>
+        </div>
+
+
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa">
+            <thead>
+                <tr>
+                    
+                    <th>Số tài khoản</th>
+                    <th>Tên tài khoản</th>
+                    <th>Tính chất</th>
+                    <th>Tên tiếng anh</th>
+                    <th>Diễn giải</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="item in filtered = (danhsachtk | filter: {SO_TK:search_text}) | itemsPerPage:3 | orderBy: 'item.SO_TK'" class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <td class="text-left" ng-class="whatclass(item.TK_CAP_CHA)">{{ item.SO_TK }}</td>
+                    <td class="text-left">{{item.TEN_TK}}</td>
+                    <td class="text-left">{{item.TINH_CHAT}}</td>
+                    <td>{{item.TEN_TA}}</td>
+                    <td>{{item.DIENGIAI}}</td>
+                </tr>
+                <!--Detail row-->
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="9" style="border: none !important">
+                        <dir-pagination-controls max-size="1" style="float:right;"
+                                                 direction-links="true"
+                                                 boundary-links="true">
+                        </dir-pagination-controls>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<script src="~/Content/download/angularjs/angular-ui-router.js"></script>
+
+

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="~/Areas/TruongAnDaNang/Content/css/HeThong/TaikhoanTADAN.css" rel="stylesheet" />
+<script src="~/Content/download/angularjs/angular.min.js"></script>
+<script src="~/Content/download/angularjs/dirPagination.js"></script>
+<script src="~/Areas/TruongAnDaNang/Content/js/HeThong/TaikhoanTDAN.js"></script>
+<div ng-app="taikhoanApp" ng-controller="taikhoanCtrl">
+    <div class="content">
+
+        <div id="quick-access">
+            <form class="form-inline quick-search-form" role="form" action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nhập từ khóa vào đây" ng-model="search_text">
+                </div>
+                <button type="submit" id="quick-search" class="btn btn-custom"><span class="glyphicon glyphicon-search custom-glyph-color"></span></button>
+            </form>
+        </div>
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa">
+            <thead>
+                <tr>
+                    <th>Số tài khoản</th>
+                    <th>Tên tài khoản</th>
+                    <th>Tính chất</th>
+                    <th>Tên tiếng anh</th>
+                    <th>Tài khoản cấp cha</th>
+                    <th>Diễn giải</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="item in taikhoan | itemsPerPage:3 | filter: search_text" class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <td>{{item.SO_TK }}</td>
+                    <td>{{item.TEN_TK}}</td>
+                    <td>{{item.TINH_CHAT}}</td>
+                    <td>{{item.TEN_TA}}</td>
+                    <td>{{item.TK_CAP_CHA}}</td>
+                    <td>{{item.DIEN_GIAI}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="9" style="border: none !important">
+                        <dir-pagination-controls max-size="1" style="float:right;"
+                                                 direction-links="true"
+                                                 boundary-links="true">
+                        </dir-pagination-controls>
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+</div>
+
