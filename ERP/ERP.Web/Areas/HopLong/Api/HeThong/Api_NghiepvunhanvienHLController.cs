@@ -28,40 +28,7 @@ namespace ERP.Web.Areas.HopLong.Api.HeThong
             }).ToList();
             return result;
         }
-        // PUT: api/Api_NghiepvunhanvienHL/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutCN_NGHIEP_VU_NHAN_VIEN(int id, CN_NGHIEP_VU_NHAN_VIEN cN_NGHIEP_VU_NHAN_VIEN)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != cN_NGHIEP_VU_NHAN_VIEN.ID_CHI_TIET_NGHIEP_VU)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(cN_NGHIEP_VU_NHAN_VIEN).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CN_NGHIEP_VU_NHAN_VIENExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+      
 
         // POST: api/Api_NghiepvunhanvienHL
         [ResponseType(typeof(CN_NGHIEP_VU_NHAN_VIEN))]

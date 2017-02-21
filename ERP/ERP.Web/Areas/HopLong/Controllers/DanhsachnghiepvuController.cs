@@ -42,8 +42,8 @@ namespace ERP.Web.Areas.HopLong.Controllers
                         {
                             TEN_CHI_TIET = c.Name + "-" + p,
                             ID_NGHIEP_VU = c.Name,
-                            MO_TA = "Chưa có mô tả nào"
-                            
+                            MO_TA = c.Name + "-" + p
+
                         };
                         db.CN_CHI_TIET_NGHIEP_VU.Add(permission);
                     }

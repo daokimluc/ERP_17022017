@@ -21,7 +21,7 @@ function nhanvienCtrl($scope, $http) {
 //function phân quyền
 
 function phanquyenCtrl($scope, $http) {
-
+    $scope.tontai = false;
     //Infinite Scrolling
     $scope.$watch("listOptions.range", function (range) {
         if (range && range.index + range.length === range.total) {
@@ -41,36 +41,61 @@ function phanquyenCtrl($scope, $http) {
     // init dữ liệu
     $scope.get_nghiepvu();
     //show chi tiết nghiệp vụ
-    $scope.check = function (id) {
+ 
+
+
+    $scope.check = function (id, username) {
         $scope.check_click = true;
         $http.get("/api/Api_Chitietnghiepvu/" + id)
                 .then(function (response) {
                     $scope.chitietnghiepvu = response.data;
                 });
-
-    }
-
-
-    $scope.check = function (id) {
-        $scope.check_click = true;
-        $http.get("/api/Api_Chitietnghiepvu/" + id)
-                .then(function (response) {
-                    $scope.chitietnghiepvu = response.data;
-                });
+        $scope.get_nghiepvunhanvien(username);
+        if(!$scope.danhsachnghiepvunhanvien.ID_CHI_TIET_NGHIEP_VU)
+        {
+            $scope.tontai = true;
+        }
         
 
     }
     //------------------end nghiệp vụ-------------------------
 
 
-    // lấy dữ liệu danh sách nghiêp vụ từ server 
-    $scope.get_nghiepvu = function () {
-        $http.get("/api/Api_Nghiepvu")
+    // lấy dữ liệu danh sách nghiêp vụ nhân viên từ server 
+    $scope.get_nghiepvunhanvien = function (username) {
+        $http.get("/api/Api_NghiepvunhanvienHL/"+username)
                 .then(function (response) {
-                    $scope.danhsachnghiepvu = response.data;
+                    $scope.danhsachnghiepvunhanvien = response.data;
                 });
 
     }
+
+
+
+    //Insert or update data
+
+    $scope.Capnhatnghiepvu= function (id_ctnc, username, mota) {
+
+        var data_capnhat = {
+            ID_CHI_TIET_NGHIEP_VU: id,
+            USERNAME: username,
+            MO_TA: mota
+        }
+        $http.post("/api/Api_NghiepvunhanvienHL", data_capnhat).then(function (response) {
+        });
+
+
+
+
+    }
+
+
+    //What class
+    $scope.whatclass = function (somevalue) {
+        if (somevalue != null) {
+            return "text-center"
+        }
+    };
 
     //-------------------------------------------------------------
 

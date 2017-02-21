@@ -293,6 +293,7 @@
                     <th>Số điện thoại</th>
                     <th>Email</th>
                     <th>Công ty</th>
+                    <th>Tác vụ</th>
                 </tr>
             </thead>
             <tbody>
@@ -306,6 +307,7 @@
                     <td>{{item.SDT}}</td>
                     <td>{{item.EMAIL}}</td>
                     <td>{{item.MA_CONG_TY}}</td>
+                    <td><a href="/HopLong /NghiepVuNguoiDung/phanquyen/{{item.USERNAME}}" class="btn btn_icon_permission btn-default"><i class="fa fa-cog" aria-hidden="true"></i>Phân quyền</a> &nbsp;&nbsp;</td>
                 </tr>
                 <!--Detail row-->
                 <tr ng-if="item.expanded" dir-paginate-end="">
@@ -314,14 +316,13 @@
                         <div class="content expandrow">
 
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#phanquyen">Phân quyền</a></li>
-                                <li ><a data-toggle="tab" href="#chitiet">Thông tin chi tiết</a></li>
+                                <li class="active"><a data-toggle="tab" href="#chitiet">Thông tin chi tiết</a></li>
 
                                 
                             </ul>
 
                             <div class="tab-content">
-                                <div id="chitiet" class="tab-pane fade ">
+                                <div id="chitiet" class="tab-pane fade in active ">
                                     <div class="content">
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
@@ -377,50 +378,6 @@
                                     </div>
                                 </div>
 
-                                <div id="phanquyen" class="tab-pane fade in active">
-                                    <div class="content" ng-controller="phanquyenCtrl">
-                                        <div class="row">
-                                            <!--Danh sách nghiệp vụ-->
-                                            <div class="pricing-table pricing-three-column row list-nv">
-                                                <div class="plan col-sm-4 col-lg-4 box-nv">
-                                                    <div class="panel-body box-nv">
-                                                        <div class="ui-list-view-bordered box-nv" ui-list-view="nghiepvu in danhsachnghiepvu | filter:search">
-                                                            <p class="name" ng-click="check(nghiepvu.ID)"><strong>{{ nghiepvu.TEN_NGHIEP_VU }}</strong></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!--Chi tiết nghiệp vụ-->
-                                                <div class="plan col-sm-4 col-lg-4 box-nv second-box">
-                                                    <div class="col-md-6">
-                                                        <div ng-show="check_click">
-                                                            <div class="panel-body box-nv">
-                                                                <table>
-                                                                    <tr ng-repeat="x in chitietnghiepvu">
-                                                                        <td>
-
-                                                                            <input type="checkbox" autocomplete="off" ng-checked="item.MODEL_DAC_BIET==true" ng-model="cap_nhap_nghiep_vu">
-
-                                                                        </td>
-                                                                        <td>{{x.TEN_CHI_TIET}}</td>
-                                                                    </tr>
-                                                                </table>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--End danh sách nghiệp vụ-->
-
-
-                                        </div>
-                                    </div>
-
-
-                                </div>
                             </div>
                         </div>
                     </td>
