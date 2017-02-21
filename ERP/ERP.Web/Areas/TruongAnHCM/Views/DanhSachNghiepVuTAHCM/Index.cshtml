@@ -1,39 +1,51 @@
 ﻿@model IEnumerable<ERP.Web.Models.Database.CN_NGHIEP_VU>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách nghiệp vụ";
 }
+<style>
+    tr, th, td {
+        border: 1px solid #ddd;
+    }
+</style>
 
-<h2>Index</h2>
+<h2 style="text-align:center">Nghiệp Vụ Hệ Thống</h2>
 
+
+
+<div>
+    @Html.Raw(TempData["err"])
+</div>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Cập nhật nghiệp vụ", "Capnhat_Nghiepvu")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TEN_NGHIEP_VU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CCTC_CONG_TY.TEN_CONG_TY)
-        </th>
-        <th></th>
-    </tr>
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TEN_NGHIEP_VU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CCTC_CONG_TY.TEN_CONG_TY)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+        <table class="table table-striped custab">
+            <thead>
 
-</table>
+
+                <tr>
+                    <th>Mã nghiệp vụ</th>
+                    <th>Tên nghiệp vụ</th>
+                    <th>Xem chi tiết</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TEN_NGHIEP_VU)
+                    </td>
+                    <td>
+                        <a href="/HopLong/ChiTietNghiepVu/Index" class="btn btn-success btn-default" style="color: white;"><span class="fa icon fa-list" style="margin-right: 5px;"></span>Chi tiết nghiệp vụ</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
