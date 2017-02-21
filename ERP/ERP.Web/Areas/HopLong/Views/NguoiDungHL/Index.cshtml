@@ -289,6 +289,7 @@
                     <th>Số điện thoại</th>
                     <th>Email</th>
                     <th>Công ty</th>
+                    <th>Tác vụ</th>
                 </tr>
             </thead>
             <tbody>
@@ -302,6 +303,7 @@
                     <td>{{item.SDT}}</td>
                     <td>{{item.EMAIL}}</td>
                     <td>{{item.MA_CONG_TY}}</td>
+                    <td><a href="/HopLong /NghiepVuNguoiDung/phanquyen/{{item.USERNAME}}" class="btn btn_icon_permission btn-default"><i class="fa fa-cog" aria-hidden="true"></i>Phân quyền</a> &nbsp;&nbsp;</td>
                 </tr>
                 <!--Detail row-->
                 <tr ng-if="item.expanded" dir-paginate-end="">
@@ -310,7 +312,9 @@
                         <div class="content expandrow">
 
                             <ul class="nav nav-tabs">
-                                <li ><a data-toggle="tab" href="#chitiet">Thông tin chi tiết</a></li>
+
+                                <li class="active"><a data-toggle="tab" href="#chitiet">Thông tin chi tiết</a></li>
+
                             </ul>
 
                             <div class="tab-content">
@@ -336,6 +340,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>Ngày sinh:</td>
+
                                                                             <td>{{nhanvien.NGAY_SINH | date:'dd/MM/yyyy' }}</td>
                                                                         </tr>
 
@@ -358,6 +363,7 @@
                                                                             </td>
                                                                         </tr>
 
+
                                                                     </tbody>
                                                                 </table>
 
@@ -370,7 +376,6 @@
                                     </div>
                                 </div>
 
-                                
                             </div>
                         </div>
                     </td>

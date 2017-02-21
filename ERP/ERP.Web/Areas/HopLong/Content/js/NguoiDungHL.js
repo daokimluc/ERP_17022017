@@ -1,6 +1,8 @@
-﻿
+
+
 
 var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ui-listView', 'ngMask']);
+
 app.controller('userCtrl', userCtrl);
 app.controller('phanquyenCtrl', phanquyenCtrl);
 app.controller('nhanvienCtrl', nhanvienCtrl);
@@ -29,7 +31,9 @@ function phanquyenCtrl($scope, $http) {
         }
     });
 
-    // lấy dữ liệu từ server
+
+    // lấy dữ liệu danh sách nghiêp vụ từ server 
+
     $scope.get_nghiepvu = function () {
         $http.get("/api/Api_Nghiepvu")
                 .then(function (response) {
@@ -41,14 +45,59 @@ function phanquyenCtrl($scope, $http) {
     // init dữ liệu
     $scope.get_nghiepvu();
 
-    $scope.check = function (id) {
+
+    $scope.check = function (id, username) {
+
         $scope.check_click = true;
         $http.get("/api/Api_Chitietnghiepvu/" + id)
                 .then(function (response) {
                     $scope.chitietnghiepvu = response.data;
                 });
 
+
     }
+
+
+    
+    //------------------end nghiệp vụ-------------------------
+
+
+    // lấy dữ liệu danh sách nghiêp vụ nhân viên từ server 
+    $scope.get_nghiepvunhanvien = function (username) {
+        $http.get("/api/Api_NghiepvunhanvienHL/"+username)
+                .then(function (response) {
+                    $scope.danhsachnghiepvunhanvien = response.data;
+                });
+
+    }
+
+
+
+    //Insert or update data
+
+    $scope.Capnhatnghiepvu= function (id_ctnc, username, mota) {
+
+        var data_capnhat = {
+            ID_CHI_TIET_NGHIEP_VU: id,
+            USERNAME: username,
+            MO_TA: mota
+        }
+        $http.post("/api/Api_NghiepvunhanvienHL", data_capnhat).then(function (response) {
+        });
+
+
+
+
+    }
+
+
+    //What class
+    $scope.whatclass = function (somevalue) {
+        if (somevalue != null) {
+            return "text-center"
+        }
+    };
+
 
     //-------------------------------------------------------------
 
