@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ERP.Web.Models.Database.CN_CHI_TIET_NGHIEP_VU>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN_CHI_TIET)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MO_TA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CN_NGHIEP_VU.TEN_NGHIEP_VU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN_CHI_TIET)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MO_TA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CN_NGHIEP_VU.TEN_NGHIEP_VU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
