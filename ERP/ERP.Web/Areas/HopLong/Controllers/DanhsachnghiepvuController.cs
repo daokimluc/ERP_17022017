@@ -11,6 +11,7 @@ using ERP.Web.Models.BusinessModel;
 
 namespace ERP.Web.Areas.HopLong.Controllers
 {
+    [AuthorizeBussiness]
     public class DanhsachnghiepvuController : Controller
     {
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
