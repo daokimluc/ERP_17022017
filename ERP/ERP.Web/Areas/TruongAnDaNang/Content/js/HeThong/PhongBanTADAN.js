@@ -1,4 +1,5 @@
-﻿/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
+﻿
+/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />

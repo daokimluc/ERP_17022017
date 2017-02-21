@@ -9,12 +9,14 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using ERP.Web.Models.Database;
+using ERP.Web.Models.BusinessModel;
 
 namespace ERP.Web.Areas.TruongAnDaNang.Api.HeThong
 {
     public class Api_NhanvienTADANController : ApiController
     {
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
+        XuLyNgayThang xlnt = new XuLyNgayThang();
 
         // GET: api/Api_NhanvienTADAN
         public List<CCTC_NHAN_VIEN> GetCCTC_NHAN_VIEN()
