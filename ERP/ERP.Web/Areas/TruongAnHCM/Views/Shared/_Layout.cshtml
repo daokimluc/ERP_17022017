@@ -31,6 +31,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
+    <link href="~/Content/self-writing/Layout-CSS.css" rel="stylesheet" />
+    <link href="~/Areas/TruongAnHCM/Content/css/LayoutTAHCM.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -38,23 +40,29 @@
             <!-- Logo -->
             <a href="/TruongAnHCM/TAHCMHome" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">Hoplongtech</span>
+                <span class="logo-mini" style="color: white"><img src="~/Content/self-writing/Images/Paomedia-Small-N-Flat-Shop.ico" width="30" height="40" /></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">TAHCM</span>
+                <span class="logo-lg" style="color: white;"><img src="~/Content/self-writing/Images/Paomedia-Small-N-Flat-Shop.ico" width="30" height="40" style="margin-right: 10px" />TAHCM</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
+            <nav class="navbar navbar-static-top" style="background: deepskyblue">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" style="color: white;">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
                 <!-- Menu bar-->
                 <div class="navbar-custom-menu pull-left">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hệ thống<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/TruongAnHCM/DanhSachNghiepVuTAHCM/Index">Danh sách nghiệp vụ</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tệp <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/HopLong/ImportExcel/Import_Hanghoa">Nhập khẩu dữ liệu từ excel</a></li>
+                                <li><a href="/TruongAnHCM/ImportExcelTAHCM/Import_Hanghoa">Nhập khẩu dữ liệu từ excel</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -142,19 +150,17 @@
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
+        <aside class="main-sidebar" style="background: #3C8DBC;color: white;">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
 
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+                    <div class="input-group" style="width: 100%">
+                        <input id="searchtextbox" type="text" name="q" class="form-control" placeholder="Search...">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat" style="display:inline-block;float:left;">
+                            <i class="fa fa-search" id="searchtext"></i>
+                        </button>
                     </div>
                 </form>
                 <!-- /.search form -->
@@ -254,7 +260,7 @@
             <!-- /.sidebar -->
         </aside>
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="background: none !important">
             @RenderBody()
         </div>
         <!-- /.content-wrapper -->
