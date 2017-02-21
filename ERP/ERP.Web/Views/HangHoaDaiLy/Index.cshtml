@@ -14,7 +14,7 @@
 <link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
 <div ng-app="hanghoaApp" ng-controller="hangHoaCtrl">
     <div class="content">
-
+        
 
         <div id="quick-access">
             <form class="form-inline quick-search-form" role="form" action="#">
@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr dir-paginate-start="item in filtered = (danhsachhanghoa | filter: {MA_HANG_HT:search_text}) | itemsPerPage:3 " class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
+                <tr dir-paginate-start="item in filtered = (danhsachhanghoa | filter: {MA_HANG_HT:search_text}) | itemsPerPage: 15 " class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
                     <td>
                         <button class="expand" ng-if="item.expanded" ng-click="item.expanded = false"><i class="fa minus fa-minus-circle" aria-hidden="true"></i></button>
                         <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true" ng-><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
@@ -131,19 +131,25 @@
                                 </div>
 
                                 <div id="tonkho" class="tab-pane fade">
-                                    <table class="table table-striped table-bordered">
+                                    <table class="table table-fill ">
                                         <thead>
                                             <tr>
                                                 <th>Mã kho</th>
                                                 <th>Số lượng tồn</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody class="table-hover">
                                             <tr ng-repeat="tonkho in danhsachtonkho">
                                                 <td>{{tonkho.MA_KHO}}</td>
                                                 <td>{{tonkho.SL_TON}}</td>
                                             </tr>
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td><strong style="font-size: 20px">Tổng tồn:</strong></td>
+                                                <td>{{getTotal('SL_TON')}}</td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

@@ -1,10 +1,7 @@
-﻿/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
-/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
-/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
-/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
+﻿
 
 
-var app = angular.module('userApp', ['angularUtils.directives.dirPagination']);
+var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ngMask']);
 app.controller('userCtrl', userCtrl);
 
 //function nhom hang

@@ -10,9 +10,8 @@ namespace ERP.Web.Api.Kho
 {
     public class Api_TonKhoDaiLyController : ApiController
     {
-        public HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
-        // GET: api/Api_TonkhoTAHCM
-        public List<DM_HANG_TON_KHO> Get(string id)
+        private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
+        public List<DM_HANG_TON_KHO> GetTonKhoDaiLy(string id)
         {
             var vData = db.DM_HANG_TON_KHO.Where(x => x.MA_HANG_HT == id);
             var result = vData.ToList().Select(x => new DM_HANG_TON_KHO()
@@ -23,6 +22,5 @@ namespace ERP.Web.Api.Kho
             }).ToList();
             return result;
         }
-
     }
 }
