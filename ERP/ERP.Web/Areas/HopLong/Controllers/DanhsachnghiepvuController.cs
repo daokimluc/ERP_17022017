@@ -15,6 +15,12 @@ namespace ERP.Web.Areas.HopLong.Controllers
     {
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
 
+        public ActionResult Index()
+        {
+            var dsnghiepvu = db.CN_NGHIEP_VU.Include(c => c.CCTC_CONG_TY);
+            return View(dsnghiepvu.ToList());
+        }
+
         public ActionResult Capnhat_Nghiepvu()
         {
             ReflectionController rc = new ReflectionController();
