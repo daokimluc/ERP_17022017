@@ -40,7 +40,7 @@ function phongbanCtrl($scope, $http) {
             MA_PHONG_BAN: $scope.maphongban,
             TEN_PHONG_BAN: $scope.tenphongban,
             SDT: $scope.sdt,
-            MA_CONG_TY: "TAHCM",
+            MA_CONG_TY: "TADAN",
             GHI_CHU : $scope.ghichu,
         }
         $http.post("/api/Api_PhongbanDN/", data_add).then(function (response) {

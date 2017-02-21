@@ -21,7 +21,7 @@ app.controller('khoCtrl', function ($scope, $http) {
             TEN_KHO: $scope.ten_kho,
             DIA_CHI_KHO: $scope.dia_chi,
             MA_KHO_CHA: $scope.ma_kho_cha,
-            TRUC_THUOC: $scope.truc_thuoc,
+            TRUC_THUOC: "TADAN",
             GHI_CHU: $scope.ghi_chu
             
         }

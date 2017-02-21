@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="~/Areas/TruongAnDaNang/Content/css/Kho/Hang_sp_TADAN.css" rel="stylesheet" />
+<script src="~/Content/download/angularjs/angular.min.js"></script>
+<script src="~/Content/download/angularjs/dirPagination.js"></script>
+<script src="~/Areas/TruongAnDaNang/Content/js/Kho/Hang_sp_TDAN.js"></script>
+<div ng-app="hangApp" ng-controller="hangCtrl">
+    <div class="content">
+
+        <div id="quick-access">
+            <form class="form-inline quick-search-form" role="form" action="#">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nhập từ khóa vào đây" ng-model="search_text">
+                </div>
+                <button type="submit" id="quick-search" class="btn btn-custom"><span class="glyphicon glyphicon-search custom-glyph-color"></span></button>
+            </form>
+        </div>
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa">
+            <thead>
+                <tr>
+                    <th>Mã nhóm hãng</th>
+                    <th>Tên nhóm hãng</th>
+                    <th>Mã nhóm hàng cha</th>
+                    <th>Ghi chú</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="item in nhomhang | itemsPerPage:3 | filter: search_text" class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <td>{{item.MA_NHOM_HANG }}</td>
+                    <td>{{item.TEN_NHOM_HANG}}</td>
+                    <td>{{item.MA_NHOM_HANG_CHA}}</td>
+                    <td>{{item.GHI_CHU}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="9" style="border: none !important">
+                        <dir-pagination-controls max-size="1" style="float:right;"
+                                                 direction-links="true"
+                                                 boundary-links="true">
+                        </dir-pagination-controls>
+                    </td>
+                </tr>
+            </tfoot>
+                
+        </table>
+    </div>
+</div>
