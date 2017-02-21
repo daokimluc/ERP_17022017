@@ -4,21 +4,23 @@
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 
 
-var app = angular.module('userApp', ['angularUtils.directives.dirPagination']);
+var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ngMask']);
 app.controller('userCtrl', userCtrl);
 
-//function nhân viên
+//
 app.controller('nhanvienCtrl', nhanvienCtrl);
 function nhanvienCtrl($scope, $http) {
 
 
-    //-------------------------------------------------------------
+    //function nhân viên
 
-    $scope.get_nhanvien = function (id) {
-        $http.get("/api/Api_NhanvienTADAN/" + id).then(function (response) {
+    $scope.get_nhanvien = function (username) {
+        $http.get("/api/Api_NhanvienTADAN/" + username).then(function (response) {
             $scope.nhanvien = response.data;
         });
     }
+
+
 }
 
 //function người dùng
@@ -51,7 +53,7 @@ function userCtrl($scope, $http) {
             ALLOWED: $scope.allowed,
             MA_CONG_TY: "TADAN"
         }
-        $http.post("/api/Api_NguoidungTADAN/", data_add).then(function (response) {
+        $http.post("/api/Api_NguoidungTADAN", data_add).then(function (response) {
             $scope.get_user();
             var nhanvien_add = {
                 USERNAME: $scope.username,
@@ -76,6 +78,9 @@ function userCtrl($scope, $http) {
         $scope.item = item;
     }
 
+    $scope.update_nv = function (nhanvien) {
+        $scope.nhanvien = nhanvien;
+    }
     $scope.save = function (user) {
         var data_update = {
             ID: user,
@@ -86,11 +91,21 @@ function userCtrl($scope, $http) {
             EMAIL: $scope.item.EMAIL,
             IS_ADMIN: $scope.item.IS_ADMIN,
             ALLOWED: $scope.item.ALLOWED,
-            MA_CONG_TY: "TAHCM",
+            MA_CONG_TY: "TADAN",
         }
-        $http.put("api/Api_NguoidungTADAN/" + user, data_update).then(function (response) {
+        $http.put("/api/Api_NguoidungTADAN/" + user, data_update).then(function (response) {
             $scope.get_user();
-
+            var nhanvien_update = {
+                USERNAME: $scope.item.USERNAME,
+                GIOI_TINH: $scope.nhanvien.GIOI_TINH,
+                NGAY_SINH: $scope.nhanvien.NGAY_SINH,
+                QUE_QUAN: $scope.nhanvien.QUE_QUAN,
+                TRINH_DO_HOC_VAN: $scope.nhanvien.TRINH_DO_HOC_VAN,
+                MA_PHONG_BAN: $scope.nhanvien.MA_PHONG_BAN
+            }
+            $http.put("/api/Api_NhanvienTADAN/" + $scope.item.USERNAME, nhanvien_update).then(function (response) {
+                $scope.get_user();
+            });
         });
     }
     //-------------------------------------------------------------
@@ -102,7 +117,7 @@ function userCtrl($scope, $http) {
         }
 
 
-        $http.delete("api/Api_NguoidungTADAN/" + user, data_delete)
+        $http.delete("/api/Api_NguoidungTADAN/" + user, data_delete)
             .then(function (response) {
                 $scope.get_user();
             });

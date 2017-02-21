@@ -1,6 +1,8 @@
-﻿
 
-var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ui-listView']);
+
+
+var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ui-listView', 'ngMask']);
+
 app.controller('userCtrl', userCtrl);
 app.controller('phanquyenCtrl', phanquyenCtrl);
 app.controller('nhanvienCtrl', nhanvienCtrl);
@@ -21,7 +23,7 @@ function nhanvienCtrl($scope, $http) {
 //function phân quyền
 
 function phanquyenCtrl($scope, $http) {
-    $scope.tontai = false;
+
     //Infinite Scrolling
     $scope.$watch("listOptions.range", function (range) {
         if (range && range.index + range.length === range.total) {
@@ -29,7 +31,9 @@ function phanquyenCtrl($scope, $http) {
         }
     });
 
+
     // lấy dữ liệu danh sách nghiêp vụ từ server 
+
     $scope.get_nghiepvu = function () {
         $http.get("/api/Api_Nghiepvu")
                 .then(function (response) {
@@ -40,24 +44,21 @@ function phanquyenCtrl($scope, $http) {
 
     // init dữ liệu
     $scope.get_nghiepvu();
-    //show chi tiết nghiệp vụ
- 
 
 
     $scope.check = function (id, username) {
+
         $scope.check_click = true;
         $http.get("/api/Api_Chitietnghiepvu/" + id)
                 .then(function (response) {
                     $scope.chitietnghiepvu = response.data;
                 });
-        $scope.get_nghiepvunhanvien(username);
-        if(!$scope.danhsachnghiepvunhanvien.ID_CHI_TIET_NGHIEP_VU)
-        {
-            $scope.tontai = true;
-        }
-        
+
 
     }
+
+
+    
     //------------------end nghiệp vụ-------------------------
 
 
@@ -96,6 +97,7 @@ function phanquyenCtrl($scope, $http) {
             return "text-center"
         }
     };
+
 
     //-------------------------------------------------------------
 
@@ -141,7 +143,7 @@ function userCtrl($scope, $http) {
                 TRINH_DO_HOC_VAN: $scope.trinhdohocvan,
                 MA_PHONG_BAN: $scope.maphongban
             }
-            $http.post("/api/Api_NguoidungHL", nhanvien_add).then(function (response) {
+            $http.post("/api/Api_NhanvienHL", nhanvien_add).then(function (response) {
                 $scope.get_user();
             });
         });
@@ -181,7 +183,7 @@ function userCtrl($scope, $http) {
                 TRINH_DO_HOC_VAN: $scope.nhanvien.TRINH_DO_HOC_VAN,
                 MA_PHONG_BAN: $scope.nhanvien.MA_PHONG_BAN
             }
-            $http.put("/api/Api_NguoidungHL/" + $scope.item.USERNAME, nhanvien_update).then(function (response) {
+            $http.put("/api/Api_NhanvienHL/" + $scope.item.USERNAME, nhanvien_update).then(function (response) {
                 $scope.get_user();
             });
         });
