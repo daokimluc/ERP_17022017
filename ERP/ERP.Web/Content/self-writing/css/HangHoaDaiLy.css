@@ -11,6 +11,9 @@
     font-family: Lora;
     color: #777777;
 }
+#example > thead > tr > th {
+    border-bottom: 1px solid #ddd !important;
+}
 .noborder td,tr{
     border: none !important;
 }
