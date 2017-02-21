@@ -153,9 +153,8 @@ legend{
 }
 
 .btn-success{
-    background: none !important;
-    border: none !important;
-    color: #092cfe;
+    background-color: green !important;
+    border-color: green !important;
 }
 .btn-warning
 {
