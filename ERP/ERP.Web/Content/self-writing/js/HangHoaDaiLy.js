@@ -8,13 +8,12 @@ app.controller('hangHoaCtrl', hangHoaCtrl);
 app.controller('tonkhoCtrl', tonkhoCtrl);
 
 function tonkhoCtrl($scope, $http) {
-    function tonkhoCtrl($scope, $http) {
-        $scope.get_tonkho = function (id, macongty) {
-            $http.get("/api/Api_TonkhoTAHCM/" + id + "/" + macongty).then(function (response) {
+        $scope.get_tonkho = function (id) {
+            $http.get("/api/Api_TonKhoDaiLy/" + id + "/DAI_LY_1").then(function (response) {
                 $scope.danhsachtonkho = response.data
             });
         }
-    }
+    
     $scope.getTotal = function (type) {
         var total = 0;
         angular.forEach($scope.danhsachtonkho, function (el) {
