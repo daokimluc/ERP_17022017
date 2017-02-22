@@ -11,7 +11,7 @@ namespace ERP.Web.Areas.TruongAnHCM.Controllers
         // GET: TruongAnHCM/TAHCMHome
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index","HangHoaTAHCM");
         }
     }
 }

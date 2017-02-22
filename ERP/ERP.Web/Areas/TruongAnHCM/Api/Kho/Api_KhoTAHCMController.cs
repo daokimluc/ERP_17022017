@@ -19,7 +19,7 @@ namespace ERP.Web.Areas.TruongAnHCM.Api.Kho
         // GET: api/Api_KhoTAHCM
         public List<DM_KHO> GetDM_KHo()
         {
-            var vData = db.DM_KHO;
+            var vData = db.DM_KHO.Where(x => x.TRUC_THUOC == "TAHCM");
             var result = vData.ToList().Select(x => new DM_KHO()
             {
                 MA_KHO = x.MA_KHO,

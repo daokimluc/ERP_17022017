@@ -573,6 +573,69 @@ namespace ERP.Web.Areas.HopLong.Controllers
 
         #endregion
 
+        #region "Import hệ thống tài khoản"
+        public ActionResult Import_HTtaikhoan()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Import_HTtaikhoan(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (Request != null)
+                {
+                    HttpPostedFileBase filetonkho = Request.Files["UploadedFile"];
+                    if ((filetonkho != null) && (filetonkho.ContentLength > 0) && !string.IsNullOrEmpty(filetonkho.FileName))
+                    {
+                        string fileName = filetonkho.FileName;
+                        string fileContentType = filetonkho.ContentType;
+                        byte[] fileBytes = new byte[filetonkho.ContentLength];
+                        var data = filetonkho.InputStream.Read(fileBytes, 0, Convert.ToInt32(filetonkho.ContentLength));
+                        //var usersList = new List<Users>();
+                        using (var package = new ExcelPackage(filetonkho.InputStream))
+                        {
+                            var currentSheet = package.Workbook.Worksheets;
+                            var workSheet = currentSheet.First();
+                            var noOfCol = workSheet.Dimension.End.Column;
+                            var noOfRow = workSheet.Dimension.End.Row;
+                            for (int rowIterator = 2; rowIterator <= noOfRow; rowIterator++)
+                            {
+                                DM_TAI_KHOAN_HACH_TOAN taikhoan = new DM_TAI_KHOAN_HACH_TOAN();
+                                taikhoan.SO_TK = workSheet.Cells[rowIterator, 1].Value.ToString();
+                                taikhoan.TEN_TK = workSheet.Cells[rowIterator, 2].Value.ToString();
+                                taikhoan.TINH_CHAT = workSheet.Cells[rowIterator, 3].Value.ToString();
+                                taikhoan.TEN_TA = workSheet.Cells[rowIterator, 4].Value.ToString();
+                                taikhoan.TK_CAP_CHA = workSheet.Cells[rowIterator, 5].Value.ToString();
+                                taikhoan.DIEN_GIAI = workSheet.Cells[rowIterator, 6].Value.ToString();
+
+                                db.DM_TAI_KHOAN_HACH_TOAN.Add(taikhoan);
+
+                                db.SaveChanges();
+                                so_dong_thanh_cong++;
+                                dong = rowIterator - 1;
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                ViewBag.Error = " Đã xảy ra lỗi, Liên hệ ngay với admin. " + Environment.NewLine + " Thông tin chi tiết về lỗi:" + Environment.NewLine + Ex;
+                ViewBag.Information = "Lỗi tại dòng thứ: " + dong;
+
+            }
+            finally
+            {
+                ViewBag.Message = "Đã import thành công " + so_dong_thanh_cong + " dòng";
+            }
+
+            return View("Import_Hanghoa");
+        }
+
+        #endregion
+
         #region "Update hàng tồn kho"
         public ActionResult Update_Hangtonkho()
         {

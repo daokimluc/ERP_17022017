@@ -296,10 +296,10 @@
                         <button class="expand" ng-if="item.expanded" ng-click="item.expanded = false"><i class="fa minus fa-minus-circle" aria-hidden="true"></i></button>
                         <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true ; get_nhanvien(item.USERNAME)" ng-><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
                     </td>
-                    <td>{{item.HO_VA_TEN }}</td>
-                    <td>{{item.SDT}}</td>
-                    <td>{{item.EMAIL}}</td>
-                    <td>{{item.MA_CONG_TY}}</td>
+                    <td class="text-left">{{item.HO_VA_TEN }}</td>
+                    <td class="text-left">{{item.SDT}}</td>
+                    <td class="text-left">{{item.EMAIL}}</td>
+                    <td class="text-left">{{item.MA_CONG_TY}}</td>
                     <td><a href="/TruongAnDaNang/NghiepVuNguoiDung/phanquyen/{{item.USERNAME}}" class="btn btn_icon_permission btn-default"><i class="fa fa-cog" aria-hidden="true"></i>Phân quyền</a> &nbsp;&nbsp;</td>
                 </tr>
                 <!--Detail row-->
