@@ -175,3 +175,16 @@ legend{
     text-align: left !important;
     padding-left: 10px !important;
 }
+
+#example tr th{
+    position: relative;
+}
+
+
+#example tr th span {
+    position: absolute;
+    bottom: 100%;
+    display: block;
+    font-size: 12px;
+    font-family: 'Times New Roman';
+}
