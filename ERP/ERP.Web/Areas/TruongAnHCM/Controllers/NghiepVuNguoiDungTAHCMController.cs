@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace ERP.Web.Areas.TruongAnHCM.Controllers
 {
+    [AuthorizeBussiness]
     public class NghiepVuNguoiDungTAHCMController : Controller
     {
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();

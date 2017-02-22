@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ERP.Web.Models.Database;
+using ERP.Web.Models.BusinessModel;
 
 namespace ERP.Web.Areas.TruongAnHCM.Controllers
 {
+    [AuthorizeBussiness]
     public class HangHoaTAHCMController : Controller
     {
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();

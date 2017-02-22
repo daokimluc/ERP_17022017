@@ -18,7 +18,8 @@
             </form>
         </div>
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm hàng mới</button>
-
+        <br />
+        <br />
         <!-- Modal Thêm mới -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
@@ -291,12 +292,13 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Mã hàng HT</th>
-                    <th>Mã hàng nhập</th>
-                    <th>Tên hàng</th>
-                    <th>Mã nhóm hàng</th>
-                    <th>Đơn vị tính</th>
-                    <th>Model đặc biệt</th>
+                    <th ng-mouseover="mahangHT=true;" ng-mouseleave="mahangHT=false;">Mã hàng HT<span ng-show="mahangHT">{{ showmahangHT.title }}</span></th>
+                    <th ng-mouseover="ma_hang_nhap=true;" ng-mouseleave="ma_hang_nhap=false;">Mã hàng nhập<span ng-show="ma_hang_nhap">{{ showmahangnhap.title }}</span></th>
+                    <th ng-mouseover="ten_hang=true;" ng-mouseleave="ten_hang=false;">Tên hàng<span ng-show="ten_hang">{{ showtenhang.title }}</span></th>
+                    <th ng-mouseover="ma_nhom_hang=true;" ng-mouseleave="ma_nhom_hang=false;">Mã nhóm hàng<span ng-show="ma_nhom_hang">{{ showmanhomhang.title }}</span></th>
+                    <th ng-mouseover="don_vi_tinh=true;" ng-mouseleave="don_vi_tinh=false;">Đơn vị tính<span ng-show="don_vi_tinh">{{ showdonvitinh.title }}</span></th>
+                    <th ng-mouseover="model_dac_biet=true;" ng-mouseleave="model_dac_biet=false;">Model đặc biệt<span ng-show="model_dac_biet">{{ showmodeldacbiet.title }}</span></th>
+
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
