@@ -24,9 +24,8 @@
             </form>
         </div>
         
-
-
-        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa" ng-controller="tonkhoCtrl">
+<br />
+        <table id="example" class="table table-bordered" cellspacing="0" name="tblhanghoa" ng-controller="tonkhoCtrl">
             <thead>
                 <tr>
                     <th></th>
@@ -49,7 +48,7 @@
                     <td class="text-left">{{item.TEN_HANG}}</td>
                     <td>{{item.MA_NHOM_HANG}}</td>
                     <td>{{item.DON_VI_TINH | uppercase}}</td>
-                    <td><input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET"><br></td>
+                    <td><input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET" ng-disabled="true"><br></td>
                 </tr>
                 <!--Detail row-->
                 <tr ng-if="item.expanded" dir-paginate-end="">

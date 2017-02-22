@@ -10,7 +10,7 @@ app.controller('tonkhoCtrl', tonkhoCtrl);
 function tonkhoCtrl($scope, $http) {
     function tonkhoCtrl($scope, $http) {
         $scope.get_tonkho = function (id, macongty) {
-            $http.get("/api/Api_TonkhoTAHCM/" + id + "/" + macongty).then(function (response) {
+            $http.get("/api/Api_TonkhoDaiLy/" + id + "/" + macongty).then(function (response) {
                 $scope.danhsachtonkho = response.data
             });
         }
