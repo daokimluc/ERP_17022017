@@ -39,6 +39,7 @@ namespace ERP.Web.Api.Kho
             return result;
         }
 
+
         // GET: api/Api_HangHoaDaiLy/5
         [ResponseType(typeof(DM_HANG_HOA))]
         public IHttpActionResult GetDM_HANG_HOA(string id)

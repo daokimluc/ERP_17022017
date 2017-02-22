@@ -11,7 +11,7 @@ namespace ERP.Web.Areas.HopLong.Controllers
         // GET: HopLong/Home
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "HangHoaHL"); 
         }
     }
 }
