@@ -12,6 +12,7 @@ using System.Xml;
 
 namespace ERP.Web.Areas.TruongAnHCM.Controllers
 {
+    [AuthorizeBussiness]
     public class ImportExcelTAHCMController : Controller
     {
         int so_dong_thanh_cong;

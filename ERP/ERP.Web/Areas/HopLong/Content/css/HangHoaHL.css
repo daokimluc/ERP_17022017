@@ -204,3 +204,16 @@ legend{
   border-top-right-radius:3px;
   border-right:none;
 }
+
+#example tr th{
+    position: relative;
+}
+
+
+#example tr th span {
+    position: absolute;
+    bottom: 100%;
+    display: block;
+    font-size: 12px;
+    font-family: 'Times New Roman';
+}
