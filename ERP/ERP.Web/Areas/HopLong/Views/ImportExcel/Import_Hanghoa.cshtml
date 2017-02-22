@@ -162,11 +162,11 @@
                     {
                        
                             <!-- Form Name -->
-                            <h1>Hàng Hóa</h1> 
+                            <h1>Hàng Hóa</h1>
                             <hr />
                             <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Thêm mới" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
@@ -192,11 +192,11 @@
                     {
 
                             <!-- Form Name -->
-                        <h1>Hàng Hóa</h1>
+                        <h1>Tồn kho hãng</h1>
                             <hr />
                             <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Thêm mới" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
@@ -228,7 +228,7 @@
                         <hr />
                             <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Thêm mới" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
@@ -256,11 +256,11 @@
                     {
 
                             <!-- Form Name -->
-                        <h1>Phòng Ban</h1>
+                        <h1>Nhân viên</h1>
                         <hr />
                         <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
                         <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Thêm mới" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
@@ -287,8 +287,8 @@
                         
 
                         <tr>
-                            <td colspan="2">
-                               <center><h1>Tồn kho</h1></center> 
+                            <td >
+                               <center><h1 style="text-align: right">Tồn kho</h1></center> 
                             </td>
                         </tr>
                         <tr>
@@ -301,7 +301,7 @@
                                         <hr />
                                         <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
                                         <br />
-                                        <input type="submit" class="btn btn-success" value="Thêm tồn kho mới" />
+                                        <input type="submit" class="btn btn-success" value="Thêm mới" />
                                 }
                             </td>
                             <td class="col-md-6">
@@ -311,7 +311,7 @@
                                         <hr />
                                         <input type="file" name="UpFile" class="file" value="Chọn file từ hệ thống để cập nhật dữ liệu">
                                         <br />
-                                        <input type="submit" class="btn btn-success" value="Cập nhật tồn kho" />
+                                        <input type="submit" class="btn btn-success" value="Cập nhật" />
                                 }
                             </td>
 
@@ -357,21 +357,21 @@
                             <td class="col-md-6">
                                 @using (Html.BeginForm("Import_Congty", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
-                                    <h1>Nhập khẩu mới</h1>
+                                    <h3>Nhập khẩu mới</h3>
                                     <hr />
                                         <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
                                         <br />
-                                        <input type="submit" class="btn btn-success" value="Thêm tồn kho mới" />
+                                        <input type="submit" class="btn btn-success" value="Thêm mới" />
                                 }
                             </td>
                             <td class="col-md-6">
                                 @using (Html.BeginForm("Update_Congty", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
-                                    <h1>Nhập khẩu cập nhật</h1>
+                                    <h3>Nhập khẩu cập nhật</h3>
                                     <hr />
                                         <input type="file" name="UpFile" class="file" value="Chọn file từ hệ thống để cập nhật dữ liệu">
                                         <br />
-                                        <input type="submit" class="btn btn-success" value="Cập nhật tồn kho" />
+                                        <input type="submit" class="btn btn-success" value="Cập nhật" />
                                 }
                             </td>
 
@@ -397,28 +397,93 @@
     </div>
     <!--END MODAL-->
 
-    <!-- Modal CÔNG TY-->
+    <!-- Modal KHO-->
     <div class="modal fade" id="kho" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h1>Kho</h1>
                     <br />
-
-                    
                                 @using (Html.BeginForm("Import_Kho", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
-                                    <h1>Nhập khẩu mới</h1>
+                                    <h1>Kho</h1>
                                     <hr />
                                     <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
                                     <br />
-                                        <input type="submit" class="btn btn-success" value="Thêm tồn kho mới" />
+                                        <input type="submit" class="btn btn-success" value="Thêm mới" />
                                 }
                     <br />
                                 <p style="color:blue">@ViewBag.Message</p>
                                 <p style="color:blue">@ViewBag.Information</p>
                                 <p style="color:red">@ViewBag.Error</p>
                         
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END MODAL-->
+
+    <!-- Modal HÃNG-->
+    <div class="modal fade" id="hangsp" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <br />
+
+
+                    @using (Html.BeginForm("Import_Hangsp", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                                    <h1>Hãng sản phẩm</h1>
+                                    <hr />
+                                    <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                                    <br />
+                                    <input type="submit" class="btn btn-success" value="Thêm mới" />
+                    }
+                    <br />
+                    <p style="color:blue">@ViewBag.Message</p>
+                    <p style="color:blue">@ViewBag.Information</p>
+                    <p style="color:red">@ViewBag.Error</p>
+
+
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END MODAL-->
+
+    <!-- Modal HỆ THỐNG TÀI KHOẢN-->
+    <div class="modal fade" id="taikhoanhachtoan" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <br />
+
+
+                    @using (Html.BeginForm("Import_HTtaikhoan", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <h1>Hệ thống tài khoản</h1>
+                        <hr />
+                                    <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                                    <br />
+                                    <input type="submit" class="btn btn-success" value="Thêm mới" />
+                    }
+                    <br />
+                    <p style="color:blue">@ViewBag.Message</p>
+                    <p style="color:blue">@ViewBag.Information</p>
+                    <p style="color:red">@ViewBag.Error</p>
+
 
 
 

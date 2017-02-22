@@ -205,12 +205,12 @@
             </thead>
             <tbody>
                 <tr ng-repeat="item in danhsachkho | orderBy : 'TEN_KHO'">
-                    <td>{{ item.MA_KHO }}</td>
-                    <td>{{item.TEN_KHO}}</td>
-                    <td>{{item.DIA_CHI_KHO}}</td>
-                    <td>{{item.MA_KHO_CHA}}</td>
-                    <td>{{item.TRUC_THUOC}}</td>
-                    <td>{{item.GHI_CHU}}</td>
+                    <td class="text-left">{{ item.MA_KHO }}</td>
+                    <td class="text-left">{{item.TEN_KHO}}</td>
+                    <td class="text-left">{{item.DIA_CHI_KHO}}</td>
+                    <td class="text-left">{{item.MA_KHO_CHA}}</td>
+                    <td class="text-left">{{item.TRUC_THUOC}}</td>
+                    <td class="text-left">{{item.GHI_CHU}}</td>
                     <td>
                         <button class="btn btn-success btn-circle" ng-click="edit(item)" type="button" data-toggle="modal" data-target="#myEdit"><i class="glyphicon glyphicon-edit"></i></button>
                     </td>
