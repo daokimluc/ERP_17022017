@@ -12,7 +12,7 @@ app.controller('nhanvienCtrl', nhanvienCtrl);
 function nhanvienCtrl($scope, $http) {
 
     $scope.get_listnhanvien = function (maphongban) {
-        $http.get("/api/Api_Nhanvienphongban/" + maphongban).then(function (response) {
+        $http.get("/api/Api_NhanvienphongbanHL/" + maphongban).then(function (response) {
             $scope.listnhanvien = response.data;
         });
     }
