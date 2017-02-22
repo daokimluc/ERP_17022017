@@ -310,10 +310,10 @@
                         <button class="expand" ng-if="item.expanded" ng-click="item.expanded = false"><i class="fa minus fa-minus-circle" aria-hidden="true"></i></button>
                         <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true" ng-><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
                     </td>
-                    <td>{{ item.MA_HANG_HT }}</td>
-                    <td>{{item.MA_HANG_NHAP}}</td>
-                    <td>{{item.TEN_HANG}}</td>
-                    <td>{{item.MA_NHOM_HANG}}</td>
+                    <td class="text-left">{{ item.MA_HANG_HT }}</td>
+                    <td class="text-left">{{item.MA_HANG_NHAP}}</td>
+                    <td class="text-left">{{item.TEN_HANG}}</td>
+                    <td class="text-left">{{item.MA_NHOM_HANG}}</td>
                     <td>{{item.DON_VI_TINH}}</td>
                     <td><input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET"><br></td>
 

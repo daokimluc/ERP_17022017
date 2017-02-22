@@ -31,4 +31,16 @@
     transition: all 200ms ease-in;
     transform: scale(1.5);
 }
+.sidebar-menu .treeview-menu > li > a{
+    font-size: 13px !important;
+}
+.sidebar-menu .treeview-menu>li>a>.fa {
+    width: 20px !important;
+}
+.fa-3x{
+    font-size: 3em !important;
+}
+.fa-3x{
+    font-size: 3em !important;
+}
 
