@@ -24,7 +24,8 @@
             </form>
         </div>
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm hàng mới</button>
-
+        <br />
+        <br />
         <!-- Modal Thêm mới -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
@@ -293,30 +294,30 @@
         <br />
         <!--end modal-->
 
-        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa" ng-controller="tonkhoCtrl">
+        <table id="example" class="table " cellspacing="0" name="tblhanghoa" ng-controller="tonkhoCtrl">
             <thead>
                 <tr>
                     <th></th>
-                    <th>Mã hàng HT</th>
-                    <th>Mã hàng nhập</th>
-                    <th>Tên hàng</th>
-                    <th>Mã nhóm hàng</th>
-                    <th>Đơn vị tính</th>
-                    <th>Model đặc biệt</th>
+                    <th ng-mouseover="mahangHT=true;" ng-mouseleave="mahangHT=false;">Mã hàng HT<span ng-show="mahangHT">{{ showmahangHT.title }}</span></th>
+                    <th ng-mouseover="ma_hang_nhap=true;" ng-mouseleave="ma_hang_nhap=false;">Mã hàng nhập<span ng-show="ma_hang_nhap">{{ showmahangnhap.title }}</span></th>
+                    <th ng-mouseover="ten_hang=true;" ng-mouseleave="ten_hang=false;">Tên hàng<span ng-show="ten_hang">{{ showtenhang.title }}</span></th>
+                    <th ng-mouseover="ma_nhom_hang=true;" ng-mouseleave="ma_nhom_hang=false;">Mã nhóm hàng<span ng-show="ma_nhom_hang">{{ showmanhomhang.title }}</span></th>
+                    <th ng-mouseover="don_vi_tinh=true;" ng-mouseleave="don_vi_tinh=false;">Đơn vị tính<span ng-show="don_vi_tinh">{{ showdonvitinh.title }}</span></th>
+                    <th ng-mouseover="model_dac_biet=true;" ng-mouseleave="model_dac_biet=false;">Model đặc biệt<span ng-show="model_dac_biet">{{ showmodeldacbiet.title }}</span></th>
                     <th>Sửa</th>
                     <th>Xóa</th>
                 </tr>
             </thead>
             <tbody>
-                <tr dir-paginate-start="item in filtered = (danhsachhanghoa | filter: {MA_HANG_HT:search_text}) | itemsPerPage:3 " class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
+                <tr dir-paginate-start="item in filtered = (danhsachhanghoa | filter: {MA_HANG_HT:search_text}) | itemsPerPage: 15 " class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
                     <td>
                         <button class="expand" ng-if="item.expanded" ng-click="item.expanded = false"><i class="fa minus fa-minus-circle" aria-hidden="true"></i></button>
                         <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true" ng-><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
                     </td>
-                    <td class="text-left">{{ item.MA_HANG_HT }}</td>
+                    <td class="text-left">{{item.MA_HANG_HT}}</td>
                     <td class="text-left">{{item.MA_HANG_NHAP}}</td>
                     <td class="text-left">{{item.TEN_HANG}}</td>
-                    <td>{{item.MA_NHOM_HANG}}</td>
+                    <td class="text-left">{{item.MA_NHOM_HANG}}</td>
                     <td>{{item.DON_VI_TINH | uppercase}}</td>
                     <td><input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET"><br></td>
 
@@ -422,6 +423,12 @@
                                                 <td>{{tonkho.SL_TON}}</td>
                                             </tr>
                                         </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td><strong style="font-size: 20px">Tổng tồn:</strong></td>
+                                                <td>{{getTotal('SL_TON')}}</td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

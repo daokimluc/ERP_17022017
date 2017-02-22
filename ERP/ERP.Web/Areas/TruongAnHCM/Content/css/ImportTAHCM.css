@@ -32,6 +32,9 @@
     transform: scale(1.5);
 }
 
-.sidebar-menu .treeview-menu>li>a>.fa{
-    width: 10px;
+.sidebar-menu .treeview-menu > li > a{
+    font-size: 13px !important;
+}
+.sidebar-menu .treeview-menu>li>a>.fa {
+    width: 20px !important;
 }

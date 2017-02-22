@@ -12,30 +12,43 @@ using ERP.Web.Models.Database;
 
 namespace ERP.Web.Areas.HopLong.Api.Kho
 {
-    public class Api_TonkhoHLController : ApiController
+    public class Api_TonKhoHLController : ApiController
     {
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
 
-        // GET: api/Api_TonkhoHL
-        public IQueryable<DM_HANG_TON_KHO> GetDM_HANG_TON_KHO()
+        // GET: api/Api_TonKhoHL
+        public List<DM_HANG_TON_KHO> GetDM_HANG_TON_KHO(string id)
         {
-            return db.DM_HANG_TON_KHO;
-        }
-
-        // GET: api/Api_TonkhoHL/5
-        [ResponseType(typeof(DM_HANG_TON_KHO))]
-        public IHttpActionResult GetDM_HANG_TON_KHO(string id)
-        {
-            DM_HANG_TON_KHO dM_HANG_TON_KHO = db.DM_HANG_TON_KHO.Find(id);
-            if (dM_HANG_TON_KHO == null)
+            List<DM_HANG_TON_KHO> listtonkho = new List<DM_HANG_TON_KHO>();
+           var dskho = db.DM_KHO.Where(x => x.TRUC_THUOC == "HOP_LONG").ToList();
+            foreach (var item in dskho)
             {
-                return NotFound();
+                var vData = db.DM_HANG_TON_KHO.Where(x => x.MA_HANG_HT == id && x.MA_KHO == item.MA_KHO);
+                if(vData.Count() >0)
+                {
+                    var data = vData.FirstOrDefault();
+                    DM_HANG_TON_KHO tonkho = new DM_HANG_TON_KHO();
+                    tonkho.MA_HANG_HT = data.MA_HANG_HT;
+                    tonkho.MA_KHO = data.MA_KHO;
+                    tonkho.SL_TON = data.SL_TON;
+                    listtonkho.Add(tonkho);
+                }
+                
             }
 
-            return Ok(dM_HANG_TON_KHO);
+
+            
+            var result = listtonkho.ToList().Select(x => new DM_HANG_TON_KHO()
+            {
+                MA_HANG_HT = x.MA_HANG_HT,
+                MA_KHO = x.MA_KHO,
+                SL_TON = x.SL_TON
+            }).ToList();
+            return result;
         }
 
-        // PUT: api/Api_TonkhoHL/5
+
+        // PUT: api/Api_TonKhoHL/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutDM_HANG_TON_KHO(string id, DM_HANG_TON_KHO dM_HANG_TON_KHO)
         {
@@ -70,7 +83,7 @@ namespace ERP.Web.Areas.HopLong.Api.Kho
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Api_TonkhoHL
+        // POST: api/Api_TonKhoHL
         [ResponseType(typeof(DM_HANG_TON_KHO))]
         public IHttpActionResult PostDM_HANG_TON_KHO(DM_HANG_TON_KHO dM_HANG_TON_KHO)
         {
@@ -100,7 +113,7 @@ namespace ERP.Web.Areas.HopLong.Api.Kho
             return CreatedAtRoute("DefaultApi", new { id = dM_HANG_TON_KHO.MA_HANG_HT }, dM_HANG_TON_KHO);
         }
 
-        // DELETE: api/Api_TonkhoHL/5
+        // DELETE: api/Api_TonKhoHL/5
         [ResponseType(typeof(DM_HANG_TON_KHO))]
         public IHttpActionResult DeleteDM_HANG_TON_KHO(string id)
         {

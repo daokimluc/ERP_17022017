@@ -11,6 +11,10 @@
     font-family: Lora;
     color: #777777;
 }
+.text-left{
+    text-align: left !important;
+    padding-left: 10px !important;
+}
 #example > thead > tr > th {
     border-bottom: 1px solid #ddd !important;
 }
@@ -151,9 +155,7 @@ legend{
     margin-top: 10px;
     text-align: center;
 }
-.table>tbody>tr>td {
-    padding: 0px !important;
-}
+
 
 .btn-success{
     background: none !important;
@@ -206,4 +208,17 @@ legend{
 .table-fill th:last-child {
   border-top-right-radius:3px;
   border-right:none;
+}
+
+#example tr th{
+    position: relative;
+}
+
+
+#example tr th span {
+    position: absolute;
+    bottom: 100%;
+    display: block;
+    font-size: 12px;
+    font-family: 'Times New Roman';
 }

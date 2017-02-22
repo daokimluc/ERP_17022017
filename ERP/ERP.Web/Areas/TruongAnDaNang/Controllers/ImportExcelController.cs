@@ -196,15 +196,15 @@ namespace ERP.Web.Areas.TruongAnDaNang.Controllers
                             var noOfRow = workSheet.Dimension.End.Row;
                             for (int rowIterator = 2; rowIterator <= noOfRow; rowIterator++)
                             {
-                                DM_KHO HH = new DM_KHO();
-                                HH.MA_KHO = workSheet.Cells[rowIterator, 1].Value.ToString();
-                                HH.TEN_KHO = workSheet.Cells[rowIterator, 2].Value.ToString();
-                                HH.DIA_CHI_KHO = workSheet.Cells[rowIterator, 2].Value.ToString();
-                                HH.MA_KHO_CHA = workSheet.Cells[rowIterator, 2].Value.ToString();
-                                HH.TRUC_THUOC = workSheet.Cells[rowIterator, 2].Value.ToString();
-                                HH.GHI_CHU = workSheet.Cells[rowIterator, 2].Value.ToString();
+                                DM_KHO kho = new DM_KHO();
+                                kho.MA_KHO = workSheet.Cells[rowIterator, 1].Value.ToString();
+                                kho.TEN_KHO = workSheet.Cells[rowIterator, 2].Value.ToString();
+                                kho.DIA_CHI_KHO = workSheet.Cells[rowIterator, 3].Value.ToString();
+                                kho.MA_KHO_CHA = workSheet.Cells[rowIterator, 4].Value.ToString();
+                                kho.TRUC_THUOC = workSheet.Cells[rowIterator, 5].Value.ToString();
+                                kho.GHI_CHU = workSheet.Cells[rowIterator, 6].Value.ToString();
 
-                                db.DM_KHO.Add(HH);
+                                db.DM_KHO.Add(kho);
 
                                 db.SaveChanges();
                                 so_dong_thanh_cong++;
