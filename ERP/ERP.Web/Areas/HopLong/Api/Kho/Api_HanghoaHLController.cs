@@ -17,7 +17,7 @@ namespace ERP.Web.Areas.HopLong.Api.Kho
         private HOPLONG_DATABASEEntities db = new HOPLONG_DATABASEEntities();
 
         // GET: api/Api_HanghoaHL
-        public List<DM_HANG_HOA> GetDM_HangHoa()
+        public List<DM_HANG_HOA> GetAllDM_HangHoa()
         {
             var vData = db.DM_HANG_HOA;
             var result = vData.ToList().Select(x => new DM_HANG_HOA()
@@ -39,6 +39,7 @@ namespace ERP.Web.Areas.HopLong.Api.Kho
             return result;
         }
 
+       
         // GET: api/Api_HanghoaHL/5
         [ResponseType(typeof(DM_HANG_HOA))]
         public IHttpActionResult GetDM_HANG_HOA(string id)
