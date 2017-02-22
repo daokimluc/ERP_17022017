@@ -79,5 +79,9 @@ namespace ERP.Web.Controllers
             Session["LOAI_USER"] = null;
             return RedirectToAction("Login");
         }
+        public ActionResult NotificationAuthorize()
+        {
+            return View();
+        }
     }
 }

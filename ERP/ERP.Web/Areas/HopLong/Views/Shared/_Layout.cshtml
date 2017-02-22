@@ -30,24 +30,25 @@
     <link href="~/Content/download/dist/css/AdminLTE.min.css" rel="stylesheet" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link href="~/Content/download/dist/css/skins/_all-skins.min.css" rel="stylesheet" />
 
     <link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
+    <link href="~/Content/self-writing/Layout-CSS.css" rel="stylesheet" />
+    <link href="~/Areas/HopLong/Content/css/LayoutHL.css" rel="stylesheet" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
-            <a href="/HopLong/Home/Index" class="logo">
+            <a href="/HopLong/HopLongHome/Index" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">Hoplongtech</span>
+                <span class="logo-mini" style="color: white"><img src="~/Content/self-writing/Images/Paomedia-Small-N-Flat-Shop.ico" width="30" height="40" /></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">HOPLONGTECH</span>
+                <span class="logo-lg" style="color: white;"><img src="~/Content/self-writing/Images/Paomedia-Small-N-Flat-Shop.ico" width="30" height="40" style="margin-right: 10px" />TAHCM</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
+            <nav class="navbar navbar-static-top" style="background: deepskyblue">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" style="color: white;">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
                 <!-- Menu bar-->
@@ -110,60 +111,58 @@
 
 
 
-                        <div class="navbar-custom-menu pull-right">
-                            <ul class="nav navbar-nav ">
-                                <!-- Messages: style can be found in dropdown.less-->
-                                <li class="dropdown messages-menu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-envelope-o"></i>
-                                        <!--<span class="label label-success">4</span>-->
-                                    </a>
+                <div class="navbar-custom-menu pull-right">
+                    <ul class="nav navbar-nav ">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o"></i>
+                                <!--<span class="label label-success">4</span>-->
+                            </a>
 
-                                </li>
-                                <!-- Notifications: style can be found in dropdown.less -->
-                                <li class="dropdown notifications-menu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-bell-o"></i>
-                                        <!--<span class="label label-warning">10</span>-->
-                                    </a>
+                        </li>
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <!--<span class="label label-warning">10</span>-->
+                            </a>
 
-                                </li>
-                                <!-- Tasks: style can be found in dropdown.less -->
-                                <li class="dropdown tasks-menu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="fa fa-flag-o"></i>
-                                        <!--<span class="label label-danger">9</span>-->
-                                    </a>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+                        <li class="dropdown tasks-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flag-o"></i>
+                                <!--<span class="label label-danger">9</span>-->
+                            </a>
 
-                                </li>
-                                <!-- User Account: style can be found in dropdown.less -->
-                                <li class="dropdown user user-menu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="~/Content/self-writing/Images/@Session["AVATAR"]" class="user-image" alt="User Image">
-                                        <span class="hidden-xs">@Session["HO_VA_TEN"]</span>
-                                    </a>
+                        </li>
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="~/Content/self-writing/Images/@Session["AVATAR"]" class="user-image" alt="User Image">
+                                <span class="hidden-xs">@Session["HO_VA_TEN"]</span>
+                            </a>
 
-                                </li>
-                                <!-- Control Sidebar Toggle Button -->
-                                <li><a href="/Home/Logout"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a></li>
-                            </ul>
-                        </div>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+                        <li><a href="/Home/Logout"><i class="fa fa-sign-out pull-right"></i> Đăng xuất</a></li>
+                    </ul>
+                </div>
             </nav>
         </header>
         <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
+        <aside class="main-sidebar" style="background: #3C8DBC;color: white;">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
 
                 <!-- search form -->
                 <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                            <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+                    <div class="input-group" style="width: 100%">
+                        <input id="searchtextbox" type="text" name="q" class="form-control" placeholder="Search...">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat" style="display:inline-block;float:left;">
+                            <i class="fa fa-search" id="searchtext"></i>
+                        </button>
                     </div>
                 </form>
                 <!-- /.search form -->
@@ -263,8 +262,8 @@
             <!-- /.sidebar -->
         </aside>
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-          @RenderBody()
+        <div class="content-wrapper" style="background: none !important">
+            @RenderBody()
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
