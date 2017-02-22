@@ -15,7 +15,7 @@ namespace ERP.Web.Controllers
         {
             ViewBag.Title = "Home Page";
 
-            return View();
+            return RedirectToAction("Index", "HangHoaDaiLy");
         }
         public ActionResult Login()
         {

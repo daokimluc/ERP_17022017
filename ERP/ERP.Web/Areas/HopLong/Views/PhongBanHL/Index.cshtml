@@ -189,11 +189,11 @@
                         <button class="expand" ng-if="item.expanded" ng-click="item.expanded = false"><i class="fa minus fa-minus-circle" aria-hidden="true"></i></button>
                         <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true ; get_listnhanvien(item.MA_PHONG_BAN)" ng-><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
                     </td>
-                    <td>{{item.MA_PHONG_BAN }}</td>
-                    <td>{{item.TEN_PHONG_BAN}}</td>
-                    <td>{{item.SDT}}</td>
+                    <td class="text-left">{{item.MA_PHONG_BAN }}</td>
+                    <td class="text-left">{{item.TEN_PHONG_BAN}}</td>
+                    <td class="text-left">{{item.SDT}}</td>
                     <td>{{item.MA_CONG_TY}}</td>
-                    <td>{{item.GHI_CHU}}</td>
+                    <td class="text-left">{{item.GHI_CHU}}</td>
                     <td>
                         <button class="btn btn-success btn-circle" ng-click="edit(item)" type="button" data-toggle="modal" data-target="#myEdit"><i class="glyphicon glyphicon-edit"></i></button>
                     </td>
