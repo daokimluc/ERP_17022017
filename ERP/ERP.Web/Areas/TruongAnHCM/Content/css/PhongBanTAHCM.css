@@ -154,3 +154,7 @@ legend{
     margin-top: 10px;
     text-align: center;
 }
+
+#imagenv td,tr{
+    border: 0px !important;
+}

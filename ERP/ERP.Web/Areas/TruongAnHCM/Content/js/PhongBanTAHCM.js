@@ -16,10 +16,21 @@ function nhanvienCtrl($scope, $http) {
             $scope.listnhanvien = response.data;
         });
     }
+    $scope.pass = function (nhanvien) {
+        $scope.nhanvien = nhanvien;
+    }
 }
 
 
 function phongbanCtrl($scope, $http) {
+
+    $scope.get_nguoidung = function () {
+        $http.get("/api/Api_NguoidungTAHCM").then(function (response) {
+            $scope.danhsachnguoidung = response.data;
+        });
+    }
+
+    $scope.get_nguoidung();
 
     $scope.get_phongban = function () {
         $http.get("/api/Api_PhongbanTAHCM")
