@@ -12,15 +12,15 @@
 <script src="~/Content/download/angularjs/dirPagination.js"></script>
 <script src="~/Areas/TruongAnHCM/Content/js/HangHoaTAHCM.js"></script>
 <link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
-<div ng-app="hanghoaApp" ng-controller="hangHoaCtrl" >
-    <div class="content">
+<div ng-app="hanghoaApp" ng-controller="hangHoaCtrl">
+    <div class="content" ng-controller="tonkhoCtrl">
 
 
         <div id="quick-access">
             <form class="form-inline quick-search-form" role="form" action="#">
                 <div class="form-group" style="width: 100%">
                     <input type="text" style="width: 60%" class="form-control" placeholder="Nhập mã hàng cần tìm kiếm vào đây" ng-model="search_text">
-                </div>         
+                </div>
             </form>
         </div>
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm hàng mới</button>
@@ -293,60 +293,22 @@
         </div>
         <br />
         <!--end modal-->
+        <div class="modal fade" id="chitiethanghoa" role="dialog" >
+            <div class="modal-dialog modal-lg" style="width:80%">
+                <div class="modal-content" style="min-height: 500px;">
 
-        <table id="example" class="table " cellspacing="0" name="tblhanghoa" ng-controller="tonkhoCtrl">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th ng-mouseover="mahangHT=true;" ng-mouseleave="mahangHT=false;">Mã hàng HT<span ng-show="mahangHT">{{ showmahangHT.title }}</span></th>
-                    <th ng-mouseover="ma_hang_nhap=true;" ng-mouseleave="ma_hang_nhap=false;">Mã hàng nhập<span ng-show="ma_hang_nhap">{{ showmahangnhap.title }}</span></th>
-                    <th ng-mouseover="ten_hang=true;" ng-mouseleave="ten_hang=false;">Tên hàng<span ng-show="ten_hang">{{ showtenhang.title }}</span></th>
-                    <th ng-mouseover="ma_nhom_hang=true;" ng-mouseleave="ma_nhom_hang=false;">Mã nhóm hàng<span ng-show="ma_nhom_hang">{{ showmanhomhang.title }}</span></th>
-                    <th ng-mouseover="don_vi_tinh=true;" ng-mouseleave="don_vi_tinh=false;">Đơn vị tính<span ng-show="don_vi_tinh">{{ showdonvitinh.title }}</span></th>
-                    <th ng-mouseover="model_dac_biet=true;" ng-mouseleave="model_dac_biet=false;">Model đặc biệt<span ng-show="model_dac_biet">{{ showmodeldacbiet.title }}</span></th>
-                    <th>Sửa</th>
-                    <th>Xóa</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr dir-paginate-start="item in filtered = (danhsachhanghoa | filter: {MA_HANG_HT:search_text}) | itemsPerPage: 15 " class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
-                    <td>
-                        <button class="expand" ng-if="item.expanded" ng-click="item.expanded = false"><i class="fa minus fa-minus-circle" aria-hidden="true"></i></button>
-                        <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true" ng-><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
-                    </td>
-                    <td class="text-left">{{item.MA_HANG_HT}}</td>
-                    <td class="text-left">{{item.MA_HANG_NHAP}}</td>
-                    <td class="text-left">{{item.TEN_HANG}}</td>
-                    <td class="text-left">{{item.MA_NHOM_HANG}}</td>
-                    <td>{{item.DON_VI_TINH | uppercase}}</td>
-                    <td><input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET"><br></td>
-
-                    <td>
-                        <button class="btn btn-success btn-circle" ng-click="edit(item)" type="button" data-toggle="modal" data-target="#myEdit"><i class="glyphicon glyphicon-edit"></i></button>
-                    </td>
-                    <td>
-                        <button class="btn btn-warning btn-circle" ng-click="edit(item)" type="button" data-toggle="modal" data-target="#delete_item"><i class="glyphicon glyphicon-remove"></i></button>
-                        <!--<button class="btn btn-warning btn-circle" ng-click="delete(item.MA_KHO)"><i class="glyphicon glyphicon-remove"></i></button>-->
-                    </td>
-
-                </tr>
-                <!--Detail row-->
-                <tr ng-if="item.expanded" dir-paginate-end="">
-
-                    <td colspan="9">
-
+                    <div class="modal-body">
                         <div class="content expandrow">
 
                             <ul class="nav nav-tabs">
                                 <li class="active"><a data-toggle="tab" href="#chitiet">Chi tiết hàng hóa</a></li>
-                                <li><a data-toggle="tab" href="#tonkho" ng-click="get_tonkho(item.MA_HANG_HT)">Tồn kho</a></li>
                             </ul>
 
                             <div class="tab-content">
                                 <!--Tab chi tiết hàng hóa-->
                                 <div id="chitiet" class="tab-pane fade in active">
-                                    <div class="col-md-2">
-                                        <img src="~/Content/download/dist/img/avatar.png" height="150" width="150" />
+                                    <div class="col-md-1">
+                                        <img src="~/Content/download/dist/img/avatar.png" style="width: 100%;height: 120px;" />
                                     </div>
                                     <div class="col-md-3">
                                         <table class="table noborder">
@@ -370,7 +332,6 @@
                                                 <td>Seri</td>
                                                 <td>{{item.SERI}}</td>
                                             </tr>
-
                                         </table>
                                     </div>
                                     <div class="col-md-3">
@@ -387,11 +348,6 @@
                                                 <td>Chi phí</td>
                                                 <td>{{item.TK_CHI_PHI}}</td>
                                             </tr>
-
-                                        </table>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <table class="table noborder">
                                             <tr>
                                                 <td>Đơn vị tính</td>
                                                 <td>{{item.DON_VI_TINH}}</td>
@@ -404,36 +360,73 @@
                                                 <td>Ghi chú</td>
                                                 <td>{{item.GHI_CHU}}</td>
                                             </tr>
-
+                                        </table>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <table class="table noborder table-fill">
+                                            <thead>
+                                                <tr>
+                                                    <th>Mã kho</th>
+                                                    <th>Số lượng tồn</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="tonkho in danhsachtonkho">
+                                                    <td>{{tonkho.MA_KHO}}</td>
+                                                    <td>{{tonkho.SL_TON}}</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td><strong style="font-size: 20px">Tổng tồn:</strong></td>
+                                                    <td>{{getTotal('SL_TON')}}</td>
+                                                </tr>
+                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
-
-                                <div id="tonkho" class="tab-pane fade">
-                                    <table class="table table-fill">
-                                        <thead>
-                                            <tr>
-                                                <th>Mã kho</th>
-                                                <th>Số lượng tồn</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="tonkho in danhsachtonkho">
-                                                <td>{{tonkho.MA_KHO}}</td>
-                                                <td>{{tonkho.SL_TON}}</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td><strong style="font-size: 20px">Tổng tồn:</strong></td>
-                                                <td>{{getTotal('SL_TON')}}</td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+
+        <table id="example" class="table " cellspacing="0" name="tblhanghoa" >
+            <thead>
+                <tr>
+                    <th ng-mouseover="mahangHT=true;" ng-mouseleave="mahangHT=false;">Mã hàng HT<span ng-show="mahangHT">{{ showmahangHT.title }}</span></th>
+                    <th ng-mouseover="ma_hang_nhap=true;" ng-mouseleave="ma_hang_nhap=false;">Mã hàng nhập<span ng-show="ma_hang_nhap">{{ showmahangnhap.title }}</span></th>
+                    <th ng-mouseover="ten_hang=true;" ng-mouseleave="ten_hang=false;">Tên hàng<span ng-show="ten_hang">{{ showtenhang.title }}</span></th>
+                    <th ng-mouseover="ma_nhom_hang=true;" ng-mouseleave="ma_nhom_hang=false;">Mã nhóm hàng<span ng-show="ma_nhom_hang">{{ showmanhomhang.title }}</span></th>
+                    <th ng-mouseover="don_vi_tinh=true;" ng-mouseleave="don_vi_tinh=false;">Đơn vị tính<span ng-show="don_vi_tinh">{{ showdonvitinh.title }}</span></th>
+                    <th ng-mouseover="model_dac_biet=true;" ng-mouseleave="model_dac_biet=false;">Model đặc biệt<span ng-show="model_dac_biet">{{ showmodeldacbiet.title }}</span></th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate-start="item in filtered = (danhsachhanghoa | filter: {MA_HANG_HT:search_text}) | itemsPerPage: 15 " class="hover" ng-click="edit(item);get_tonkho(item.MA_HANG_HT)" ng-class-odd="'odd'" ng-class-even="'even'" data-toggle="modal" data-target="#chitiethanghoa">
+                    <td class="text-left">{{item.MA_HANG_HT}}</td>
+                    <td class="text-left">{{item.MA_HANG_NHAP}}</td>
+                    <td class="text-left">{{item.TEN_HANG}}</td>
+                    <td class="text-left">{{item.MA_NHOM_HANG}}</td>
+                    <td>{{item.DON_VI_TINH | uppercase}}</td>
+                    <td><input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET"><br></td>
+
+                    <td>
+                        <button class="btn btn-success btn-circle" ng-click="edit(item)" type="button" data-toggle="modal" data-target="#myEdit"><i class="glyphicon glyphicon-edit"></i></button>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning btn-circle" ng-click="edit(item)" type="button" data-toggle="modal" data-target="#delete_item"><i class="glyphicon glyphicon-remove"></i></button>
+                        <!--<button class="btn btn-warning btn-circle" ng-click="delete(item.MA_KHO)"><i class="glyphicon glyphicon-remove"></i></button>-->
+                    </td>
+                </tr>
+                <!--Detail row-->
+                <tr ng-if="item.expanded" dir-paginate-end="">
+                    <td>
+                        
                     </td>
                 </tr>
             </tbody>
@@ -447,8 +440,10 @@
                     </td>
                 </tr>
             </tfoot>
-        </table>
+        </table>       
     </div>
+    
 </div>
 <script src="~/Content/download/angularjs/angular-ui-router.js"></script>
+
 

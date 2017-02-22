@@ -22,7 +22,7 @@ function nhanvienCtrl($scope, $http) {
 
 //function hang hoa
 function userCtrl($scope, $http) {
-
+    
     $scope.get_user = function () {
         $http.get("/api/Api_NguoidungTAHCM")
                 .then(function (response) {
