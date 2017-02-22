@@ -12,6 +12,7 @@ using System.Xml;
 
 namespace ERP.Web.Areas.TruongAnDaNang.Controllers
 {
+    [AuthorizeBussiness]
     public class ImportExcelController : Controller
     {
         XuLyNgayThang xulydate = new XuLyNgayThang();
