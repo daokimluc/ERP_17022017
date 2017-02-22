@@ -15,7 +15,7 @@ namespace ERP.Web.Areas.TruongAnHCM.Api.Kho
         public List<DM_HANG_TON_KHO> Get(string id)
         {
             List<DM_HANG_TON_KHO> listtonkho = new List<DM_HANG_TON_KHO>();
-            var dskho = db.DM_KHO.Where(x => x.TRUC_THUOC == "TADAN").ToList();
+            var dskho = db.DM_KHO.Where(x => (x.TRUC_THUOC == "TADAN" || x.TRUC_THUOC == "HOP_LONG")).ToList();
             foreach (var item in dskho)
             {
                 var vData = db.DM_HANG_TON_KHO.Where(x => x.MA_HANG_HT == id && x.MA_KHO == item.MA_KHO);
@@ -29,6 +29,16 @@ namespace ERP.Web.Areas.TruongAnHCM.Api.Kho
                     listtonkho.Add(tonkho);
                 }
 
+            }
+            var tonhang = db.DM_TONKHO_HANG.Where(x => x.MA_HANG_HT == id);
+            if (tonhang.Count() > 0)
+            {
+                var data1 = tonhang.FirstOrDefault();
+                DM_HANG_TON_KHO tonkhohang = new DM_HANG_TON_KHO();
+                tonkhohang.MA_HANG_HT = data1.MA_HANG_HT;
+                tonkhohang.MA_KHO = "TỒN TẠI HÃNG";
+                tonkhohang.SL_TON = data1.SL_TON;
+                listtonkho.Add(tonkhohang);
             }
 
 
