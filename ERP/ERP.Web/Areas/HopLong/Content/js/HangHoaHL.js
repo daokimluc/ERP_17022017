@@ -14,6 +14,13 @@ function tonkhoCtrl($scope, $http) {
             $scope.danhsachtonkho = response.data
         });
     }
+    $scope.getTotal = function (type) {
+        var total = 0;
+        angular.forEach($scope.danhsachtonkho, function (el) {
+            total += el[type];
+        });
+        return total;
+    };
 }
 
 
