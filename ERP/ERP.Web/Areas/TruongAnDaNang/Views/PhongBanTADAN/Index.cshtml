@@ -14,7 +14,7 @@
 <link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
 
 <div ng-app="phongbanApp" ng-controller="phongbanCtrl">
-    <div class="content">
+    <div class="content"  ng-controller="nhanvienCtrl">
 
         <div id="quick-access">
             <form class="form-inline quick-search-form" role="form" action="#">
@@ -169,7 +169,40 @@
         <br />
         <!--end modal-->
 
-        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa" ng-controller="nhanvienCtrl">
+        <div class="modal fade" id="myChiTiet" role="dialog">
+            <div class="modal-dialog modal-sm" style="width: 50%">
+                <div class="modal-content" style="border-radius: 15px">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title" id="myModalLabel">Thông tin chi tiết</h4>
+                    </div>
+                    <div class="modal-body">
+                        <center>
+                            <img ng-src="~/Content/self-writing/Images/{{nhanvien.AVATAR}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                            <h3 class="media-heading" style="margin-bottom: 30px;">{{nhanvien.HO_VA_TEN}}</h3>
+                        </center>
+                        <div class="col-md-6 col-md-offset-1" style="text-align: left">
+                            <p>Số điện thoại : {{nhanvien.SDT}}</p>
+                            <p>Email: {{nhanvien.EMAIL}}</p>
+                            <p>Trình độ học vấn : {{nhanvien.TRINH_DO_HOC_VAN}}</p>
+                        </div>
+                        <div class="col-md-5" style="text-align: left">
+                            <p>Giới tính : {{nhanvien.GIOI_TINH}}</p>
+                            <p>Ngày sinh : {{nhanvien.NGAY_SINH | date:'dd/MM/yyyy' }}</p>
+                            <p>Quê quán : {{nhanvien.QUE_QUAN}}</p>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="modal-footer" style="margin-top: 80px;">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="float: left">Tôi đã xem đủ thông tin về {{nhanvien.HO_VA_TEN}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <table id="example" class="table table-striped table-bordered" cellspacing="0" name="tblhanghoa">
             <thead>
                 <tr>
                     <th></th>
@@ -192,7 +225,7 @@
                     <td class="text-left">{{item.MA_PHONG_BAN }}</td>
                     <td class="text-left">{{item.TEN_PHONG_BAN}}</td>
                     <td class="text-left">{{item.SDT}}</td>
-                    <td class="text-left">{{item.MA_CONG_TY}}</td>
+                    <td>{{item.MA_CONG_TY}}</td>
                     <td class="text-left">{{item.GHI_CHU}}</td>
                     <td>
                         <button class="btn btn-success btn-circle" ng-click="edit(item)" type="button" data-toggle="modal" data-target="#myEdit"><i class="glyphicon glyphicon-edit"></i></button>
@@ -218,29 +251,11 @@
                             <div class="tab-content">
                                 <div id="chitiet" class="tab-pane fade in active">
                                     <div class="content">
-                                        <table class="table table-user-information table-striped table-bordered" cellspacing="0">
+                                        <table id="imagenv" cellspacing="0" border="0">
                                             <thead>
-                                                <tr>
-                                                    <th>Họ và tên</th>
-                                                    <th>Email</th>
-                                                    <th>SDT</th>
-                                                    <th>Giới tính</th>
-                                                    <th>Ngày sinh</th>
-                                                    <th>Quê quán</th>
-                                                    <th>Trình độ học vấn</th>
+                                                <tr ng-repeat="nhanvien in listnhanvien" class="col-md-3" style="margin-bottom: 20px;">
+                                                    <td data-toggle="modal" data-target="#myChiTiet" ng-click="pass(nhanvien)"><img ng-src="~/Content/self-writing/Images/{{nhanvien.AVATAR}}" style="width: 50%;height: 50%" /></td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr ng-repeat="nhanvien in listnhanvien">
-                                                    <td>{{nhanvien.HO_VA_TEN}}</td>
-                                                    <td>{{nhanvien.EMAIL}}</td>
-                                                    <td>{{nhanvien.SDT}}</td>
-                                                    <td>{{nhanvien.GIOI_TINH}}</td>
-                                                    <td>{{nhanvien.NGAY_SINH}}</td>
-                                                    <td>{{nhanvien.QUE_QUAN}}</td>
-                                                    <td>{{nhanvien.TRINH_DO_HOC_VAN}}</td>
-                                                </tr>
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

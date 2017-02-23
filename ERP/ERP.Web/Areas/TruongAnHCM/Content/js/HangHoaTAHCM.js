@@ -23,6 +23,7 @@ function tonkhoCtrl($scope, $http) {
         });
         return total;
     };
+    
 }
 
 //function hang hoa
@@ -37,6 +38,11 @@ function hangHoaCtrl($scope, $http) {
     }
     $scope.get_nhomhang();
     //-------------------------------------------------------------
+
+    $scope.passing = function (item) {
+        $scope.item = item;
+    }
+
 
     // lấy dữ liệu từ server(hàng hóa)
     $scope.get_hanghoa = function () {
@@ -81,6 +87,7 @@ function hangHoaCtrl($scope, $http) {
     // Update data
     $scope.edit = function (item) {
         $scope.item = item;
+
     }
 
     $scope.save = function (mahanght) {

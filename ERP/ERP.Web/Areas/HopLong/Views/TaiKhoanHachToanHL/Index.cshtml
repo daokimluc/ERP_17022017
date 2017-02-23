@@ -19,13 +19,13 @@
         <div id="quick-access">
             <form class="form-inline quick-search-form" role="form" action="#">
                 <div class="form-group" style="width: 100%">
-                    <input type="text" style="width: 60%" class="form-control" placeholder="Nhập số tài khoản cần tìm kiếm vào đây" ng-model="search_text">
+                    <input type="text" style="width: 60%" class="form-control" placeholder="Type Account You Want To Search Here" ng-model="search_text">
                 </div>
             </form>
         </div>
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Thêm số tài khoản</button>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Add New Account</button>
 
-        <!-- Modal Thêm mới -->
+        <!-- Modal Add New -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -34,55 +34,55 @@
                         <form class="form-horizontal" name="myForm" novalidate>
                             <fieldset>
                                 <!-- Form Name -->
-                                <legend>Thêm số tài khoản</legend>
+                                <legend>Add New Account</legend>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Số tài khoản: </label>
+                                    <label class="col-md-4 control-label" for="name">Account: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Số tài khoản" class="form-control input-md" ng-model="stk">
+                                        <input type="text" placeholder="Account" class="form-control input-md" ng-model="stk">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Tên tài khoản: </label>
+                                    <label class="col-md-4 control-label" for="name">Account Name: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Tên tài khoản" class="form-control input-md" ng-model="tentaikhoan">
+                                        <input type="text" placeholder="Account Name" class="form-control input-md" ng-model="tentaikhoan">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Tính chất: </label>
+                                    <label class="col-md-4 control-label" for="name">Featured: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Tính chất" class="form-control input-md" ng-model="tinhchat">
+                                        <input type="text" placeholder="Featured" class="form-control input-md" ng-model="tinhchat">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Tên tiếng anh: </label>
+                                    <label class="col-md-4 control-label" for="name">English Name: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Tên tiếng anh" class="form-control input-md" ng-model="tentienganh">
+                                        <input type="text" placeholder="English Name" class="form-control input-md" ng-model="tentienganh">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Tài khoản cấp cha: </label>
+                                    <label class="col-md-4 control-label" for="name">Account's Parent ID: </label>
                                     <div class="col-md-4">
                                         <input type="text" placeholder="TK cấp cha" class="form-control input-md" ng-model="tk_capcha">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Diễn giải: </label>
+                                    <label class="col-md-4 control-label" for="name">Description: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Diễn giải" class="form-control input-md" ng-model="diengiai">
+                                        <input type="text" placeholder="Description" class="form-control input-md" ng-model="diengiai">
                                     </div>
                                 </div>
                          <!-- Button (Double) -->
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="anmelden"></label>
                                     <div class="col-md-8 addnew">
-                                        <button id="addnew" name="addnew" class="btn btn-success" ng-click="add()" data-dismiss="modal">Thêm mới</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button id="exit" name="exit" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                                        <button id="addnew" name="addnew" class="btn btn-success" ng-click="add()" data-dismiss="modal">Add New</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button id="exit" name="exit" class="btn btn-danger" data-dismiss="modal">Exit</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -101,62 +101,56 @@
                         <form class="form-horizontal" name="myForm" novalidate>
                             <fieldset>
                                 <!-- Form Name -->
-                                <legend>Cập nhật kho</legend>
+                                <legend>Update Account</legend>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Số tài khoản: </label>
+                                    <label class="col-md-4 control-label" for="name">Account: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Số tài khoản" class="form-control input-md" ng-model="item.SO_TK" ng-disabled="true">
+                                        <input type="text" placeholder="Account" class="form-control input-md" ng-model="item.SO_TK" ng-disabled="true">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Tên tài khoản: </label>
+                                    <label class="col-md-4 control-label" for="name">Account Name: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Tên tài khoản" class="form-control input-md" ng-model="item.TEN_TK">
+                                        <input type="text" placeholder="Account Name" class="form-control input-md" ng-model="item.TEN_TK">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Tính chất: </label>
+                                    <label class="col-md-4 control-label" for="name">Featured: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Tính chất" class="form-control input-md" ng-model="item.TINH_CHAT">
+                                        <input type="text" placeholder="Featured" class="form-control input-md" ng-model="item.TINH_CHAT">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Tên tiếng anh: </label>
+                                    <label class="col-md-4 control-label" for="name">English Name: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Tên tiếng anh" class="form-control input-md" ng-model="item.TEN_TA">
+                                        <input type="text" placeholder="English Name" class="form-control input-md" ng-model="item.TEN_TA">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Tài khoản cấp cha: </label>
+                                    <label class="col-md-4 control-label" for="name">Account's Parent ID: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Tài khoản cấp cha" class="form-control input-md" ng-model="item.TK_CAP_CHA">
+                                        <input type="text" placeholder="Account's Parent ID" class="form-control input-md" ng-model="item.TK_CAP_CHA">
                                     </div>
                                 </div>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Diễn giả: </label>
+                                    <label class="col-md-4 control-label" for="name">Description: </label>
                                     <div class="col-md-4">
-                                        <input type="text" placeholder="Diễn giả" class="form-control input-md" ng-model="item.DIEN_GIA">
+                                        <input type="text" placeholder="Description" class="form-control input-md" ng-model="item.DIEN_GIA">
                                     </div>
                                 </div>
                                 <!-- Text input-->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="name">Hình ảnh: </label>
-                                    <div class="col-md-4">
-                                        <input type="text" placeholder="Hình ảnh" class="form-control input-md" ng-model="item.HINH_ANH">
-                                    </div>
-                                </div> 
                                 <!-- Button (Double) -->
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="anmelden"></label>
                                     <div class="col-md-11 edit">
-                                        <button class="btn btn-success" ng-click="save(item.SO_TK)" data-dismiss="modal">Lưu</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <button class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                                        <button class="btn btn-success" ng-click="save(item.SO_TK)" data-dismiss="modal">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button class="btn btn-danger" data-dismiss="modal">Exit</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -176,15 +170,15 @@
                         <form class="form-horizontal" name="myForm" novalidate>
                             <fieldset>
                                 <!-- Form Name -->
-                                <legend>Xóa kho</legend>
-                                <center>Bạn có thực sự muốn xóa tài khoản <b>{{item.TEN_TK}}</b></center>
+                                <legend>Delete Account</legend>
+                                <center>Are you sure you want to delete <b>{{item.TEN_TK}}</b></center>
                                 <p></p>
 
                                 <div class="form-group">
                                     <label class="col-md-4 control-label" for="delete"></label>
                                     <div class="col-md-8">
-                                        <button id="delete" name="delete" class="btn btn-danger" ng-click="delete(item.SO_TK)" data-dismiss="modal">Xóa</button>
-                                        <button id="exit" name="exit" class="btn btn-success" data-dismiss="modal">Thoát</button>
+                                        <button id="delete" name="delete" class="btn btn-danger" ng-click="delete(item.SO_TK)" data-dismiss="modal">Delete</button>
+                                        <button id="exit" name="exit" class="btn btn-success" data-dismiss="modal">Exit</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -200,13 +194,13 @@
             <thead>
                 <tr>
                     
-                    <th>Số tài khoản</th>
-                    <th>Tên tài khoản</th>
-                    <th>Tính chất</th>
-                    <th>Tên tiếng anh</th>
-                    <th>Diễn giải</th>
-                    <th>Sửa</th>
-                    <th>Xóa</th>
+                    <th>Account</th>
+                    <th>Account Name</th>
+                    <th>Featured</th>
+                    <th>English Name</th>
+                    <th>Descriptioni</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
