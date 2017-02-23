@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="details col-md-5">
-                        <h3 class="product-title">Mô tả</h3>
+                        <h3 class="product-title">Description</h3>
                         <p class="product-description">sghdasdjklasjkfsdjklfgjksdjkfgsdhgjksdfgsdgsdfsjkfajksjk</p>
            
                         <br />
@@ -40,7 +40,7 @@
                                 <tr>
                                     <td style="padding-top: 15px;">
                                         <center>
-                                            <!--Button hàng hóa-->
+                                            <!--Button Products-->
                                             <div class="style_prevu_kit" style="background-color:#5BC0DE;">
                                                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="border: none; border-radius:16px"><i class="fa fa-gift fa-3x"></i></button>
                                             </div>
@@ -49,7 +49,7 @@
                                     </td>
                                     <td style="padding-top: 15px;">
                                         <center>
-                                            <!--Button hàng tồn kho-->
+                                            <!--Button Stock-->
                                             <div class="style_prevu_kit" style="background-color:#5BC0DE;">
                                                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalhangtonkho" style="border: none; border-radius:16px"><i class="fa fa-database fa-3x"></i></button>
                                             </div>
@@ -58,7 +58,7 @@
                                     </td>
                                     <td style="padding-top: 15px;">
                                         <center>
-                                            <!--Button kho-->
+                                            <!--Button Inventory-->
                                             <div class="style_prevu_kit" style="background-color:#5BC0DE;">
                                                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalkho" style="border: none; border-radius:16px"><i class="fa fa-home fa-3x"></i></button>
                                             </div>
@@ -67,7 +67,7 @@
                                     </td>
                                     <td style="padding-top: 15px;">
                                         <center>
-                                            <!--Button phòng ban-->
+                                            <!--Button Department-->
                                             <div class="style_prevu_kit" style="background-color:#5BC0DE;">
                                                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalphongban" style="border: none; border-radius:16px"><i class="fa fa-building fa-3x"></i></button>
                                             </div>
@@ -75,7 +75,7 @@
                                         </center>
                                     <td style="padding-top: 15px;">
                                         <center>
-                                            <!--Button người dùng-->
+                                            <!--Button Users-->
                                             <div class="style_prevu_kit" style="background-color:#5BC0DE;">
                                                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalnguoidung" style="border: none; border-radius:16px"><i class="fa fa-user fa-3x"></i></button>
                                             </div>
@@ -84,11 +84,11 @@
                                     </td>
                                 </tr>
                                 <tr style="border-top: 0px">
-                                    <td style="padding-top: 15px;padding-bottom: 15px">Hàng hóa</td>
-                                    <td style="padding-top: 15px;padding-bottom: 15px">Hàng tồn kho</td>
-                                    <td style="padding-top: 15px;padding-bottom: 15px">Kho</td>
-                                    <td style="padding-top: 15px;padding-bottom: 15px">Phòng ban</td>
-                                    <td style="padding-top: 15px;padding-bottom: 15px">Người dùng</td>
+                                    <td style="padding-top: 15px;padding-bottom: 15px">Products</td>
+                                    <td style="padding-top: 15px;padding-bottom: 15px">Stock</td>
+                                    <td style="padding-top: 15px;padding-bottom: 15px">Inventory</td>
+                                    <td style="padding-top: 15px;padding-bottom: 15px">Department</td>
+                                    <td style="padding-top: 15px;padding-bottom: 15px">Users</td>
                                 </tr>
                             </table>
                         </div>
@@ -108,26 +108,31 @@
                     {
 
                             <!-- Form Name -->
-                        <h1>Hàng Hóa</h1>
+                        <h1>Products</h1>
                             <hr />
-                            <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UploadedFile" class="file" value="Select file from system">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Add to system" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
                     }
+
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
     </div>
     <!--END MODAL-->
     <br />
-    <!-- Modal hàng tồn kho-->
+    <!-- Modal Stock-->
     <div class="modal fade" id="modalhangtonkho" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -138,16 +143,14 @@
                         {
 
                             <!-- Form Name -->
-                            <h1>Nhập tồn Kho mới</h1>
+                            <h1>Add Stock</h1>
                             <hr />
-                            <input type="file" name="UpdatedFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UpdatedFile" class="file" value="Select file from system">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
-                            <p style="color:blue">@ViewBag.Message</p>
-                            <p style="color:blue">@ViewBag.Information</p>
-                            <p style="color:red">@ViewBag.Error</p>
+                            <input type="submit" class="btn btn-success" value="Add to system" />
 
                         }
+                          
                     </div>
                     <div class="col-md-6">
                         <br />
@@ -155,29 +158,33 @@
                         {
 
                             <!-- Form Name -->
-                            <h1>Update hàng tồn Kho</h1>
+                            <h1>Update Stock</h1>
                             <hr />
-                            <input type="file" name="UpdateFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UpdateFile" class="file" value="Select file from system">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
-                            <p style="color:blue">@ViewBag.Message</p>
-                            <p style="color:blue">@ViewBag.Information</p>
-                            <p style="color:red">@ViewBag.Error</p>
+                            <input type="submit" class="btn btn-success" value="Add to system" />
+                            
 
                         }
-                    </div>
-
-                    
+                    </div>  
+                    <p style="color:blue">@ViewBag.Message</p>
+                    <p style="color:blue">@ViewBag.Information</p>
+                    <p style="color:red">@ViewBag.Error</p>
+                    <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
                 </div>
+                
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
     </div>
     <!--END MODAL-->
     <br />
-    <!-- Modal Kho-->
+    <!-- Modal Inventory-->
     <div class="modal fade" id="modalkho" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -188,26 +195,30 @@
                     {
 
                             <!-- Form Name -->
-                        <h1>Kho</h1>
+                        <h1>Inventory</h1>
                         <hr />
-                        <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                        <input type="file" name="UploadedFile" class="file" value="Select file from system">
                         <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Add to system" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
                     }
-                </div>
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
     </div>
     <!--END MODAL-->
 
-    <!-- Modal Phòng ban-->
+    <!-- Modal Department-->
     <div class="modal fade" id="modalphongban" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -218,26 +229,30 @@
                     {
 
                             <!-- Form Name -->
-                        <h1>Phòng ban</h1>
+                        <h1>Department</h1>
                         <hr />
-                        <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                        <input type="file" name="UploadedFile" class="file" value="Select file from system">
                         <br />
-                        <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                        <input type="submit" class="btn btn-success" value="Add to system" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
                     }
-                </div>
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
     </div>
     <!--END MODAL-->
 
-    <!-- Modal Người dùng + Nhân viên-->
+    <!-- Modal Users + Nhân viên-->
     <div class="modal fade" id="modalnguoidung" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -249,17 +264,16 @@
                         {
 
                             <!-- Form Name -->
-                            <h1>Nhập người dùng mới</h1>
+                            <h1>Add New Users</h1>
                             <hr />
-                            <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UploadedFile" class="file" value="Select file from system">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
-                            <p style="color:blue">@ViewBag.Message</p>
-                            <p style="color:blue">@ViewBag.Information</p>
-                            <p style="color:red">@ViewBag.Error</p>
+                            <input type="submit" class="btn btn-success" value="Add to system" />
+                           
 
                         }
-                    </div>
+                            
+</div>
                     <div class="col-md-6">
                         <br />
 
@@ -267,21 +281,25 @@
                         {
 
                             <!-- Form Name -->
-                            <h1>Update người dùng</h1>
+                            <h1>Update Users</h1>
                             <hr />
-                            <input type="file" name="UpdateFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UpdateFile" class="file" value="Select file from system">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
-                            <p style="color:blue">@ViewBag.Message</p>
-                            <p style="color:blue">@ViewBag.Information</p>
-                            <p style="color:red">@ViewBag.Error</p>
+                            <input type="submit" class="btn btn-success" value="Add to system" />
+                            
 
                         }
                     </div>
-                    
-                </div>
+                    <p style="color:blue">@ViewBag.Message</p>
+                    <p style="color:blue">@ViewBag.Information</p>
+                    <p style="color:red">@ViewBag.Error</p>
+                    <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
