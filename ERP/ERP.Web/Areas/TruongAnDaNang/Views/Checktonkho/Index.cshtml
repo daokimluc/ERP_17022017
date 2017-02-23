@@ -1,0 +1,156 @@
+﻿@model IEnumerable<ERP.Web.Models.Database.DM_HANG_HOA>
+
+@{
+    ViewBag.Title = "Index";
+}
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="~/Areas/TruongAnHCM/Content/css/HangHoaTAHCM.css" rel="stylesheet" />
+<link href="~/Content/download/dist/css/AdminLTE.css" rel="stylesheet" />
+<script src="~/Content/download/angularjs/angular.min.js"></script>
+@*<script src="~/Content/download/angularjs/dirPagination.js"></script>*@
+<script src="~/Areas/TruongAnDaNang/Content/js/Kho/Checktonkho.js"></script>
+<link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
+<div ng-app="hanghoaApp" ng-controller="hangHoaCtrl">
+    <div class="content" ng-controller="tonkhoCtrl" >
+
+
+        <div id="quick-access">
+            <form class="form-inline quick-search-form" role="form" action="#">
+                <div class="form-group" style="width: 100%">
+                    <input type="text" style="width: 60%" class="form-control" placeholder="Nhập mã hàng cần tìm kiếm vào đây" ng-model="search_text">
+                </div>
+            </form>
+        </div>
+        <br />
+        <br />
+        <div class="modal fade" id="chitiethanghoa" role="dialog">
+            <div class="modal-dialog modal-lg" style="width:80%">
+                <div class="modal-content" style="min-height: 500px;">
+
+                    <div class="modal-body">
+                        <div class="content expandrow">
+
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#chitiet">Chi tiết hàng hóa</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <!--Tab chi tiết hàng hóa-->
+                                <div id="chitiet" class="tab-pane fade in active">
+                                    <div class="col-md-1">
+                                        <img src="~/Content/download/dist/img/avatar.png" style="width: 100%;height: 120px;" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <table class="table noborder">
+                                            <tr>
+                                                <td>Mã hàng HT:</td>
+                                                <td>{{item.MA_HANG_HT}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mã hàng nhập</td>
+                                                <td>{{item.MA_HANG_NHAP}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tên hàng</td>
+                                                <td>{{item.TEN_HANG}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mã nhóm hàng</td>
+                                                <td>{{item.MA_NHOM_HANG}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Seri</td>
+                                                <td>{{item.SERI}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <table class="table noborder">
+                                            <tr>
+                                                <td>Hạch toán</td>
+                                                <td>{{item.TK_HACH_TOAN_KHO}}1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Doanh thu</td>
+                                                <td>{{item.TK_DOANH_THU}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chi phí</td>
+                                                <td>{{item.TK_CHI_PHI}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Đơn vị tính</td>
+                                                <td>{{item.DON_VI_TINH}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Đặc tính</td>
+                                                <td>{{item.DAC_TINH}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ghi chú</td>
+                                                <td>{{item.GHI_CHU}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <table class="table noborder table-fill">
+                                            <thead>
+                                                <tr>
+                                                    <th>Mã kho</th>
+                                                    <th>Số lượng tồn</th>
+                                                </tr>
+                                            </thead>   
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <ul >
+            <li ng-repeat="kho in danhsachtonkho" ng-click="get_tonkho(item.MA_HANG_HT)">
+                <div class="col-md-4">{{kho.MA_HANG_HT}}</div>
+                <div class="col-md-4">{{kho.MA_KHO}}</div>
+                <div class="col-md-4">{{kho.SL_TON}}</div>
+            </li>
+        </ul>
+
+
+
+        <table  id="example" class="table " cellspacing="0" name="tblhanghoa">
+            <thead>
+                <tr ng-repeat="kho in danhsachtonkho">
+                    <th>Mã hàng HT</th>
+                    <th class="text-left">{{kho.MA_KHO}}</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <!--Detail row-->
+                <tr ng-if="item.expanded" dir-paginate-end="">
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="9" style="border: none !important">
+                        <dir-pagination-controls max-size="1" style="float:right;"
+                                                 direction-links="true"
+                                                 boundary-links="true">
+                        </dir-pagination-controls>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+<script src="~/Content/download/angularjs/angular-ui-router.js"></script>
+
+

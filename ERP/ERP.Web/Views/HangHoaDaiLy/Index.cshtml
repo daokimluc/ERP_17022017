@@ -19,7 +19,7 @@
         <div id="quick-access">
             <form class="form-inline quick-search-form" role="form" action="#">
                 <div class="form-group" style="width: 100%">
-                    <input type="text" style="width: 60%" class="form-control" placeholder="Nhập mã hàng cần tìm kiếm vào đây" ng-model="search_text">
+                    <input type="text" style="width: 60%" class="form-control" placeholder="Search" ng-model="search_text">
                 </div>
             </form>
         </div>
@@ -29,12 +29,12 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th>Mã hàng HT</th>
-                    <th>Mã hàng nhập</th>
-                    <th>Tên hàng</th>
-                    <th>Mã nhóm hàng</th>
-                    <th>Đơn vị tính</th>
-                    <th>Model đặc biệt</th>
+                    <th>System Code</th>
+                    <th>Products Code</th>
+                    <th>Products Name</th>
+                    <th>Maker</th>
+                    <th>Unit</th>
+                    <th>Special Model</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,8 +58,8 @@
                         <div class="content expandrow">
 
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#chitiet">Chi tiết hàng hóa</a></li>
-                                <li><a data-toggle="tab" href="#tonkho" ng-click="get_tonkho(item.MA_HANG_HT)">Tồn kho</a></li>
+                                <li class="active"><a data-toggle="tab" href="#chitiet">Detail</a></li>
+                                <li><a data-toggle="tab" href="#tonkho" ng-click="get_tonkho(item.MA_HANG_HT)">Stock</a></li>
                             </ul>
 
                             <div class="tab-content">
@@ -71,19 +71,19 @@
                                     <div class="col-md-3">
                                         <table class="table noborder">
                                             <tr>
-                                                <td>Mã hàng HT:</td>
+                                                <td>System Code:</td>
                                                 <td>{{item.MA_HANG_HT}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Mã hàng nhập</td>
+                                                <td>Products Code</td>
                                                 <td>{{item.MA_HANG_NHAP}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Tên hàng</td>
+                                                <td>Products Name</td>
                                                 <td>{{item.TEN_HANG}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Mã nhóm hàng</td>
+                                                <td>Maker</td>
                                                 <td>{{item.MA_NHOM_HANG}}</td>
                                             </tr>
                                             <tr>
@@ -96,15 +96,15 @@
                                     <div class="col-md-3">
                                         <table class="table noborder">
                                             <tr>
-                                                <td>Hạch toán</td>
+                                                <td>Inventory account</td>
                                                 <td>{{item.TK_HACH_TOAN_KHO}}1</td>
                                             </tr>
                                             <tr>
-                                                <td>Doanh thu</td>
+                                                <td>Sale Account</td>
                                                 <td>{{item.TK_DOANH_THU}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Chi phí</td>
+                                                <td>COGS Account</td>
                                                 <td>{{item.TK_CHI_PHI}}</td>
                                             </tr>
 
@@ -113,15 +113,15 @@
                                     <div class="col-md-3">
                                         <table class="table noborder">
                                             <tr>
-                                                <td>Đơn vị tính</td>
+                                                <td>Unit</td>
                                                 <td>{{item.DON_VI_TINH}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Đặc tính</td>
+                                                <td>Properties</td>
                                                 <td>{{item.DAC_TINH}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Ghi chú</td>
+                                                <td>Note</td>
                                                 <td>{{item.GHI_CHU}}</td>
                                             </tr>
 
@@ -133,8 +133,8 @@
                                     <table class="table table-fill ">
                                         <thead>
                                             <tr>
-                                                <th>Mã kho</th>
-                                                <th>Số lượng tồn</th>
+                                                <th>Inventory ID</th>
+                                                <th>Number In Stock</th>
                                             </tr>
                                         </thead>
                                         <tbody class="table-hover">
@@ -145,7 +145,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td><strong style="font-size: 20px">Tổng tồn:</strong></td>
+                                                <td><strong style="font-size: 20px">Total:</strong></td>
                                                 <td>{{getTotal('SL_TON')}}</td>
                                             </tr>
                                         </tfoot>
