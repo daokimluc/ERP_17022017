@@ -16,6 +16,10 @@ function nhanvienCtrl($scope, $http) {
             $scope.listnhanvien = response.data;
         });
     }
+
+    $scope.pass = function (nhanvien) {
+        $scope.nhanvien = nhanvien;
+    }
 }
 
 

@@ -24,6 +24,18 @@
 <body class="hold-transition skin-blue sidebar-mini">
     <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Thêm hàng mới</button>-->
     <div class="container">
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="preview col-md-5">
+                        <div class="preview-pic tab-content">
+                            <img src="~/Content/self-writing/Images/avatar.png" style="padding-top:20px" />
+                        </div>
+                    </div>
+                    <div class="details col-md-5">
+                        <h3 class="product-title">Mô tả</h3>
+                        <p class="product-description">sghdasdjklasjkfsdjklfgjksdjkfgsdhgjksdfgsdgsdfsjkfajksjk</p>
+
 
         <div align="center" class="fond">
             <div style="width: 45%;border: 1px solid #ddd">
@@ -58,9 +70,9 @@
                         </td>
                     </tr>
                     <tr style="border-top: 0px">
-                        <td style="padding-top: 15px;padding-bottom: 15px">Phòng ban</td>
-                        <td style="padding-top: 15px;padding-bottom: 15px">Kho</td>
-                        <td style="padding-top: 15px;padding-bottom: 15px">Nhân viên</td>
+                        <td style="padding-top: 15px;padding-bottom: 15px">Deparment</td>
+                        <td style="padding-top: 15px;padding-bottom: 15px">Inventory</td>
+                        <td style="padding-top: 15px;padding-bottom: 15px">Employee</td>
                     </tr>
                     <tr style="margin-top: 10px;">
                         <td>
@@ -74,17 +86,15 @@
                         </td>                      
                     </tr>
                     <tr>
-                        <td style="padding-top: 15px;padding-bottom: 15px">Hàng tồn kho</td>      
+                        <td style="padding-top: 15px;padding-bottom: 15px">Stock</td>      
                     </tr>
                 </table>
 
 
 
 
-
             </div>
         </div>
-
     </div>
     <!------------------------------------------------------------>
     <!-- Modal HANG HOA-->
@@ -94,24 +104,30 @@
                 <div class="modal-body">
                     <br />
 
-                        @using (Html.BeginForm("Import_Hanghoa", "ImportExcelTAHCM", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                        {
+                    @using (Html.BeginForm("Import_Hanghoa", "ImportExcelTAHCM", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
 
                             <!-- Form Name -->
+
                             <h1>Hàng Hóa</h1>
                             <hr />
-                            <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Add" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
-                        }
 
-                </div>
+                    }
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+
+</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
@@ -129,18 +145,24 @@
 
                             <!-- Form Name -->
                         <h1>Hàng Hóa</h1>
+
                         <hr />
-                            <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Add" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
+
                     }
-                </div>
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
@@ -153,22 +175,24 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <br />
-                        @using (Html.BeginForm("Import_PhongBan", "ImportExcelTAHCM", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                        {
+                    @using (Html.BeginForm("Import_PhongBan", "ImportExcelTAHCM", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
 
                             <!-- Form Name -->
-                            <h1>Phòng Ban</h1>
+
+                            <h1>Department</h1>
                             <hr />
-                            <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Add" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
                         }
                 </div>
+
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
@@ -184,35 +208,44 @@
                         {
 
                             <!-- Form Name -->
-                            <h1>Hàng tồn kho</h1>
+
+                            <h1>Stock</h1>
                             <hr />
-                            <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />         
+                            <input type="submit" class="btn btn-success" value="Add" />         
+
                         }
+
                     </div>
                     <div class="col-md-6">
                         @using (Html.BeginForm("Update_HangTonKho", "ImportExcelTAHCM", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
 
                             <!-- Form Name -->
-                            <h1>Cập nhật hàng tồn kho</h1>
+
+                            <h1>Update Stock</h1>
                             <hr />
-                            <input type="file" name="UpdateFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UpdateFile" class="file" value="Choose File From Your Computer">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Cập nhật vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Add" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
+
 
                         }
                     </div>
                     <p style="color:blue">@ViewBag.Message</p>
                     <p style="color:blue">@ViewBag.Information</p>
                     <p style="color:red">@ViewBag.Error</p>
-                </div>
+                    <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
@@ -227,19 +260,25 @@
                     {
 
                             <!-- Form Name -->
-                        <h1>Kho</h1>
+
+                        <h1>Inventory</h1>
                         <hr />
-                        <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                        <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
                         <br />
-                        <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />
+                        <input type="submit" class="btn btn-success" value="Add" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
+
                     }
-                </div>
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
@@ -255,11 +294,13 @@
                         {
 
                             <!-- Form Name -->
-                            <h1>Kho</h1>
+
+                            <h1>Employee</h1>
                             <hr />
-                            <input type="file" name="UploadedFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Thêm vào hệ thống" />                          
+                            <input type="submit" class="btn btn-success" value="Add" />                          
+
                         }
                     </div>
                     <div class="col-md-6">
@@ -267,23 +308,30 @@
                         {
 
                             <!-- Form Name -->
-                            <h1>Cập nhật nhân viên</h1>
+
+                            <h1>Update Employee</h1>
                             <hr />
-                            <input type="file" name="UpdateFile" class="file" value="Chọn file từ hệ thống">
+                            <input type="file" name="UpdateFile" class="file" value="Choose File From Your Computer">
                             <br />
-                            <input type="submit" class="btn btn-success" value="Cập nhật vào hệ thống" />
+                            <input type="submit" class="btn btn-success" value="Add" />
                             <p style="color:blue">@ViewBag.Message</p>
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
+
 
                         }
                     </div>
                     <p style="color:blue">@ViewBag.Message</p>
                     <p style="color:blue">@ViewBag.Information</p>
                     <p style="color:red">@ViewBag.Error</p>
-                </div>
+
+                    <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+            </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Thoát</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
             </div>
         </div>
@@ -294,6 +342,7 @@
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
 </body>
+
 </html>
 
 

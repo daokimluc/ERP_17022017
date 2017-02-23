@@ -162,12 +162,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Api\Kho\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\HopLong\Content\css\" />
-    <Folder Include="Areas\HopLong\Content\img\" />
-    <Folder Include="Areas\HopLong\Content\js\" />
-    <Folder Include="Areas\HopLong\Models\" />
     <Folder Include="Areas\TruongAnDaNang\Content\img\" />
     <Folder Include="Areas\TruongAnDaNang\Models\" />
     <Folder Include="Areas\TruongAnHaNoi\Content\css\" />
@@ -180,6 +175,8 @@
     <Folder Include="Scripts\spa\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\Kho\Api_HangHoaDaiLyController.cs" />
+    <Compile Include="Api\Kho\Api_TonKhoDaiLyController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -220,9 +217,9 @@
     <Compile Include="Areas\HopLong\Api\HeThong\Api_NghiepvunhanvienHLController.cs" />
     <Compile Include="Areas\HopLong\Api\HeThong\Api_NguoidungHLController.cs" />
     <Compile Include="Areas\HopLong\Api\HeThong\Api_NhanvienHLController.cs" />
+    <Compile Include="Areas\HopLong\Api\HeThong\Api_NhanvienphongbanHLController.cs" />
     <Compile Include="Areas\HopLong\Api\HeThong\Api_NhomnghiepvuHLController.cs" />
     <Compile Include="Areas\HopLong\Api\HeThong\Api_PhongbanHLController.cs" />
-    <Compile Include="Areas\HopLong\Api\HeThong\Api_TaokhoanhachtoanController.cs" />
     <Compile Include="Areas\HopLong\Api\Kho\Api_HanghoaHLController.cs" />
     <Compile Include="Areas\HopLong\Api\Kho\Api_HangsanphamHLController.cs" />
     <Compile Include="Areas\HopLong\Api\Kho\Api_KhoHLController.cs" />
@@ -230,18 +227,37 @@
     <Compile Include="Areas\HopLong\Controllers\ChiTietNghiepVuController.cs" />
     <Compile Include="Areas\HopLong\Controllers\DanhsachnghiepvuController.cs" />
     <Compile Include="Areas\HopLong\Controllers\HangHoaHLController.cs" />
+    <Compile Include="Areas\HopLong\Controllers\HangSpHLController.cs" />
     <Compile Include="Areas\HopLong\Controllers\HopLongHomeController.cs" />
     <Compile Include="Areas\HopLong\Controllers\ImportExcelController.cs" />
     <Compile Include="Areas\HopLong\Controllers\KhoController.cs" />
+    <Compile Include="Areas\HopLong\Controllers\NghiepVuNguoiDungController.cs" />
+    <Compile Include="Areas\HopLong\Controllers\NguoiDungHLController.cs" />
+    <Compile Include="Areas\HopLong\Controllers\PhongBanHLController.cs" />
+    <Compile Include="Areas\HopLong\Controllers\TaiKhoanHachToanHLController.cs" />
     <Compile Include="Areas\HopLong\HopLongAreaRegistration.cs" />
+    <Compile Include="Areas\HopLong\Models\NguoiDungPhongBan.cs" />
     <Compile Include="Areas\TruongAnDaNang\Api\HeThong\Api_NguoidungTADANController.cs" />
     <Compile Include="Areas\TruongAnDaNang\Api\HeThong\API_NhanvienphongbanTADANController.cs" />
     <Compile Include="Areas\TruongAnDaNang\Api\HeThong\Api_NhanvienTADANController.cs" />
     <Compile Include="Areas\TruongAnDaNang\Api\HeThong\Api_PhongbanDNController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Api\HeThong\Api_TaikhoanhachtoanTADANController.cs" />
     <Compile Include="Areas\TruongAnDaNang\Api\Kho\Api_HanghoaDNController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Api\Kho\Api_HANG_SP_TADANController.cs" />
     <Compile Include="Areas\TruongAnDaNang\Api\Kho\Api_KhoDNController.cs" />
     <Compile Include="Areas\TruongAnDaNang\Api\Kho\Api_TonkhoDNController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Api\Kho\Api_TonkhoTADANController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\ChiTietNghiepvuController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\DanhsachnghiepvuController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\HangHoaTADANController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\Hang_sp_TADANController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\ImportExcelController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\KhoTADANController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\NgiepVuNguoiDungController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\NguoidungController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\PhongBanTADANController.cs" />
     <Compile Include="Areas\TruongAnDaNang\Controllers\TADANHomeController.cs" />
+    <Compile Include="Areas\TruongAnDaNang\Controllers\TaikhoanTADANController.cs" />
     <Compile Include="Areas\TruongAnDaNang\TruongAnDaNangAreaRegistration.cs" />
     <Compile Include="Areas\TruongAnHaNoi\Api\HeThong\Api_NguoidungTAHNController.cs" />
     <Compile Include="Areas\TruongAnHaNoi\Api\HeThong\Api_NhanvienTAHNController.cs" />
@@ -255,23 +271,34 @@
     <Compile Include="Areas\TruongAnHCM\Api\HeThong\Api_NhanvienphongbanController.cs" />
     <Compile Include="Areas\TruongAnHCM\Api\HeThong\Api_NhanvienTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Api\HeThong\Api_PhongbanTAHCMController.cs" />
+    <Compile Include="Areas\TruongAnHCM\Api\HeThong\Api_TaiKhoanHachToanTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Api\Kho\Api_HanghoaTAHCMController.cs" />
+    <Compile Include="Areas\TruongAnHCM\Api\Kho\Api_HangSpTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Api\Kho\Api_KhoTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Api\Kho\Api_TonkhoTAHCMController.cs" />
+    <Compile Include="Areas\TruongAnHCM\Controllers\DanhSachNghiepVuTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Controllers\HangHoaTAHCMController.cs" />
+    <Compile Include="Areas\TruongAnHCM\Controllers\HangspTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Controllers\HangTonKhoTAHCMController.cs" />
+    <Compile Include="Areas\TruongAnHCM\Controllers\ImportExcelTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Controllers\KhoTAHCMController.cs" />
+    <Compile Include="Areas\TruongAnHCM\Controllers\NghiepVuNguoiDungTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Controllers\NguoidungController.cs" />
     <Compile Include="Areas\TruongAnHCM\Controllers\PhongBanTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Controllers\TAHCMHomeController.cs" />
+    <Compile Include="Areas\TruongAnHCM\Controllers\TaiKhoanHachToanTAHCMController.cs" />
     <Compile Include="Areas\TruongAnHCM\Models\NguoiDungPhongBan.cs" />
     <Compile Include="Areas\TruongAnHCM\TruongAnHCMAreaRegistration.cs" />
+    <Compile Include="Controllers\HangHoaDaiLyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BusinessModel\AuthorizeBussiness.cs" />
+    <Compile Include="Models\BusinessModel\PermissionAction.cs" />
     <Compile Include="Models\BusinessModel\ReflectionController.cs" />
+    <Compile Include="Models\BusinessModel\XuLyNgayThang.cs" />
     <Compile Include="Models\Database\CCTC_CONG_TY.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
@@ -338,29 +365,59 @@
     <Compile Include="Models\Database\HT_NGUOI_DUNG.cs">
       <DependentUpon>database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewModels\NHAN_VIEN_MODEL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Areas\HopLong\Content\css\HangHoaHL.css" />
+    <Content Include="Areas\HopLong\Content\css\HangSpHL.css" />
+    <Content Include="Areas\HopLong\Content\css\ImportFile.css" />
+    <Content Include="Areas\HopLong\Content\css\KhoHL.css" />
+    <Content Include="Areas\HopLong\Content\css\LayoutHL.css" />
+    <Content Include="Areas\HopLong\Content\css\NguoiDungHL.css" />
+    <Content Include="Areas\HopLong\Content\css\phanquyenHL.css" />
+    <Content Include="Areas\HopLong\Content\css\PhongBanHL.css" />
+    <Content Include="Areas\HopLong\Content\css\TaiKhoanHachToanHL.css" />
+    <Content Include="Areas\HopLong\Content\img\icon\product.png" />
+    <Content Include="Areas\HopLong\Content\js\HangHoaHL.js" />
+    <Content Include="Areas\HopLong\Content\js\HangSpHL.js" />
+    <Content Include="Areas\HopLong\Content\js\HeThong\nghiepvunguoidung.js" />
+    <Content Include="Areas\HopLong\Content\js\KhoHL.js" />
+    <Content Include="Areas\HopLong\Content\js\NguoiDungHL.js" />
+    <Content Include="Areas\HopLong\Content\js\PhongBanHL.js" />
+    <Content Include="Areas\HopLong\Content\js\TaiKhoanHachToanHL.js" />
+    <Content Include="Areas\TruongAnDaNang\Content\css\HeThong\ImportFile.css" />
+    <Content Include="Areas\TruongAnDaNang\Content\css\HeThong\LayoutTADN.css" />
     <Content Include="Areas\TruongAnDaNang\Content\css\HeThong\NguoidungTADN.css" />
     <Content Include="Areas\TruongAnDaNang\Content\css\HeThong\PhongBanTADAN.css" />
+    <Content Include="Areas\TruongAnDaNang\Content\css\HeThong\TaikhoanTADAN.css" />
     <Content Include="Areas\TruongAnDaNang\Content\css\Kho\HangHoaTADN.css" />
+    <Content Include="Areas\TruongAnDaNang\Content\css\Kho\Hang_sp_TADAN.css" />
     <Content Include="Areas\TruongAnDaNang\Content\css\Kho\KhoTADN.css" />
     <Content Include="Areas\TruongAnDaNang\Content\js\HeThong\NguoidungTADN.js" />
     <Content Include="Areas\TruongAnDaNang\Content\js\HeThong\PhongBanTADAN.js" />
+    <Content Include="Areas\TruongAnDaNang\Content\js\HeThong\TaikhoanTDAN.js" />
     <Content Include="Areas\TruongAnDaNang\Content\js\Kho\HangHoaTADN.js" />
+    <Content Include="Areas\TruongAnDaNang\Content\js\Kho\Hang_sp_TDAN.js" />
     <Content Include="Areas\TruongAnDaNang\Content\js\Kho\KhoTADN.js" />
     <Content Include="Areas\TruongAnHCM\Content\css\HangHoaTAHCM.css" />
+    <Content Include="Areas\TruongAnHCM\Content\css\HangspTAHCM.css" />
     <Content Include="Areas\TruongAnHCM\Content\css\HangTonKhoTAHCM.css" />
+    <Content Include="Areas\TruongAnHCM\Content\css\ImportTAHCM.css" />
     <Content Include="Areas\TruongAnHCM\Content\css\KhoTAHCM.css" />
+    <Content Include="Areas\TruongAnHCM\Content\css\LayoutTAHCM.css" />
     <Content Include="Areas\TruongAnHCM\Content\css\NguoiDungTAHCM.css" />
     <Content Include="Areas\TruongAnHCM\Content\css\PhongBanTAHCM.css" />
+    <Content Include="Areas\TruongAnHCM\Content\css\TaiKhoanHachToanTAHCM.css" />
     <Content Include="Areas\TruongAnHCM\Content\js\dirPagination.js" />
     <Content Include="Areas\TruongAnHCM\Content\js\HangHoaTAHCM.js" />
+    <Content Include="Areas\TruongAnHCM\Content\js\HangSpTAHCM.js" />
     <Content Include="Areas\TruongAnHCM\Content\js\HangTonKhoTAHCM.js" />
     <Content Include="Areas\TruongAnHCM\Content\js\KhoTAHCM.js" />
     <Content Include="Areas\TruongAnHCM\Content\js\NguoiDungTAHCM.js" />
     <Content Include="Areas\TruongAnHCM\Content\js\PhongBanTAHCM.js" />
+    <Content Include="Areas\TruongAnHCM\Content\js\TaiKhoanHachToanTAHCM.js" />
     <Content Include="Content\download\angularjs\angular-ui-router.js" />
     <Content Include="Content\download\angularjs\angular.min.js" />
     <Content Include="Content\download\angularjs\dirPagination.js" />
@@ -1241,13 +1298,18 @@
     <Content Include="Content\download\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Content\download\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Content\download\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Content\self-writing\css\HangHoaDaiLy.css" />
     <Content Include="Content\self-writing\css\hoplong\nav_hoplong_multilevel.css" />
+    <Content Include="Content\self-writing\css\Login.css" />
     <Content Include="Content\self-writing\Images\avatar.png" />
     <Content Include="Content\self-writing\Images\avatar4.png" />
     <Content Include="Content\self-writing\Images\avatar2.png" />
     <Content Include="Content\self-writing\Images\avatar3.png" />
     <Content Include="Content\self-writing\Images\avatar5.png" />
+    <Content Include="Content\self-writing\Images\Paomedia-Small-N-Flat-Shop.ico" />
+    <Content Include="Content\self-writing\js\HangHoaDaiLy.js" />
     <Content Include="Content\self-writing\js\nav_hoplong_multilevel.js" />
+    <Content Include="Content\self-writing\Layout-CSS.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1382,10 +1444,33 @@
     <Content Include="Areas\TruongAnHCM\Views\KhoTAHCM\Index.cshtml" />
     <Content Include="Areas\TruongAnHCM\Views\Nguoidung\Index.cshtml" />
     <Content Include="Areas\TruongAnHCM\Views\PhongBanTAHCM\Index.cshtml" />
+    <Content Include="Areas\HopLong\Views\HangSpHL\Index.cshtml" />
+    <Content Include="Areas\HopLong\Views\NghiepVuNguoiDung\phanquyen.cshtml" />
+    <Content Include="Areas\HopLong\Views\NguoiDungHL\Index.cshtml" />
+    <Content Include="Areas\HopLong\Views\PhongBanHL\Index.cshtml" />
+    <Content Include="Areas\HopLong\Views\TaiKhoanHachToanHL\Index.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\ChiTietNghiepvu\Index.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\Danhsachnghiepvu\Index.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\HangHoaTADAN\Index.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\Hang_sp_TADAN\Index.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\ImportExcel\Index.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\KhoTADAN\Index.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\NghiepVuNguoiDung\phanquyen.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\Nguoidung\Index.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\PhongBanTADAN\Index.cshtml" />
+    <Content Include="Areas\TruongAnDaNang\Views\TaikhoanTADAN\Index.cshtml" />
+    <Content Include="Areas\TruongAnHCM\Views\DanhSachNghiepVuTAHCM\Index.cshtml" />
+    <Content Include="Areas\TruongAnHCM\Views\HangspTAHCM\Index.cshtml" />
+    <Content Include="Areas\TruongAnHCM\Views\ImportExcelTAHCM\Import_Hanghoa.cshtml" />
+    <Content Include="Areas\TruongAnHCM\Views\NghiepVuNguoiDungTAHCM\phanquyen.cshtml" />
+    <Content Include="Areas\TruongAnHCM\Views\TaiKhoanHachToanTAHCM\Index.cshtml" />
+    <Content Include="Content\IMPORT_HANGHOA.xls" />
+    <Content Include="Content\IMPORT_HANGHOA.xlsx" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\HangHoaDaiLy\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
