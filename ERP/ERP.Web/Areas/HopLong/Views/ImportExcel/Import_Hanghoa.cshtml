@@ -24,8 +24,8 @@
 <body class="hold-transition skin-blue sidebar-mini">
 
     <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Thêm hàng mới</button>-->
-
     <div class="container">
+
         
 
         <div align="center" class="fond">
@@ -139,18 +139,11 @@
                 
                 
                 
+
             </div>
         </div>
-        
-        </div>
+    </div>
     <!------------------------------------------------------------>
-
-
-
-
-
-
-
     <!-- Modal HANG HOA-->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -160,8 +153,9 @@
                     <br />
                     @using (Html.BeginForm("Import_Hanghoa", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
-                       
+
                             <!-- Form Name -->
+
                             <h1>Product</h1>
                             <hr />
                             <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
@@ -171,8 +165,13 @@
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
+
                     }
-                </div>
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
@@ -192,6 +191,7 @@
                     {
 
                             <!-- Form Name -->
+
                         <h1>Maker Stock</h1>
                             <hr />
                             <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
@@ -201,8 +201,13 @@
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
+
                     }
-                </div>
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
@@ -218,12 +223,13 @@
                 <div class="modal-body">
 
                     <br />
-                    
+
 
                     @using (Html.BeginForm("Import_PhongBan", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
 
                             <!-- Form Name -->
+
                         <h1>Department</h1>
                         <hr />
                             <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
@@ -233,8 +239,13 @@
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
+
                     }
-                </div>
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
@@ -242,7 +253,6 @@
         </div>
     </div>
     <!--END MODAL-->
-
     <!-- Modal nhân viên-->
     <div class="modal fade" id="nhanvien" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -256,6 +266,7 @@
                     {
 
                             <!-- Form Name -->
+
                         <h1>Employee</h1>
                         <hr />
                         <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
@@ -265,8 +276,13 @@
                             <p style="color:blue">@ViewBag.Information</p>
                             <p style="color:red">@ViewBag.Error</p>
 
+
                     }
-                </div>
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
+</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
                 </div>
@@ -274,21 +290,21 @@
         </div>
     </div>
     <!--END MODAL-->
-
-
     <!-- Modal HÀNG TỒN KHO-->
     <div class="modal fade" id="hangtonkho" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
-                    
+
                     <br />
                     <table>
-                        
+
 
                         <tr>
+
                             <td >
                                <center><h1 style="text-align: right">Stock</h1></center> 
+
                             </td>
                         </tr>
                         <tr>
@@ -297,38 +313,45 @@
                             <td class="col-md-6">
                                 @using (Html.BeginForm("Import_Hangtonkho", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
+
                                     <h3>New import</h3>
                                         <hr />
                                         <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
                                         <br />
                                         <input type="submit" class="btn btn-success" value="Add" />
+
                                 }
                             </td>
                             <td class="col-md-6">
                                 @using (Html.BeginForm("Update_Hangtonkho", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
+
                                     <h3>Update</h3>
                                         <hr />
-                                        <input type="file" name="UpFile" class="file" value="Choose File From Your Computer để cập nhật dữ liệu">
+                                        <input type="file" name="UpFile" class="file" value="Choose File From Your Computer">
                                         <br />
-                                        <input type="submit" class="btn btn-success" value="Cập nhật" />
+                                        <input type="submit" class="btn btn-success" value="Update" />
+
                                 }
                             </td>
 
                         </tr>
 
-                            <tr>
-                                <td colspan="2">
-                                    <p style="color:blue">@ViewBag.Message</p>
-                                    <p style="color:blue">@ViewBag.Information</p>
-                                    <p style="color:red">@ViewBag.Error</p>
-                                </td>
-                            </tr>
-                        </table>
+                        <tr>
+                            <td colspan="2">
+                                <p style="color:blue">@ViewBag.Message</p>
+                                <p style="color:blue">@ViewBag.Information</p>
+                                <p style="color:red">@ViewBag.Error</p>
+                            </td>
+                        </tr>
+                    </table>
 
+                    <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
 
-                            
-                        </div>
+</div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
@@ -337,7 +360,6 @@
         </div>
     </div>
     <!--END MODAL-->
-
     <!-- Modal CÔNG TY-->
     <div class="modal fade" id="congty" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -346,7 +368,7 @@
 
                     <br />
                     <table>
-                        
+
                         <tr>
                             <td colspan="2">
                                 <center><h1>Company</h1></center>
@@ -357,21 +379,25 @@
                             <td class="col-md-6">
                                 @using (Html.BeginForm("Import_Congty", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
+
                                     <h3>New Import</h3>
                                     <hr />
                                         <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
                                         <br />
                                         <input type="submit" class="btn btn-success" value="Add" />
+
                                 }
                             </td>
                             <td class="col-md-6">
                                 @using (Html.BeginForm("Update_Congty", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
+
                                     <h3>Update</h3>
                                     <hr />
-                                        <input type="file" name="UpFile" class="file" value="Choose File From Your Computer để cập nhật dữ liệu">
+                                        <input type="file" name="UpFile" class="file" value="Choose File From Your Computer">
                                         <br />
-                                        <input type="submit" class="btn btn-success" value="Cập nhật" />
+                                        <input type="submit" class="btn btn-success" value="Update" />
+
                                 }
                             </td>
 
@@ -385,9 +411,12 @@
                         </tr>
                     </table>
 
+                    <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
 
-
-                </div>
+</div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
@@ -396,13 +425,13 @@
         </div>
     </div>
     <!--END MODAL-->
-
     <!-- Modal KHO-->
     <div class="modal fade" id="kho" role="dialog">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
                     <br />
+
                                 @using (Html.BeginForm("Import_Kho", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
                                     <h1>Inventory</h1>
@@ -411,15 +440,19 @@
                                     <br />
                                         <input type="submit" class="btn btn-success" value="Add" />
                                 }
+
                     <br />
-                                <p style="color:blue">@ViewBag.Message</p>
-                                <p style="color:blue">@ViewBag.Information</p>
-                                <p style="color:red">@ViewBag.Error</p>
-                        
+                    <p style="color:blue">@ViewBag.Message</p>
+                    <p style="color:blue">@ViewBag.Information</p>
+                    <p style="color:red">@ViewBag.Error</p>
 
 
+                    <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
 
-                </div>
+</div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
@@ -428,7 +461,6 @@
         </div>
     </div>
     <!--END MODAL-->
-
     <!-- Modal HÃNG-->
     <div class="modal fade" id="hangsp" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -439,9 +471,11 @@
 
                     @using (Html.BeginForm("Import_Hangsp", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
+
                                     <h1>Maker</h1>
                                     <hr />
                                     <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
+
                                     <br />
                                     <input type="submit" class="btn btn-success" value="Add" />
                     }
@@ -450,10 +484,13 @@
                     <p style="color:blue">@ViewBag.Information</p>
                     <p style="color:red">@ViewBag.Error</p>
 
+                    <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
 
 
-
-                </div>
+</div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Exit</button>
@@ -462,7 +499,6 @@
         </div>
     </div>
     <!--END MODAL-->
-
     <!-- Modal HỆ THỐNG TÀI KHOẢN-->
     <div class="modal fade" id="taikhoanhachtoan" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -473,13 +509,20 @@
 
                     @using (Html.BeginForm("Import_HTtaikhoan", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
                     {
+
                         <h1>System Account</h1>
                         <hr />
                                     <input type="file" name="UploadedFile" class="file" value="Choose File From Your Computer">
                                     <br />
                                     <input type="submit" class="btn btn-success" value="Add" />
+
                     }
-                    <br />
+                    
+                        <br />
+                        <p>Click on the file to download the file Example:<p>
+                        <a href="~/Content/download/File mẫu/New Microsoft Word Document.docx" download="docFile">
+                            <img style="width:10%" sy border="0" src="~/Content/download/File mẫu/doc.jpg" alt="docFile">
+                        </a>
                     <p style="color:blue">@ViewBag.Message</p>
                     <p style="color:blue">@ViewBag.Information</p>
                     <p style="color:red">@ViewBag.Error</p>
@@ -500,8 +543,9 @@
     <script src="~/Content/download/plugins/jQuery/jquery-2.2.3.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    
+
 </body>
+
 </html>
 
 
