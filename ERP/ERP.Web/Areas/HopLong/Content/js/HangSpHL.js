@@ -1,11 +1,6 @@
-﻿/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
-/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
-/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
-/// <reference path="../../Views/HangHoaHL/Create.cshtml" />
+﻿
 
-var hangsp = angular.module("hangspApp", ['angularUtils.directives.dirPagination']);
-
-hangsp.controller('hangspCtrl', hangspCtrl);
+app.controller('hangspCtrl', hangspCtrl);
 //function nhom hang
 
 
