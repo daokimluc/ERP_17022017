@@ -4,7 +4,6 @@
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 
 
-var app = angular.module('hanghoaApp', ['angularUtils.directives.dirPagination']);
 app.controller('hangHoaCtrl', hangHoaCtrl);
 //function nhom hang
 
