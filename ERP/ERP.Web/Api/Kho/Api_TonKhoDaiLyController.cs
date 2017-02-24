@@ -34,20 +34,20 @@ namespace ERP.Web.Api.Kho
                     listtonkho.Add(tonkho);
                     
                 }
-                var tonhang = db.DM_TONKHO_HANG.Where(x => x.MA_HANG_HT == mahang);
-                if (tonhang.Count() > 0)
-                {
-                    var data1 = tonhang.FirstOrDefault();
-                    DM_HANG_TON_KHO tonkhohang = new DM_HANG_TON_KHO();
-                    tonkhohang.MA_HANG_HT = data1.MA_HANG_HT;
-                    tonkhohang.MA_KHO = "TỒN TẠI HÃNG";
-                    tonkhohang.SL_TON = data1.SL_TON;
-                    listtonkho.Add(tonkhohang);
-                }
+                
 
             }
 
-
+            var tonhang = db.DM_TONKHO_HANG.Where(x => x.MA_HANG_HT == mahang);
+            if (tonhang.Count() > 0)
+            {
+                var data1 = tonhang.FirstOrDefault();
+                DM_HANG_TON_KHO tonkhohang = new DM_HANG_TON_KHO();
+                tonkhohang.MA_HANG_HT = data1.MA_HANG_HT;
+                tonkhohang.MA_KHO = "TỒN TẠI HÃNG";
+                tonkhohang.SL_TON = data1.SL_TON;
+                listtonkho.Add(tonkhohang);
+            }
 
             var result = listtonkho.ToList().Select(x => new DM_HANG_TON_KHO()
             {
