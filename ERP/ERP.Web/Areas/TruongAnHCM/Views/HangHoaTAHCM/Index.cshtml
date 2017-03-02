@@ -10,10 +10,11 @@
 <link href="~/Content/download/dist/css/AdminLTE.css" rel="stylesheet" />
 <script src="~/Content/download/angularjs/angular.min.js"></script>
 <script src="~/Areas/HopLong/Content/js/app.js"></script>
+<script src="~/Areas/TruongAnHCM/Content/js/Service.js"></script>
+<script src="~/Areas/TruongAnHCM/Content/js/Controller.js"></script>
 <script src="~/Content/download/angularjs/dirPagination.js"></script>
-<script src="~/Areas/TruongAnHCM/Content/js/HangHoaTAHCM.js"></script>
 <link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
-<div ng-app="myApp" ng-controller="hangHoaCtrl">
+<div ng-app="myApp" ng-controller="hanghoaCtrl">
     <div class="content" ng-controller="tonkhoCtrl">
 
 
@@ -63,7 +64,7 @@
                                     <label class="col-md-4 control-label" for="name">Maker Code: </label>
                                     <div class="col-md-4">
                                         <select ng-model="manhomhang" class="form-control input-md">
-                                            <option ng-repeat="x in danhsachnhomhang" value="{{x.MA_NHOM_HANG}}">{{x.TEN_NHOM_HANG}}</option>
+                                            <option ng-repeat="abc in danhsachnhomhang" value="{{abc.MA_NHOM_HANG}}">{{abc.TEN_NHOM_HANG}}</option>
                                         </select>
                                     </div>
                                 </div>

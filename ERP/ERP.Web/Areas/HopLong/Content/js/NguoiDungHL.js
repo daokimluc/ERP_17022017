@@ -1,7 +1,7 @@
 
 
 
-var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ui-listView', 'ngMask']);
+
 
 app.controller('userCtrl', userCtrl);
 app.controller('phanquyenCtrl', phanquyenCtrl);

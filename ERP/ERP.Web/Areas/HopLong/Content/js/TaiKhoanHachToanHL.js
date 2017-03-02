@@ -3,9 +3,9 @@
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 
-var taikhoan = angular.module("taikhoanApp", ['angularUtils.directives.dirPagination']);
 
-taikhoan.controller('taikhoanCtrl', taikhoanCtrl);
+
+app.controller('taikhoanCtrl', taikhoanCtrl);
 //function nhom hang
 
 
