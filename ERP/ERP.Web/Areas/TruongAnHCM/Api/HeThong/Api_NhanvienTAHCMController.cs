@@ -63,7 +63,8 @@ namespace ERP.Web.Areas.TruongAnHCM.Api.HeThong
             CCTC_NHAN_VIEN nv = new CCTC_NHAN_VIEN();
             nv.USERNAME = nhanvien.USERNAME;
             nv.GIOI_TINH = nhanvien.GIOI_TINH;
-            nv.NGAY_SINH = xlnt.Xulydatetime(nhanvien.NGAY_SINH);
+            if(nhanvien.NGAY_SINH != null)
+                nv.NGAY_SINH = xlnt.Xulydatetime(nhanvien.NGAY_SINH);            
             nv.QUE_QUAN = nhanvien.QUE_QUAN;
             nv.TRINH_DO_HOC_VAN = nhanvien.TRINH_DO_HOC_VAN;
             nv.MA_PHONG_BAN = nhanvien.MA_PHONG_BAN;
@@ -99,7 +100,8 @@ namespace ERP.Web.Areas.TruongAnHCM.Api.HeThong
             CCTC_NHAN_VIEN nv = new CCTC_NHAN_VIEN();
             nv.USERNAME = nhanvien.USERNAME;
             nv.GIOI_TINH = nhanvien.GIOI_TINH;
-            nv.NGAY_SINH = xlnt.Xulydatetime(nhanvien.NGAY_SINH);
+            if(nhanvien.NGAY_SINH != null)
+                nv.NGAY_SINH = xlnt.Xulydatetime(nhanvien.NGAY_SINH); 
             nv.QUE_QUAN = nhanvien.QUE_QUAN;
             nv.TRINH_DO_HOC_VAN = nhanvien.TRINH_DO_HOC_VAN;
             nv.MA_PHONG_BAN = nhanvien.MA_PHONG_BAN;

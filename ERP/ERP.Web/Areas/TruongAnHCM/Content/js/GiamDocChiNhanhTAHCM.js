@@ -1,4 +1,4 @@
-﻿var app = angular.module("giamdocApp", []);
+﻿
 
 app.controller("giamdocCtrl", function ($http,$scope) {
     $scope.push = function (username) {
