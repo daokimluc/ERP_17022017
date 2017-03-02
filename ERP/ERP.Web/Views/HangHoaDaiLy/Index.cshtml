@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ERP.Web.Models.Database.DM_HANG_HOA>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Hàng hóa";
 }
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
@@ -13,7 +13,7 @@
 <script src="~/Content/self-writing/js/HangHoaDaiLy.js"></script>
 <link href="~/Content/download/bootstrap/css/layout_all.css" rel="stylesheet" />
 <div ng-app="hanghoaApp" ng-controller="hangHoaCtrl">
-    <div class="content">
+    <div class="content" ng-controller="tonkhoCtrl">
         
 
         <div id="quick-access">
@@ -23,51 +23,29 @@
                 </div>
             </form>
         </div>
+
+        <br />
         
-<br />
-        <table id="example" class="table table-bordered" cellspacing="0" name="tblhanghoa" ng-controller="tonkhoCtrl">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>System Code</th>
-                    <th>Products Code</th>
-                    <th>Products Name</th>
-                    <th>Maker</th>
-                    <th>Unit</th>
-                    <th>Special Model</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr dir-paginate-start="item in filtered = (danhsachhanghoa | filter: {MA_HANG_HT:search_text}) | itemsPerPage: 15 " class="hover" ng-class-odd="'odd'" ng-class-even="'even'">
-                    <td>
-                        <button class="expand" ng-if="item.expanded" ng-click="item.expanded = false"><i class="fa minus fa-minus-circle" aria-hidden="true"></i></button>
-                        <button class="expand" type="button" ng-if="!item.expanded" ng-click="item.expanded = true" ng-><i class="fa plus fa-plus-circle" aria-hidden="true"></i></button>
-                    </td>
-                    <td class="text-left">{{ item.MA_HANG_HT }}</td>
-                    <td class="text-left">{{item.MA_HANG_NHAP}}</td>
-                    <td class="text-left">{{item.TEN_HANG}}</td>
-                    <td>{{item.MA_NHOM_HANG}}</td>
-                    <td>{{item.DON_VI_TINH | uppercase}}</td>
-                    <td><input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET" ng-disabled="true"><br></td>
-                </tr>
-                <!--Detail row-->
-                <tr ng-if="item.expanded" dir-paginate-end="">
+        <div class="modal fade" id="chitiethanghoa" role="dialog">
+            <div class="modal-dialog modal-lg" style="width:80%">
+                <div class="modal-content" style="min-height: 500px;">
 
-                    <td colspan="9">
-
+                    <div class="modal-body">
                         <div class="content expandrow">
 
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#chitiet">Detail</a></li>
-                                <li><a data-toggle="tab" href="#tonkho" ng-click="get_tonkho(item.MA_HANG_HT)">Stock</a></li>
+                                <li class="active"><a data-toggle="tab" href="#chitiet">Product Details</a></li>
                             </ul>
 
                             <div class="tab-content">
                                 <!--Tab chi tiết hàng hóa-->
                                 <div id="chitiet" class="tab-pane fade in active">
-                                    <div class="col-md-2">
-                                        <img src="~/Content/download/dist/img/avatar.png" height="150" width="150" />
+                                    <div class="col-md-1" >
+                                        
+                                        <img src="~/Content/download/dist/img/avatar.png" style="width: 100%;height: 120px;" ng-if="item.HINH_ANH != ''" />
+                                        <img src="~/Content/self-writing/Images/none-image.png" style="width: 100%;height: 120px;" ng-if="item.HINH_ANH == ''" />
                                     </div>
+                                   
                                     <div class="col-md-3">
                                         <table class="table noborder">
                                             <tr>
@@ -75,28 +53,27 @@
                                                 <td>{{item.MA_HANG_HT}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Products Code</td>
+                                                <td>Product Code:</td>
                                                 <td>{{item.MA_HANG_NHAP}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Products Name</td>
+                                                <td>Product Name:</td>
                                                 <td>{{item.TEN_HANG}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Maker</td>
+                                                <td>Maker Code:</td>
                                                 <td>{{item.MA_NHOM_HANG}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Seri</td>
+                                                <td>Seri:</td>
                                                 <td>{{item.SERI}}</td>
                                             </tr>
-
                                         </table>
                                     </div>
                                     <div class="col-md-3">
                                         <table class="table noborder">
                                             <tr>
-                                                <td>Inventory account</td>
+                                                <td>Inventory Code:</td>
                                                 <td>{{item.TK_HACH_TOAN_KHO}}1</td>
                                             </tr>
                                             <tr>
@@ -107,11 +84,6 @@
                                                 <td>COGS Account</td>
                                                 <td>{{item.TK_CHI_PHI}}</td>
                                             </tr>
-
-                                        </table>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <table class="table noborder">
                                             <tr>
                                                 <td>Unit</td>
                                                 <td>{{item.DON_VI_TINH}}</td>
@@ -124,37 +96,64 @@
                                                 <td>Note</td>
                                                 <td>{{item.GHI_CHU}}</td>
                                             </tr>
-
+                                        </table>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <table class="table noborder table-fill">
+                                            <thead>
+                                                <tr>
+                                                    <th>Inventory Code</th>
+                                                    <th>Number In Stock</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="tonkho in danhsachtonkho">
+                                                    <td>{{tonkho.MA_KHO}}</td>
+                                                    <td>{{tonkho.SL_TON}}</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td><strong style="font-size: 20px">Total in Stock:</strong></td>
+                                                    <td>{{getTotal('SL_TON')}}</td>
+                                                </tr>
+                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
-
-                                <div id="tonkho" class="tab-pane fade">
-                                    <table class="table table-fill ">
-                                        <thead>
-                                            <tr>
-                                                <th>Inventory ID</th>
-                                                <th>Number In Stock</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-hover">
-                                            <tr ng-repeat="tonkho in danhsachtonkho">
-                                                <td>{{tonkho.MA_KHO}}</td>
-                                                <td>{{tonkho.SL_TON}}</td>
-                                            </tr>
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td><strong style="font-size: 20px">Total:</strong></td>
-                                                <td>{{getTotal('SL_TON')}}</td>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                    </td>
+            </div>
+        </div>
+
+        <table id="example" class="table table-bordered" cellspacing="0" name="tblhanghoa">
+            <thead>
+                <tr>
+                    
+                    <th ng-mouseover="mahangHT=true;" ng-mouseleave="mahangHT=false;">System Code<span ng-show="mahangHT">{{ showmahangHT.title }}</span></th>
+                    <th ng-mouseover="ma_hang_nhap=true;" ng-mouseleave="ma_hang_nhap=false;">Product Code<span ng-show="ma_hang_nhap">{{ showmahangnhap.title }}</span></th>
+                    <th ng-mouseover="ten_hang=true;" ng-mouseleave="ten_hang=false;">Product Name<span ng-show="ten_hang">{{ showtenhang.title }}</span></th>
+                    <th ng-mouseover="ma_nhom_hang=true;" ng-mouseleave="ma_nhom_hang=false;">Maker Code<span ng-show="ma_nhom_hang">{{ showmanhomhang.title }}</span></th>
+                    <th ng-mouseover="don_vi_tinh=true;" ng-mouseleave="don_vi_tinh=false;">Unit<span ng-show="don_vi_tinh">{{ showdonvitinh.title }}</span></th>
+                    <th ng-mouseover="model_dac_biet=true;" ng-mouseleave="model_dac_biet=false;">Special Model<span ng-show="model_dac_biet">{{ showmodeldacbiet.title }}</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate-start="item in filtered = (danhsachhanghoa | filter: {MA_HANG_HT:search_text}) | itemsPerPage: 15 " class="hover" ng-click="edit(item);get_tonkho(item.MA_HANG_HT)" ng-class-odd="'odd'" ng-class-even="'even'">
+                    <td class="text-left" data-toggle="modal" data-target="#chitiethanghoa">{{item.MA_HANG_HT}}</td>
+                    <td class="text-left" data-toggle="modal" data-target="#chitiethanghoa">{{item.MA_HANG_NHAP}}</td>
+                    <td class="text-left" data-toggle="modal" data-target="#chitiethanghoa">{{item.TEN_HANG}}</td>
+                    <td class="text-left" style="width: 8%" data-toggle="modal" data-target="#chitiethanghoa"><img ng-src="~/Content/self-writing/Images/{{item.MA_NHOM_HANG}}.png" style="width: 100%;height: 20%;" /></td>
+                    <td data-toggle="modal" data-target="#chitiethanghoa">{{item.DON_VI_TINH | uppercase}}</td>
+                    <td><input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET"><br></td>
+                </tr>
+                <!--Detail row-->
+                <tr ng-if="item.expanded" dir-paginate-end="">
+
+                    
                 </tr>
             </tbody>
             <tfoot>
