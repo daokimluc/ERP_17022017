@@ -4,7 +4,7 @@
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 
 
-var app = angular.module('phongbanApp', ['angularUtils.directives.dirPagination']);
+
 app.controller('phongbanCtrl', phongbanCtrl);
 
 //function nhom hang

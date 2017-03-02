@@ -1,4 +1,4 @@
-﻿var app = angular.module('khoApp', ['angularUtils.directives.dirPagination']);
+﻿
 app.controller('khoCtrl', function ($scope, $http) {
 
     // lấy dữ liệu từ server

@@ -3,9 +3,9 @@
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 
-var hangsp = angular.module("hangspApp", ['angularUtils.directives.dirPagination']);
 
-hangsp.controller('hangspCtrl', hangspCtrl);
+
+app.controller('hangspCtrl', hangspCtrl);
 //function nhom hang
 
 
@@ -13,7 +13,7 @@ hangsp.controller('hangspCtrl', hangspCtrl);
 //function hang hoa
 function hangspCtrl($scope, $http) {
     // lấy dữ liệu từ server(nhóm hàng)
-    $scope.get_hangsp = function (id) {
+    $scope.get_hangsp = function () {
         $http.get("/api/Api_HangSpTAHCM")
                 .then(function (response) {
                     $scope.danhsachsp = response.data;

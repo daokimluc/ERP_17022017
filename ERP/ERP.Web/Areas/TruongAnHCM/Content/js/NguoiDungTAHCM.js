@@ -1,7 +1,6 @@
 ﻿
 
 
-var app = angular.module('userApp', ['angularUtils.directives.dirPagination', 'ngMask']);
 app.controller('userCtrl', userCtrl);
 
 //function nhom hang

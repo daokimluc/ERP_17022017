@@ -3,9 +3,9 @@
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 /// <reference path="../../Views/HangHoaHL/Create.cshtml" />
 
-var taikhoan = angular.module("taikhoanApp", ['angularUtils.directives.dirPagination']);
 
-taikhoan.controller('taikhoanCtrl', taikhoanCtrl);
+
+app.controller('taikhoanCtrl', taikhoanCtrl);
 //function nhom hang
 
 
@@ -13,7 +13,7 @@ taikhoan.controller('taikhoanCtrl', taikhoanCtrl);
 //function hang hoa
 function taikhoanCtrl($scope, $http) {
     // lấy dữ liệu từ server(nhóm hàng)
-    $scope.get_taikhoan = function (id) {
+    $scope.get_taikhoan = function () {
         $http.get("/api/Api_TaiKhoanHachToanTAHCM")
                 .then(function (response) {
                     $scope.danhsachtk = response.data;
