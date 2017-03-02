@@ -14,7 +14,7 @@
     <!-- Bootstrap 3.3.6 -->
     <link href="~/Content/download/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Roboto:100,400,300,500,700' rel='stylesheet' type='text/css'>
-    <link href="~/Content/download/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/download/dist/css/AdminLTE.css" rel="stylesheet" />
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
     
@@ -33,66 +33,67 @@
                         </div>
                     </div>
                     <div class="details col-md-5">
-                        <h3 class="product-title">Mô tả</h3>
+                        <h3 class="product-title">Description</h3>
                         <p class="product-description">sghdasdjklasjkfsdjklfgjksdjkfgsdhgjksdfgsdgsdfsjkfajksjk</p>
 
-
-        <div align="center" class="fond">
-            <div style="width: 45%;border: 1px solid #ddd">
-                <table style="width: 100%;text-align: center;">
-                    <tr>
-                        <td style="padding-top: 15px;">
-                            <center>
-                                <!--Button phòng ban-->
-                                <div class="style_prevu_kit" style="background-color:#5BC0DE;">
-                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalphongban" style="border: none; border-radius:16px"><i class="fa fa-building fa-3x" aria-hidden="true"></i></button>
-                                </div>
-                                <!------------------------------------------------------------>
-                            </center>
-                        </td>
-                        <td style="padding-top: 15px;">
-                            <center>
-                                <!--Button tồn kho hãng-->
-                                <div class="style_prevu_kit" style="background-color:#5BC0DE;">
-                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalKho" style="border: none; border-radius:16px"><i class="fa fa-home fa-3x"></i></button>
-                                </div>
-                                <!------------------------------------------------------------>
-                            </center>
-                        </td>
-                        <td style="padding-top: 15px;">
-                            <center>
-                                <!--Button tồn kho hãng-->
-                                <div class="style_prevu_kit" style="background-color:#5BC0DE;">
-                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalNhanvien" style="border: none; border-radius:16px"><i class="fa fa-user fa-3x" aria-hidden="true"></i></button>
-                                </div>
-                                <!------------------------------------------------------------>
-                            </center>
-                        </td>
-                    </tr>
-                    <tr style="border-top: 0px">
-                        <td style="padding-top: 15px;padding-bottom: 15px">Deparment</td>
-                        <td style="padding-top: 15px;padding-bottom: 15px">Inventory</td>
-                        <td style="padding-top: 15px;padding-bottom: 15px">Employee</td>
-                    </tr>
-                    <tr style="margin-top: 10px;">
-                        <td>
-                            <center>
-                                <!--Button kho-->
-                                <div class="style_prevu_kit" style="background-color:#5BC0DE;">
-                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalHangTonKho" style="border: none; border-radius:16px"><i class="fa fa-database fa-3x"></i></button>
-                                </div>
-                                <!------------------------------------------------------------>
-                            </center>
-                        </td>                      
-                    </tr>
-                    <tr>
-                        <td style="padding-top: 15px;padding-bottom: 15px">Stock</td>      
-                    </tr>
-                </table>
-
-
-
-
+                        <br />
+                        <table style="width: 100%;text-align: center;">
+                            <tr>
+                                <td style="padding-top: 15px;">
+                                    <center>
+                                        <!--Button Products-->
+                                        <div class="style_prevu_kit" style="background-color:#5BC0DE;">
+                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="border: none; border-radius:16px"><i class="fa fa-gift fa-3x"></i></button>
+                                        </div>
+                                        <!------------------------------------------------------------>
+                                    </center>
+                                </td>
+                                <td style="padding-top: 15px;">
+                                    <center>
+                                        <!--Button Stock-->
+                                        <div class="style_prevu_kit" style="background-color:#5BC0DE;">
+                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalhangtonkho" style="border: none; border-radius:16px"><i class="fa fa-database fa-3x"></i></button>
+                                        </div>
+                                        <!------------------------------------------------------------>
+                                    </center>
+                                </td>
+                                <td style="padding-top: 15px;">
+                                    <center>
+                                        <!--Button Inventory-->
+                                        <div class="style_prevu_kit" style="background-color:#5BC0DE;">
+                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalkho" style="border: none; border-radius:16px"><i class="fa fa-home fa-3x"></i></button>
+                                        </div>
+                                        <!------------------------------------------------------------>
+                                    </center>
+                                </td>
+                                <td style="padding-top: 15px;">
+                                    <center>
+                                        <!--Button Department-->
+                                        <div class="style_prevu_kit" style="background-color:#5BC0DE;">
+                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalphongban" style="border: none; border-radius:16px"><i class="fa fa-building fa-3x"></i></button>
+                                        </div>
+                                        <!------------------------------------------------------------>
+                                    </center>
+                                <td style="padding-top: 15px;">
+                                    <center>
+                                        <!--Button Users-->
+                                        <div class="style_prevu_kit" style="background-color:#5BC0DE;">
+                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalnguoidung" style="border: none; border-radius:16px"><i class="fa fa-user fa-3x"></i></button>
+                                        </div>
+                                        <!------------------------------------------------------------>
+                                    </center>
+                                </td>
+                            </tr>
+                            <tr style="border-top: 0px">
+                                <td style="padding-top: 15px;padding-bottom: 15px">Products</td>
+                                <td style="padding-top: 15px;padding-bottom: 15px">Stock</td>
+                                <td style="padding-top: 15px;padding-bottom: 15px">Inventory</td>
+                                <td style="padding-top: 15px;padding-bottom: 15px">Department</td>
+                                <td style="padding-top: 15px;padding-bottom: 15px">Users</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,14 +1,10 @@
-﻿
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="~/Content/download/dist/css/AdminLTE.min.css" rel="stylesheet" />
-<link href="~/Areas/HopLong/Content/css/HangHoaHL.css" rel="stylesheet" />
-<link href="~/Content/download/dist/css/AdminLTE.css" rel="stylesheet" />
+﻿@{
+    ViewBag.Title = "Hàng hóa";
+}
 
-<script src="~/Content/download/angularjs/angular.min.js"></script>
-<script src="~/Areas/HopLong/Content/js/app.js"></script>
-<script src="~/Content/download/angularjs/dirPagination.js"></script>
+<link href="~/Areas/HopLong/Content/css/HangHoaHL.css" rel="stylesheet" />
 <script src="~/Areas/HopLong/Content/js/HangHoaHL.js"></script>
+<script src="~/Content/download/angularjs/dirPagination.js"></script>
 
 <div ng-app="myApp" ng-controller="hangHoaCtrl">
     <div class="content"  ng-controller="tonkhoCtrl">
@@ -401,7 +397,6 @@
                     <th ng-mouseover="ma_nhom_hang=true;" ng-mouseleave="ma_nhom_hang=false;">Maker Code<span ng-show="ma_nhom_hang">{{ showmanhomhang.title }}</span></th>
                     <th ng-mouseover="don_vi_tinh=true;" ng-mouseleave="don_vi_tinh=false;">Unit<span ng-show="don_vi_tinh">{{ showdonvitinh.title }}</span></th>
                     <th ng-mouseover="model_dac_biet=true;" ng-mouseleave="model_dac_biet=false;">Special Model<span ng-show="model_dac_biet">{{ showmodeldacbiet.title }}</span></th>
-
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
@@ -411,7 +406,7 @@
                     <td class="text-left" data-toggle="modal" data-target="#chitiethanghoa">{{ item.MA_HANG_HT }}</td>
                     <td class="text-left" data-toggle="modal" data-target="#chitiethanghoa">{{item.MA_HANG_NHAP}}</td>
                     <td class="text-left" data-toggle="modal" data-target="#chitiethanghoa">{{item.TEN_HANG}}</td>
-                    <td class="text-left" style="width: 10%"  data-toggle="modal" data-target="#chitiethanghoa"><img ng-src="~/Content/self-writing/Images/{{item.MA_NHOM_HANG}}.png" style="width: 100%;height: 20%;" /></td>
+                    <td class="text-left" style="width: 8%"  data-toggle="modal" data-target="#chitiethanghoa"><img ng-src="~/Content/self-writing/Images/{{item.MA_NHOM_HANG}}.png" style="width: 100%;height:10%;" /></td>
                     <td data-toggle="modal" data-target="#chitiethanghoa">{{item.DON_VI_TINH}}</td>
                     <td><input type="checkbox" ng-checked="item.MODEL_DAC_BIET==true" ng-model="item.MODEL_DAC_BIET"><br></td>
 
@@ -446,4 +441,3 @@
 
 </div>
 
-<script src="~/Content/download/angularjs/angular-ui-router.js"></script>
